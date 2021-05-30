@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/iamkimchico/gatsby-theme/issues"
   },
-  "homepage": "https://github.com/iamkimchico/gatsby-theme#readme"
+  "homepage": "https://github.com/iamkimchico/gatsby-theme#readme",
+  "dependencies": {
+    "gatsby": "^3.6.1"
+  }
 }
