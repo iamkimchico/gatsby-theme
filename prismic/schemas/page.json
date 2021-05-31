@@ -37,8 +37,35 @@
       "type" : "Slices",
       "fieldset" : "Slice zone",
       "config" : {
-        "labels" : { },
-        "choices" : { }
+        "labels" : {
+          "hero" : [ ]
+        },
+        "choices" : {
+          "hero" : {
+            "type" : "Slice",
+            "fieldset" : "Hero",
+            "description" : "The first content on a page",
+            "icon" : "accessibility",
+            "display" : "list",
+            "non-repeat" : {
+              "title" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Title",
+                  "placeholder" : "Insert hero title"
+                }
+              },
+              "description" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Description",
+                  "placeholder" : "Insert hero description"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
       }
     }
   },
