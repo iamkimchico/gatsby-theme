@@ -1,28 +1,25 @@
 {
-  "Main" : {
-    "prismic_title" : {
+  "Content" : {
+    "page_title" : {
       "type" : "StructuredText",
       "config" : {
         "single" : "heading1",
-        "label" : "Prismic Title"
-      }
-    },
-    "page_title" : {
-      "type" : "Text",
-      "config" : {
         "label" : "Page Title",
-        "placeholder" : "Write title of the page"
+        "placeholder" : "Insert page title"
       }
     },
-    "page_short_description" : {
+    "page_description" : {
       "type" : "Text",
       "config" : {
-        "label" : "Page Short Description"
+        "label" : "Page Description",
+        "placeholder" : "Insert short description of page"
       }
     },
     "show_page_title" : {
       "type" : "Boolean",
       "config" : {
+        "placeholder_false" : "No",
+        "placeholder_true" : "Yes",
         "default_value" : false,
         "label" : "Show Page Title"
       }
@@ -30,25 +27,18 @@
     "show_page_description" : {
       "type" : "Boolean",
       "config" : {
+        "placeholder_false" : "No",
+        "placeholder_true" : "Yes",
         "default_value" : false,
         "label" : "Show Page Description"
       }
     },
-    "block_links" : {
-      "type" : "Group",
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
       "config" : {
-        "fields" : {
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "select" : "document",
-              "customtypes" : [ "hero", "paragraph", "teaser_box", "partners", "lead_generator", "usp", "testimonial", "grid", "info_box", "documents", "teaser", "values", "media", "embed", "lookup", "overview", "form" ],
-              "label" : "Link",
-              "placeholder" : "Select block content"
-            }
-          }
-        },
-        "label" : "Block Links"
+        "labels" : { },
+        "choices" : { }
       }
     }
   },
@@ -56,23 +46,15 @@
     "uid" : {
       "type" : "UID",
       "config" : {
-        "label" : "Id",
-        "placeholder" : "Page Id"
+        "label" : "Page ID",
+        "placeholder" : "Insert unique ID for page"
       }
     },
-    "path" : {
+    "slug" : {
       "type" : "Text",
       "config" : {
-        "label" : "Path"
-      }
-    },
-    "parent" : {
-      "type" : "Link",
-      "config" : {
-        "select" : "document",
-        "customtypes" : [ "page" ],
-        "label" : "Parent",
-        "placeholder" : "Select if this page should be a child"
+        "label" : "Slug",
+        "placeholder" : "Insert URL for page"
       }
     }
   },
@@ -81,37 +63,14 @@
       "type" : "Text",
       "config" : {
         "label" : "Meta Title",
-        "placeholder" : "Write page tab title"
+        "placeholder" : "Insert SEO friendly page title"
       }
     },
     "meta_description" : {
       "type" : "Text",
       "config" : {
         "label" : "Meta Description",
-        "placeholder" : "Write page description"
-      }
-    }
-  },
-  "Announcement" : {
-    "announcement_text" : {
-      "type" : "Text",
-      "config" : {
-        "label" : "Announcement Text"
-      }
-    },
-    "announcement_page_link" : {
-      "type" : "Link",
-      "config" : {
-        "select" : "document",
-        "customtypes" : [ "page" ],
-        "label" : "Announcement Page Link"
-      }
-    },
-    "announcement_theme" : {
-      "type" : "Select",
-      "config" : {
-        "options" : [ "bronze", "blue", "orange", "black", "white", "steel", "teal", "nude", "hibiscus", "gold" ],
-        "label" : "Announcement Theme"
+        "placeholder" : "Insert SEO friendly page description"
       }
     }
   }
