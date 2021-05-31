@@ -1,6 +1,6 @@
 {
   "name": "@kimchico/gatsby-theme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A custom framework for Gatsby",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "url": "https://github.com/iamkimchico/gatsby-theme/issues"
   },
   "homepage": "https://github.com/iamkimchico/gatsby-theme#readme",
-  "dependencies":{
+  "dependencies": {
     "esm": "^3.2.25",
     "gatsby": "^3.6.1",
     "gatsby-image": "^3.6.0",
