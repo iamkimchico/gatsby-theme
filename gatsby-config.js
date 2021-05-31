@@ -37,7 +37,9 @@ module.exports = (props) => ({
         linkResolver: ({ node, key, value }) => (doc) => {
           `/${doc.uid}`;
         },
-        schemas: {},
+        schemas: {
+          page:require("./prismic/schemas/page.json"),
+        },
       },
     },
   ],  
