@@ -17,7 +17,7 @@
     "url": "https://github.com/iamkimchico/gatsby-theme/issues"
   },
   "homepage": "https://github.com/iamkimchico/gatsby-theme#readme",
-  "peerDependencies": {
+  "dependencies":{
     "esm": "^3.2.25",
     "gatsby": "^3.6.1",
     "gatsby-image": "^3.6.0",
@@ -32,5 +32,10 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-responsive": "^8.2.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "gatsby": "^3.6.1"
   }
 }
