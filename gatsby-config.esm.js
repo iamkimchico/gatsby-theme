@@ -1,8 +1,7 @@
-import { media } from "./src/constants/breakpoints"
+// import { media } from "./src/constants/breakpoints"
 
 export default {
   plugins: [
-    "gatsby-plugin-react-helmet",
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sass",
@@ -13,7 +12,6 @@ export default {
         short_name: "process.env.SITE_NAME",
         start_url: `/`,
         display: `standalone`,
-        icon:`src/favicon/alterna/favicon.png`
       },
     },
     {
@@ -21,16 +19,9 @@ export default {
       options: {},
     },
     {
-      resolve: "@prismicio/gatsby-source-prismic-graphql",
-      options: {
-        repositoryName: "process.env.PRISMIC_REPO",
-        accessToken: "process.env.PRISMIC_TOKEN",
-      },
-    },
-    {
       resolve: "gatsby-plugin-breakpoints",
       options: {
-        queries: media,
+        queries: "media",
       },
     },
     {
