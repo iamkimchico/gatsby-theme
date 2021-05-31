@@ -12,11 +12,11 @@ export default {
         short_name: "process.env.SITE_NAME",
         start_url: `/`,
         display: `standalone`,
+        icon: `src/images/gatsby-icon.png`,
+        background_color: `#663399`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
       },
-    },
-    {
-      resolve: "gatsby-plugin-styled-components",
-      options: {},
     },
     {
       resolve: "gatsby-plugin-breakpoints",
