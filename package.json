@@ -1,11 +1,11 @@
 {
   "name": "@kimchico/gatsby-theme",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A custom framework for Gatsby",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "produce":"git push && npm version patch && npm publish"
+    "produce": "git push && npm version patch && npm publish"
   },
   "repository": {
     "type": "git",
