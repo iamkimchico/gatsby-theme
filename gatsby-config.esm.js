@@ -5,6 +5,7 @@ export default {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-sass",
+    "gatsby-image",
     {
     resolve: `gatsby-plugin-manifest`,
       options: {
