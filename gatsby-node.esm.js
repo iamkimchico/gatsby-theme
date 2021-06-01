@@ -1,5 +1,5 @@
-import path from require(`path`)
-import queries from require("./prismic/queries")
+import path from `path`
+import queries from "./prismic/queries"
 
 export const createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
