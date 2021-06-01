@@ -1,6 +1,6 @@
 {
   "name": "@kimchico/gatsby-theme",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "A custom framework for Gatsby",
   "main": "index.js",
   "scripts": {
