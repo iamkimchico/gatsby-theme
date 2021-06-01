@@ -1,4 +1,18 @@
-require = require("esm")(module)
-module.exports = require("./gatsby-node.esm.js")
+const path = require(`path`)
+const queries = require("./prismic/queries")
 
-// because I want to use ES6 syntax i have created this. Use gatsby-node.esm.js to do everything you would do in gatsby-node.
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  const fetchPages = await graphql(queries.page);
+
+  const pages = fetchPages.data.allPrismicPages.edges;
+
+  pages.forEach( page => {
+    createPage({
+      path:page.node.slug,
+      component:path.resolve("./src/templates/page.jsx")
+    })
+  })
+
+}
