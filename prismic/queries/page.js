@@ -33,3 +33,5 @@ const query = () => `query MyQuery {
     }
   }
 }`
+
+export default query;
