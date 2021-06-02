@@ -1,4 +1,4 @@
-{
+export default {
   "Content": {
     "page_title": {
       "type": "StructuredText",

@@ -1,4 +1,4 @@
-import page from "./prismic/schemas/page.json"
+import * as schemas from "./prismic/schemas"
 
 export default (props) => ({
   plugins:[
@@ -13,7 +13,7 @@ export default (props) => ({
           // do something with links here
         },
         schemas:{
-          page: page
+          page: schemas.page
         }
       }
     }
