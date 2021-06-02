@@ -1,4 +1,4 @@
-const query = () => `query MyQuery {
+const query = `query MyQuery {
   allPrismicPage {
     edges {
       node {
