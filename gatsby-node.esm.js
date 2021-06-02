@@ -1,6 +1,6 @@
 import * as queries from "./prismic/queries"
 
-export const createPages = ({graphql, actions}) => {
+export const createPages = async ({graphql, actions}) => {
   const { createPage } = actions
 
 
