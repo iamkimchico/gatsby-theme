@@ -13,7 +13,6 @@ type TProps = {
 const StyledHeading = styled.h1<Partial<TProps>>`
   line-height: 1em;
   letter-spacing: 'initial';
-
   ${({ theme, colorScheme, align, margin }) => css`
     margin-top: ${theme.base.spacing[margin || 'XS']};
     margin-bottom: ${theme.base.spacing[margin || 'XS']};

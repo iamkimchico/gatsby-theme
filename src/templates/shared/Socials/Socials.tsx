@@ -12,9 +12,14 @@ type TProps = {
 
 const StyledWrapper = styled.div<Partial<TProps>>`
   display: flex;
+
   a {
     width: max-content;
-    margin-right: ${(props) => (props.size === 'LG' ? '3em' : props.size === 'MD' ? '2em' : '1.5em')};
+    margin-right: ${(props) => (props.size === 'LG'
+    ? '3em'
+    : props.size === 'MD'
+      ? '2em'
+      : '1.5em')};
   }
 `;
 

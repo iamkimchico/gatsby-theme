@@ -3,15 +3,14 @@ import styled, { css } from 'styled-components';
 import { getGridLayout, getGridGap } from '../helpers';
 
 type TProps = {
-  hasAnnouncement?:boolean;
-  row?:boolean;
-  container?:boolean;
-}
+  hasAnnouncement?: boolean;
+  row?: boolean;
+  container?: boolean;
+};
 
 const StyledWrapper = styled.div<TProps>`
   display: grid;
   grid-template-columns: ${getGridLayout('XS')};
-
   ${({ theme }) => css`
     @media ${theme.base.media.SM} {
       grid-template-columns: ${getGridLayout('SM')};
@@ -37,7 +36,9 @@ const StyledWrapper = styled.div<TProps>`
       width: 100vw;
       margin: auto;
       grid-row-gap: ${getGridGap('XS')};
-      margin-top: ${hasAnnouncement ? '2.5em' : '0'};
+      margin-top: ${hasAnnouncement
+    ? '2.5em'
+    : '0'};
 
       @media ${theme.base.media.SM} {
         grid-row-gap: ${getGridGap('SM')};
@@ -64,7 +65,7 @@ const StyledWrapper = styled.div<TProps>`
     `}
 `;
 
-const Grid:React.FC<TProps> = ({ children, hasAnnouncement, row, container }) => (
+const Grid: React.FC<TProps> = ({ children, hasAnnouncement, row, container }) => (
   <StyledWrapper row={row} container={container} hasAnnouncement={hasAnnouncement}>
     {children}
   </StyledWrapper>

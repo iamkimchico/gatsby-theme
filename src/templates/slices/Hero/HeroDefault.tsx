@@ -16,6 +16,7 @@ const StyledWrapper = styled.div`
   display: grid;
   align-items: center;
   justify-items: center;
+
   > * {
     grid-area: 1/1/2/2;
   }

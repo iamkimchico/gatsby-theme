@@ -18,7 +18,7 @@ type TStyledProps = {
 
 const GlobalStyle = createGlobalStyle<{ menuToggled: boolean }>`
   body {
-    overflow:${({ menuToggled }) => (menuToggled ? 'hidden' : 'visible')};
+    overflow: ${({ menuToggled }) => (menuToggled ? 'hidden' : 'visible')};
   }
 `;
 
@@ -28,7 +28,6 @@ const StyledHeaderWrapper = styled.div<TStyledProps>`
   display: grid;
   align-items: center;
   position: relative;
-
   ${({ theme, viewport }) => css`
     height: ${`calc(${getGridGap(viewport)} / 2)`};
     top: ${`calc(${getGridGap(viewport)} / 2)`};
@@ -42,7 +41,6 @@ const StyledTopWrapper = styled.div<TStyledProps>`
   position: absolute;
   will-change: opacity;
   width: 100%;
-
   ${({ scrolled, menuToggled, theme, viewport }) =>
     scrolled &&
     css`
@@ -66,7 +64,6 @@ const StyledContent = styled.div`
   max-width: 100vw;
   height: 100%;
   margin: auto;
-
   ${({ theme }) => css`
     @media ${theme.base.media.MX} {
       max-width: ${theme.base.MAXWIDTH};
@@ -88,10 +85,10 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
   const cta =
     data.cta_link_label && data.cta_page_link_url
       ? {
-          label: data.cta_link_label,
-          url: data.cta_page_link_url.slug,
-          target: data.cta_page_link_url.target,
-        }
+        label: data.cta_link_label,
+        url: data.cta_page_link_url.slug,
+        target: data.cta_page_link_url.target,
+      }
       : null;
 
   return (

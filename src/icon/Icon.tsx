@@ -23,27 +23,25 @@ const StyledIcon = styled.div<TStyledProps>`
     align-self: center;
     justify-self: center;
     height: ${(props) => (props.size === 'lg' ? '3em' : props.size === 'md' ? '2em' : '1.5em')};
-    path,
-    polygon {
-      //
-    }
+
     .a {
       fill: ${(props) => props.shadow};
     }
+
     .b {
       fill: none;
     }
+
     .c {
       fill: ${(props) => props.secondary};
     }
+
     .d {
       fill: ${(props) => props.primary};
     }
+
     .noFill {
       fill: none;
-    }
-    .keepOriginal {
-      //
     }
   }
 `;

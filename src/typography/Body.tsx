@@ -13,7 +13,6 @@ type TProps = {
 
 const StyledBody = styled.p<Partial<TProps>>`
   line-height: 1.5em;
-
   ${({ theme, align, bold, colorScheme, margin }) => css`
     color: ${theme.design[`${colorScheme}_color`]};
     font-family: ${theme.design.primary_font};

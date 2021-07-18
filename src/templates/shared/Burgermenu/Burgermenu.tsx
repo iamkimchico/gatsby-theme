@@ -23,10 +23,9 @@ const StyledWrapper = styled.div<Partial<TStyledProps>>`
   justify-items: center;
   gap: 0.5em;
   cursor: pointer;
-  &:hover {
-    div:before {
-      width: 100%;
-    }
+
+  &:hover div::before {
+    width: 100%;
   }
 `;
 
@@ -34,20 +33,24 @@ const StyledBurger = styled.div<TStyledProps>`
   width: 2em;
   height: 1em;
   position: relative;
-  &:before,
-  &:after {
+
+  &::before,
+  &::after {
     content: '';
     transition: all 0.2s ease-in-out;
     position: absolute;
+
     ${({ viewport, toggled }) => css`
       height: ${toPerfectPixel(0.3, viewport)};
       background: ${toggled ? 'white' : 'black'};
     `}
   }
-  &:after {
+
+  &::after {
     width: 100%;
   }
-  &:before {
+
+  &::before {
     width: 70%;
     top: 0.6em;
   }

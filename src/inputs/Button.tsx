@@ -30,7 +30,11 @@ const StyledWrapper = styled.span<TStyledWrapper>`
     z-index: ${theme.base.zLevels[2]};
     margin-top: ${theme.base.spacing[margin]};
     margin-bottom: ${theme.base.spacing[margin]};
-    font-size: ${size === 'large' ? '2em' : size === 'medium' ? '1.5em' : '1em'};
+    font-size: ${size === 'large'
+    ? '2em'
+    : size === 'medium'
+      ? '1.5em'
+      : '1em'};
   `}
 `;
 
@@ -57,7 +61,9 @@ const StyledInnerWrapper = styled.span<TStyledInner>`
             width: 0.2em;
             height: 0.8em;
             border-radius: 0px;
-            left: ${direction === 'left' ? '0' : '100%'};
+            left: ${direction === 'left'
+    ? '0'
+    : '100%'};
           }
           &:before {
             bottom: 50%;
@@ -85,8 +91,8 @@ const StyledButton = styled.button`
   outline: none;
   background: none;
   border: none;
-  font-family: ${({ theme }) => theme.design.primary_font}!important;
-  font-weight: 600 !important;
+  font-family: ${({ theme }) => theme.design.primary_font};
+  font-weight: 600;
   cursor: pointer;
 `;
 

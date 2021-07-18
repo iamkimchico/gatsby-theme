@@ -39,7 +39,11 @@ const StyledImage = styled.figure<Partial<TProps>>`
 `;
 
 const Image: React.FC<TProps> = ({ url, darken, size, children, position, helpText }) => {
-  const pos = position === 'right' ? 'right center' : position === 'left' ? 'left center' : 'center center';
+  const pos = position === 'right'
+    ? 'right center'
+    : position === 'left'
+      ? 'left center'
+      : 'center center';
   return (
     <>
       <StyledImage url={url} darken={darken} size={size} position={pos}>

@@ -11,6 +11,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   height: 100%;
   display: grid;
+
   > * {
     grid-area: 1/1/2/2;
   }

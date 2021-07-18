@@ -27,7 +27,9 @@ const Seo: React.FC = (data: any) => {
       <meta property="twitter:site" content="" />
       <meta property="twitter:creator" content={meta_twitter_creator} />
       <meta property="twitter:card" content={meta_twitter_card} />
-      <meta name="robots" content={meta_index_page ? 'index, follow' : 'noindex, nofollow'} />
+      <meta name="robots" content={meta_index_page
+        ? 'index, follow'
+        : 'noindex, nofollow'} />
     </Helmet>
   );
 };

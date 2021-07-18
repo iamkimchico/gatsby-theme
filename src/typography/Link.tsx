@@ -19,6 +19,7 @@ type TProps = {
 const StyledLink = styled(Body)<Partial<TProps>>`
   text-decoration: none;
   cursor: pointer;
+
   &:visited {
     color: inherit;
   }
@@ -29,26 +30,28 @@ const Link: React.FC<TProps> = ({ size, colorScheme, children, align, italic, bo
 
   return (
     <>
-      {isInternal ? (
-        <GatsbyLink to={href}>
-          <StyledLink size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
+      {isInternal
+        ? (
+          <GatsbyLink to={href}>
+            <StyledLink size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
+              {children}
+            </StyledLink>
+          </GatsbyLink>
+        )
+        : (
+          <StyledLink
+            as="a"
+            size={size}
+            colorScheme={colorScheme}
+            align={align}
+            italic={italic}
+            bold={bold}
+            margin={margin}
+            href={href}
+          >
             {children}
           </StyledLink>
-        </GatsbyLink>
-      ) : (
-        <StyledLink
-          as="a"
-          size={size}
-          colorScheme={colorScheme}
-          align={align}
-          italic={italic}
-          bold={bold}
-          margin={margin}
-          href={href}
-        >
-          {children}
-        </StyledLink>
-      )}
+        )}
     </>
   );
 };
