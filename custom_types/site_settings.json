@@ -1,0 +1,160 @@
+{
+  "Identity": {
+    "site_name": {
+      "type": "Text",
+      "config": {
+        "label": "Site Name",
+        "placeholder": "Insert name of Site"
+      }
+    },
+    "logo": {
+      "type": "Image",
+      "config": {
+        "constraint": {},
+        "thumbnails": [],
+        "label": "Logo"
+      }
+    }
+  },
+  "Socials": {
+    "facebook": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Facebook",
+        "placeholder": "Insert url to Facebook page",
+        "select": null
+      }
+    },
+    "instagram": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Instagram",
+        "placeholder": "Insert url to Instagram page",
+        "select": null
+      }
+    },
+    "youtube": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "YouTube",
+        "placeholder": "Insert url to YouTube page",
+        "select": null
+      }
+    },
+    "twitter": {
+      "type": "Link",
+      "config": {
+        "allowTargetBlank": true,
+        "label": "Twitter",
+        "placeholder": "Insert url to Twitter page",
+        "select": null
+      }
+    }
+  },
+  "Colors": {
+    "primary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Primary Color"
+      }
+    },
+    "secondary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Secondary Color"
+      }
+    },
+    "tertiary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Tertiary Color"
+      }
+    },
+    "quaternary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Quaternary Color"
+      }
+    },
+    "quinary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Quinary Color"
+      }
+    },
+    "senary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Senary Color"
+      }
+    },
+    "septenary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Septenary Color"
+      }
+    },
+    "octonary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Octonary Color"
+      }
+    },
+    "nonary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Nonary Color"
+      }
+    },
+    "denary_color": {
+      "type": "Color",
+      "config": {
+        "label": "Denary Color"
+      }
+    }
+  },
+  "Fonts": {
+    "primary_font": {
+      "type": "Text",
+      "config": {
+        "label": "Primary Font",
+        "placeholder": "Insert name of Google Font"
+      }
+    },
+    "secondary_font": {
+      "type": "Text",
+      "config": {
+        "label": "Secondary Font",
+        "placeholder": "Insert name of Google Font"
+      }
+    },
+    "special_font": {
+      "type": "Text",
+      "config": {
+        "label": "Special Font",
+        "placeholder": "Insert name of Google Font"
+      }
+    }
+  },
+  "Tracking": {
+    "google_tag_manager_id": {
+      "type": "Text",
+      "config": {
+        "label": "Google Tag Manager ID",
+        "placeholder": "Insert GTM ID"
+      }
+    }
+  },
+  "Cookies": {
+    "legal_monster_id": {
+      "type": "Text",
+      "config": {
+        "label": "Legal Monster ID",
+        "placeholder": "Insert Legal Monster ID"
+      }
+    }
+  }
+}

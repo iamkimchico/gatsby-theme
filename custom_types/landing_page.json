@@ -1,0 +1,144 @@
+{
+  "Content" : {
+    "page_title" : {
+      "type" : "StructuredText",
+      "config" : {
+        "single" : "heading1",
+        "label" : "Page Title",
+        "placeholder" : "Insert page title"
+      }
+    },
+    "page_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Page Description",
+        "placeholder" : "Insert short description of page"
+      }
+    },
+    "show_page_title" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "No",
+        "placeholder_true" : "Yes",
+        "default_value" : false,
+        "label" : "Show Page Title"
+      }
+    },
+    "show_page_description" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "No",
+        "placeholder_true" : "Yes",
+        "default_value" : false,
+        "label" : "Show Page Description"
+      }
+    },
+    "body" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : null,
+        "choices" : {
+          "hero" : {
+            "type" : "Slice",
+            "fieldset" : "Hero",
+            "description" : "The first content on a page",
+            "icon" : "open_in_browser",
+            "display" : "list",
+            "non-repeat" : {
+              "header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Header"
+                }
+              },
+              "tagline" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Tagline"
+                }
+              },
+              "image" : {
+                "type" : "Image",
+                "config" : {
+                  "constraint" : {
+                    "width" : 1920,
+                    "height" : 1080
+                  },
+                  "thumbnails" : [ ],
+                  "label" : "Image"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  },
+  "Navigation" : {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Slug",
+        "placeholder" : "Insert url for page"
+      }
+    }
+  },
+  "SEO" : {
+    "meta_title" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Title",
+        "placeholder" : "Insert SEO friendly page title"
+      }
+    },
+    "meta_description" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Description",
+        "placeholder" : "Insert SEO friendly page description"
+      }
+    },
+    "meta_index_page" : {
+      "type" : "Boolean",
+      "config" : {
+        "placeholder_false" : "No",
+        "placeholder_true" : "Yes",
+        "default_value" : true,
+        "label" : "Meta Index Page"
+      }
+    },
+    "meta_twitter_creator" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Meta Twitter Creator"
+      }
+    },
+    "meta_type" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Website", "Article", "Blog" ],
+        "label" : "Meta Type"
+      }
+    },
+    "meta_twitter_card" : {
+      "type" : "Select",
+      "config" : {
+        "options" : [ "Summary", "Summary Large Image", "App", "Player" ],
+        "label" : "Meta Twitter Card"
+      }
+    },
+    "meta_image" : {
+      "type" : "Image",
+      "config" : {
+        "constraint" : {
+          "width" : 1200,
+          "height" : 627
+        },
+        "thumbnails" : [ ],
+        "label" : "Meta Image"
+      }
+    }
+  }
+}

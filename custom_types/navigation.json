@@ -1,0 +1,182 @@
+{
+  "Header" : {
+    "bodyHeader" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : null,
+        "choices" : {
+          "classic" : {
+            "type" : "Slice",
+            "fieldset" : "Classic",
+            "description" : "A Classic header with Logo and menu",
+            "icon" : "grade",
+            "display" : "list",
+            "non-repeat" : {
+              "menu_button_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Menu Button Label"
+                }
+              }
+            },
+            "repeat" : { }
+          }
+        }
+      }
+    }
+  },
+  "Menu" : {
+    "bodyMenu" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : null,
+        "choices" : {
+          "classic" : {
+            "type" : "Slice",
+            "fieldset" : "Classic",
+            "description" : "A Classic Footer",
+            "icon" : "grade",
+            "display" : "list",
+            "non-repeat" : {
+              "left_link_list_header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Left Link List Header",
+                  "placeholder" : "Insert header of left link list"
+                }
+              },
+              "middle_link_list_header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Middle Link List Header",
+                  "placeholder" : "Insert header of middle link list"
+                }
+              },
+              "right_link_list_header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Right Link List Header",
+                  "placeholder" : "Insert header of right link list"
+                }
+              }
+            },
+            "repeat" : {
+              "link_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Label",
+                  "placeholder" : "Insert link label"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Link Url",
+                  "placeholder" : "Choose Link",
+                  "select" : null
+                }
+              },
+              "link_list" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Left", "Middle", "Right" ],
+                  "default_value" : "Left",
+                  "label" : "Link List",
+                  "placeholder" : "Choose link list"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Footer" : {
+    "bodyFooter" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : null,
+        "choices" : {
+          "classic" : {
+            "type" : "Slice",
+            "fieldset" : "Classic",
+            "description" : "A Classic Footer",
+            "icon" : "grade",
+            "display" : "list",
+            "non-repeat" : {
+              "left_link_list_header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Left Link List Header",
+                  "placeholder" : "Insert header of left link list"
+                }
+              },
+              "middle_link_list_header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Middle Link List Header",
+                  "placeholder" : "Insert header of middle link list"
+                }
+              },
+              "right_link_list_header" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Right Link List Header",
+                  "placeholder" : "Insert header of right link list"
+                }
+              }
+            },
+            "repeat" : {
+              "link_label" : {
+                "type" : "Text",
+                "config" : {
+                  "label" : "Link Label",
+                  "placeholder" : "Insert link label"
+                }
+              },
+              "link_url" : {
+                "type" : "Link",
+                "config" : {
+                  "allowTargetBlank" : true,
+                  "label" : "Link Url",
+                  "placeholder" : "Choose Link",
+                  "select" : null
+                }
+              },
+              "link_list" : {
+                "type" : "Select",
+                "config" : {
+                  "options" : [ "Left", "Middle", "Right" ],
+                  "default_value" : "Left",
+                  "label" : "Link List",
+                  "placeholder" : "Choose link list"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "CTA" : {
+    "cta_page_link_url" : {
+      "type" : "Link",
+      "config" : {
+        "label" : "CTA Page Link Url",
+        "placeholder" : "Insert link to internal CTA page",
+        "select" : null
+      }
+    },
+    "cta_link_label" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "CTA Link Label",
+        "placeholder" : "Insert CTA button name"
+      }
+    }
+  }
+}
