@@ -100,23 +100,21 @@ export default function (data) {
     linksRight: data.linksRight,
   };
 
-  const renderLink = (link, i) => {
-    return (
-      <span key={i + link.label}>
-        {link.url?._linkType === 'Link.document' && (
-          <Link to={link.url.path} onClick={() => dispatch(toggleNavMenu(false))}>
-            <Heading size="h2">{link.label}</Heading>
-          </Link>
-        )}
+  const renderLink = (link, i) => (
+    <span key={i + link.label}>
+      {link.url?._linkType === 'Link.document' && (
+        <Link to={link.url.path} onClick={() => dispatch(toggleNavMenu(false))}>
+          <Heading size="h2">{link.label}</Heading>
+        </Link>
+      )}
 
-        {link.url?._linkType === 'Link.web' && (
-          <a href={link.url.url} target={link.url.target}>
-            <Heading size="h2">{link.label}</Heading>
-          </a>
-        )}
-      </span>
-    );
-  };
+      {link.url?._linkType === 'Link.web' && (
+        <a href={link.url.url} target={link.url.target}>
+          <Heading size="h2">{link.label}</Heading>
+        </a>
+      )}
+    </span>
+  );
 
   return (
     <StyledWrapper show={navMenuToggled} theme="darkBlue">
@@ -135,7 +133,7 @@ export default function (data) {
             {Object.keys(links).map((area) => (
               <StyledLinkList onClick={() => dispatch(toggleNavMenu(false))}>
                 {viewport.index > 1 && (
-                  <StyledAreaHeader size="h4">{data['header' + area.replace('links', '')]}</StyledAreaHeader>
+                  <StyledAreaHeader size="h4">{data[`header${area.replace('links', '')}`]}</StyledAreaHeader>
                 )}
                 {links[area].map((link) => (
                   <StyledLink href={link.url.path}>{link.label}</StyledLink>

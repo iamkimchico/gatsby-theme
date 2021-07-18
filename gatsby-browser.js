@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
-import base from './src/styles/base';
 import { ThemeProvider } from 'styled-components';
+import base from './src/styles/base';
 import Baseline from './src/styles/Baseline';
 import PageWrapper from './src/common/PageWrapper';
 import { UiProvider } from './src/context/UiContext';
@@ -20,6 +20,4 @@ export const wrapPageElement = ({ props, element }) => {
   );
 };
 
-export const wrapRootElement = ({ element }) => {
-  return <UiProvider>{element}</UiProvider>;
-};
+export const wrapRootElement = ({ element }) => <UiProvider>{element}</UiProvider>;

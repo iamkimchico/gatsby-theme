@@ -52,19 +52,17 @@ const colourStyles = {
   }),
 };
 
-const Select = ({ margin, placeholder, isSearchable, options, defaultValue, onChange }) => {
-  return (
-    <StyledWrapper margin={margin}>
-      <ReactSelect
-        defaultValue={defaultValue}
-        styles={colourStyles}
-        placeholder={placeholder}
-        isSearchable={isSearchable}
-        options={options}
-        onChange={onChange}
-      />
-    </StyledWrapper>
-  );
-};
+const Select = ({ margin, placeholder, isSearchable, options, defaultValue, onChange }) => (
+  <StyledWrapper margin={margin}>
+    <ReactSelect
+      defaultValue={defaultValue}
+      styles={colourStyles}
+      placeholder={placeholder}
+      isSearchable={isSearchable}
+      options={options}
+      onChange={onChange}
+    />
+  </StyledWrapper>
+);
 
 export default Select;

@@ -38,20 +38,18 @@ const StyledLabel = styled.label`
   }
 `;
 
-const Radio = ({ name, options, label }) => {
-  return (
-    <StyledWrapper>
-      <StyledLabel for={name}>{label}</StyledLabel>
-      <StyledOptions>
-        {options.map((option) => (
-          <StyledOption>
-            <input type="radio" value={option} name={name} />
-            <Body>{option}</Body>
-          </StyledOption>
-        ))}
-      </StyledOptions>
-    </StyledWrapper>
-  );
-};
+const Radio = ({ name, options, label }) => (
+  <StyledWrapper>
+    <StyledLabel for={name}>{label}</StyledLabel>
+    <StyledOptions>
+      {options.map((option) => (
+        <StyledOption>
+          <input type="radio" value={option} name={name} />
+          <Body>{option}</Body>
+        </StyledOption>
+      ))}
+    </StyledOptions>
+  </StyledWrapper>
+);
 
 export default Radio;

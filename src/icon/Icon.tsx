@@ -1,20 +1,20 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
-import { TIconNames, TSizeNames, TStyleNames } from '../types';
+import { TIconNames, TSizeNames, TColorScheme } from '../types';
 import * as Icons from './IconList';
 
 type TProps = {
-  icon:TIconNames;
-  style:TStyleNames;
-  size:TSizeNames;
-}
+  icon: TIconNames;
+  colorScheme: TColorScheme;
+  size: TSizeNames;
+};
 
 type TStyledProps = {
-  primary:string;
-  secondary:string;
-  shadow:string;
-  size:string;
-}
+  primary: string;
+  secondary: string;
+  shadow: string;
+  size: string;
+};
 
 const StyledIcon = styled.div<TStyledProps>`
   display: grid;
@@ -48,11 +48,11 @@ const StyledIcon = styled.div<TStyledProps>`
   }
 `;
 
-export const Icon:React.FC<TProps> = ({ icon, style, size }) => {
+export const Icon: React.FC<TProps> = ({ icon, colorScheme, size }) => {
   const theme = useContext(ThemeContext);
-  const Icon = Icons[icon];
+  const IconComponent = Icons[icon];
 
-  console.log(theme, style)
+  console.log(theme, colorScheme);
 
   // console.log(props.theme.design[`${style}_color`]);
 
@@ -76,7 +76,7 @@ export const Icon:React.FC<TProps> = ({ icon, style, size }) => {
 
   return (
     <StyledIcon size={size} primary={primary} secondary={secondary} shadow={shadow}>
-      {Icon && <Icon />}
+      {IconComponent && <IconComponent />}
     </StyledIcon>
   );
 };

@@ -9,7 +9,7 @@ const GlobalStyles = createGlobalStyle`
       html,
       body {
         font-size: ${getFontSize('XS')};
-        font-family: ${({ theme }) => theme?.design?.primary_font};
+        font-family: ${theme?.design?.primary_font};
         @media ${theme.base.media.SM} {
           font-size: ${getFontSize('SM')};
         }
@@ -36,7 +36,7 @@ const GlobalStyles = createGlobalStyle`
     `}
 `;
 
-const Baseline = ({ theme }:any) => {
+const Baseline = ({ theme }: any) => {
   const primaryFont = theme?.design?.primary_font;
   return (
     <>

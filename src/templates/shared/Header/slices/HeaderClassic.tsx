@@ -7,16 +7,16 @@ import { Link } from '../../../../typography';
 import { TSizeNames } from '../../../../types';
 
 type TProps = {
-  data:any;
-}
+  data: any;
+};
 
 type TStyledProps = {
   viewport: TSizeNames;
-  menuToggled?:boolean;
-  scrolled?:boolean;
-}
+  menuToggled?: boolean;
+  scrolled?: boolean;
+};
 
-const GlobalStyle = createGlobalStyle<{menuToggled:boolean}>`
+const GlobalStyle = createGlobalStyle<{ menuToggled: boolean }>`
   body {
     overflow:${({ menuToggled }) => (menuToggled ? 'hidden' : 'visible')};
   }
@@ -103,7 +103,7 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
             <StyledGroup />
             <StyledGroup>
               {cta && (
-                <Link href={cta.url} target={cta.target} variant="cta" style="primary">
+                <Link href={cta.url} target={cta.target} variant="cta" colorScheme="primary">
                   {cta.label}
                 </Link>
               )}

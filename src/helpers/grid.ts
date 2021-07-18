@@ -1,13 +1,13 @@
 import base from '../styles/base';
 import { TColNames, TSizeNames } from '../types';
 
-export const getFontSize = (size:TSizeNames) => `${base.fontSize[size]}px`;
+export const getFontSize = (size: TSizeNames): string => `${base.fontSize[size]}px`;
 
-export const getColSize = (size:TSizeNames) => `${base.colRelation[size]}em`;
+export const getColSize = (size: TSizeNames): string => `${base.colRelation[size]}em`;
 
-export const getGridGap = (size:TSizeNames) => `${base.colRelation[size] / 2}em`;
+export const getGridGap = (size: TSizeNames): string => `${base.colRelation[size] / 2}em`;
 
-export const getColPadding = (col:TColNames, size:TSizeNames) => {
+export const getColPadding = (col: TColNames, size: TSizeNames): string => {
   switch (col) {
     case 'edge':
       return `${base.colRelation[size] * 0}em`;
@@ -24,7 +24,7 @@ export const getColPadding = (col:TColNames, size:TSizeNames) => {
   }
 };
 
-export const getGridLayout = (size:TSizeNames) => `
+export const getGridLayout = (size: TSizeNames): string => `
     [edge-left] 
     ${getColSize(size)} 
     [outer-xxx-left] 

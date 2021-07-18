@@ -6,15 +6,15 @@ import { Heading } from '../../../typography';
 import { toPerfectPixel } from '../../../utils';
 
 type TProps = {
-  onClick:() => void;
-  label:string;
-  toggled:boolean;
-}
+  onClick: () => void;
+  label: string;
+  toggled: boolean;
+};
 
 type TStyledProps = {
-  viewport:TSizeNames;
-  toggled:boolean;
-}
+  viewport: TSizeNames;
+  toggled: boolean;
+};
 
 const StyledWrapper = styled.div<Partial<TStyledProps>>`
   display: flex;
@@ -34,11 +34,12 @@ const StyledBurger = styled.div<TStyledProps>`
   width: 2em;
   height: 1em;
   position: relative;
-  &:before,&:after{
+  &:before,
+  &:after {
     content: '';
     transition: all 0.2s ease-in-out;
     position: absolute;
-    ${({viewport, toggled}) => css`
+    ${({ viewport, toggled }) => css`
       height: ${toPerfectPixel(0.3, viewport)};
       background: ${toggled ? 'white' : 'black'};
     `}
@@ -52,11 +53,11 @@ const StyledBurger = styled.div<TStyledProps>`
   }
 `;
 
-const Burgermenu:React.FC<TProps> = ({ onClick, toggled, label }) => {
+const Burgermenu: React.FC<TProps> = ({ onClick, toggled, label }) => {
   const viewport = useViewport();
   return (
     <StyledWrapper onClick={onClick} toggled={toggled}>
-      <Heading size="h6" style={toggled ? 'white' : 'black'}>
+      <Heading size="h6" colorScheme={toggled ? 'white' : 'black'}>
         {label}
       </Heading>
       <StyledBurger toggled={toggled} viewport={viewport.size} />

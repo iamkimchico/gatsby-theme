@@ -41,12 +41,10 @@ const StyledHover = styled.div`
   cursor: pointer;
 `;
 
-const Hover = ({ children, theme, size, margin, onHover, isHovered }) => {
-  return (
-    <StyledWrapper size={size} margin={margin} onMouseEnter={onHover} theme={theme} isHovered={isHovered}>
-      <StyledHover theme={theme}>{children}</StyledHover>
-    </StyledWrapper>
-  );
-};
+const Hover = ({ children, theme, size, margin, onHover, isHovered }) => (
+  <StyledWrapper size={size} margin={margin} onMouseEnter={onHover} theme={theme} isHovered={isHovered}>
+    <StyledHover theme={theme}>{children}</StyledHover>
+  </StyledWrapper>
+);
 
 export default Hover;

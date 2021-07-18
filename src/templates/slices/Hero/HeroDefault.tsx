@@ -4,8 +4,8 @@ import { Image } from '../../../media';
 import { Heading } from '../../../typography';
 
 type TProps = {
-  primary:any;
-}
+  primary: any;
+};
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -31,13 +31,13 @@ const StyledWrapper = styled.div`
   `}
 `;
 
-const HeroDefault:React.FC<TProps> = ({ primary }) => (
-    <StyledWrapper>
-      <Image url={primary.image.url} position="center center" size="cover"/>
-      <Heading size="h1" align="center">
-        {primary.header}
-      </Heading>
-    </StyledWrapper>
-  );
+const HeroDefault: React.FC<TProps> = ({ primary }) => (
+  <StyledWrapper>
+    <Image url={primary.image.url} position="center center" size="cover" />
+    <Heading size="h1" align="center">
+      {primary.header}
+    </Heading>
+  </StyledWrapper>
+);
 
 export default HeroDefault;

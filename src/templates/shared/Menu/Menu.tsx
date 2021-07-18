@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 type TProps = {
-  settings:any;
-}
+  settings: any;
+};
 
 const StyledWrapper = styled.div``;
 
-const Menu:React.FC<TProps> = ({ settings }) => {
+const Menu: React.FC<TProps> = ({ settings }) => {
   console.log(settings);
   // const data = useStaticQuery(graphql``);
 

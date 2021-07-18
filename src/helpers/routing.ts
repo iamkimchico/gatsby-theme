@@ -1,6 +1,6 @@
-import { getLangShort } from '.';
+import { getLangShort } from './localization';
 
-export const createUrl = (uid:string, lang:string) => {
+export const createUrl = (uid: string, lang: string): string => {
   let formattedLang = `${getLangShort(lang)}`;
   let formattedSlug = uid;
 

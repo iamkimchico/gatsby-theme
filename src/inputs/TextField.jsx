@@ -26,19 +26,17 @@ const StyledInput = styled.input`
   font-size: 1em;
 `;
 
-const Textfield = ({ placeholder, buttonLabel, url, margin, theme, name, type, required }) => {
-  return (
-    <>
-      <StyledWrapper margin={margin}>
-        <StyledInput name={name} placeholder={placeholder} type={type} required={required} />
-        {buttonLabel && (
-          <Button type="button" isSubmit theme={getSecondaryColor(theme)}>
-            {buttonLabel}
-          </Button>
-        )}
-      </StyledWrapper>
-    </>
-  );
-};
+const Textfield = ({ placeholder, buttonLabel, url, margin, theme, name, type, required }) => (
+  <>
+    <StyledWrapper margin={margin}>
+      <StyledInput name={name} placeholder={placeholder} type={type} required={required} />
+      {buttonLabel && (
+        <Button type="button" isSubmit theme={getSecondaryColor(theme)}>
+          {buttonLabel}
+        </Button>
+      )}
+    </StyledWrapper>
+  </>
+);
 
 export default Textfield;

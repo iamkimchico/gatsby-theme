@@ -3,19 +3,19 @@ import styled, { css } from 'styled-components';
 // import { HelpText } from '../typography';
 
 type TProps = {
-  url:string;
-  darken?:string;
-  size:string;
-  position:string;
-  helpText?:string;
-}
+  url: string;
+  darken?: string;
+  size: string;
+  position: string;
+  helpText?: string;
+};
 
 const StyledImage = styled.figure<Partial<TProps>>`
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
   position: relative;
-  ${({size, position, url}) =>
+  ${({ size, position, url }) =>
     css`
       background-size: ${size};
       background-position: ${position};
@@ -38,7 +38,7 @@ const StyledImage = styled.figure<Partial<TProps>>`
     `}
 `;
 
-const Image:React.FC<TProps> = ({ url, darken, size, children, position, helpText }) => {
+const Image: React.FC<TProps> = ({ url, darken, size, children, position, helpText }) => {
   const pos = position === 'right' ? 'right center' : position === 'left' ? 'left center' : 'center center';
   return (
     <>

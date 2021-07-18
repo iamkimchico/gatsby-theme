@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 type TProps = {
-  url:string;
-  hasOverlay:string;
-  poster:string;
-}
+  url: string;
+  hasOverlay: string;
+  poster: string;
+};
 
 const StyledWrapper = styled.div`
   width: 100%;
@@ -34,13 +34,13 @@ const StyledWrapper = styled.div`
 //   z-index: ${zLevels[2]};
 // `
 
-const Video:React.FC<TProps> = () => (
-    <StyledWrapper>
-      {/* {hasOverlay && <StyledOverlay />}
+const Video: React.FC<TProps> = () => (
+  <StyledWrapper>
+    {/* {hasOverlay && <StyledOverlay />}
       <StyledVideo autoPlay muted loop poster={poster}>
         <source src={url} type="video/mp4" />
       </StyledVideo> */}
-    </StyledWrapper>
-  );
+  </StyledWrapper>
+);
 
 export default Video;

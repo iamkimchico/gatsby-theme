@@ -1,36 +1,36 @@
 import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useViewport } from '../hooks';
-import { TAlignNames, TSizeNames, TStyleNames } from '../types';
+import { TAlignNames, TSizeNames, TColorScheme } from '../types';
 
 type TProps = {
-  size:React.ElementType;
-  style?:TStyleNames;
-  align?:TAlignNames;
-  margin?:TSizeNames;
-}
+  size: React.ElementType;
+  colorScheme?: TColorScheme;
+  align?: TAlignNames;
+  margin?: TSizeNames;
+};
 
 const StyledHeading = styled.h1<Partial<TProps>>`
   line-height: 1em;
   letter-spacing: 'initial';
 
-  ${(props) => css`
-    margin-top: ${props.theme.base.spacing[props.margin || "XS"]};
-    margin-bottom: ${props.theme.base.spacing[props.margin || "XS"]};
-    font-family: ${props.theme.design.primary_font};
-    color: ${props.theme.design[`${props.style}_color`]};
-    text-align: ${props.align};
+  ${({ theme, colorScheme, align, margin }) => css`
+    margin-top: ${theme.base.spacing[margin || 'XS']};
+    margin-bottom: ${theme.base.spacing[margin || 'XS']};
+    font-family: ${theme.design.primary_font};
+    color: ${theme.design[`${colorScheme}_color`]};
+    text-align: ${align};
   `}
 
-  ${(props) => {
-    switch (props.size) {
+  ${({ size, theme }) => {
+    switch (size) {
       case 'special':
         return css`
           font-size: 4.5em;
           line-height: 0.99em;
-          font-family: ${props.theme.design.special_font};
+          font-family: ${theme.design.special_font};
           text-transform: none;
-          @media ${props.theme.base.media.large} {
+          @media ${theme.base.media.large} {
             font-size: 5.5em;
           }
         `;
@@ -73,19 +73,13 @@ const StyledHeading = styled.h1<Partial<TProps>>`
   }};
 `;
 
-const Heading:React.FC<TProps> = ({ size, style, children, align, margin }) => {
+const Heading: React.FC<TProps> = ({ size, colorScheme, children, align, margin }) => {
   const breakpoint = useViewport();
   useEffect(() => {
     // render on every breakpoint change
   }, [breakpoint]);
   return (
-    <StyledHeading
-      as={size}
-      style={style}
-      align={align}
-      size={size}
-      margin={margin}
-    >
+    <StyledHeading as={size} colorScheme={colorScheme} align={align} size={size} margin={margin}>
       {children}
     </StyledHeading>
   );

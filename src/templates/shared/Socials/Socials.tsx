@@ -2,13 +2,13 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../../../icon';
-import { TIconNames, TSizeNames, TStyleNames } from '../../../types';
+import { TIconNames, TSizeNames, TColorScheme } from '../../../types';
 import { Link } from '../../../typography';
 
 type TProps = {
-  size:TSizeNames;
-  style:TStyleNames;
-}
+  size: TSizeNames;
+  colorScheme: TColorScheme;
+};
 
 const StyledWrapper = styled.div<Partial<TProps>>`
   display: flex;
@@ -18,7 +18,7 @@ const StyledWrapper = styled.div<Partial<TProps>>`
   }
 `;
 
-const Socials:React.FC<TProps> = ({ size, style }) => {
+const Socials: React.FC<TProps> = ({ size, colorScheme }) => {
   const { prismicSiteSettings } = useStaticQuery(graphql`
     query socials {
       prismicSiteSettings {
@@ -46,14 +46,21 @@ const Socials:React.FC<TProps> = ({ size, style }) => {
 
   const channels = prismicSiteSettings.data;
   return (
-    <StyledWrapper style={style} size={size}>
-      {Object.keys(channels).map((type, index) => {
-        if (channels[type].url)
+    <StyledWrapper colorScheme={colorScheme} size={size}>
+      {Object.keys(channels).map((type) => {
+        if (channels[type].url) {
           return (
-            <Link key={index} href={channels[type].url} target={channels[type].target} style="black">
-              <Icon icon={type as TIconNames} style={style} size={size} />
+            <Link
+              key={type + channels[type].url}
+              href={channels[type].url}
+              target={channels[type].target}
+              colorScheme="black"
+            >
+              <Icon icon={type as TIconNames} colorScheme={colorScheme} size={size} />
             </Link>
           );
+        }
+        return <></>;
       })}
     </StyledWrapper>
   );

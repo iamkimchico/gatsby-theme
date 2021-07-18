@@ -76,7 +76,7 @@
   },
   "scripts": {
     "update": "git add . && git commit -m 'update package' && git push && npm version patch && npm publish",
-    "lint": "tsc --noEmit && eslint '*/**/*.{ts,tsx}' --quiet --fix && stylelint './src/**/*.{tsx,ts}'",
+    "lint": "tsc --noEmit && eslint \"*/**/*.{ts,tsx}\" --quiet --fix && stylelint \"./src/**/*.{tsx,ts}\"",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\""
   },
   "husky": {

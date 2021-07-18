@@ -1,24 +1,24 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { TAlignNames, TSizeNames, TStyleNames } from '../types';
+import { TAlignNames, TSizeNames, TColorScheme } from '../types';
 
 type TProps = {
-  style:TStyleNames;
-  size?:TSizeNames;
-  align?:TAlignNames;
-  italic?:boolean;
-  bold?:boolean;
-  margin?:TSizeNames;
-}
+  colorScheme: TColorScheme;
+  size?: TSizeNames;
+  align?: TAlignNames;
+  italic?: boolean;
+  bold?: boolean;
+  margin?: TSizeNames;
+};
 
 const StyledBody = styled.p<Partial<TProps>>`
   line-height: 1.5em;
 
-  ${({ theme, align, bold, style, margin }) => css`
-    color: ${theme.design[`${style}_color`]};
+  ${({ theme, align, bold, colorScheme, margin }) => css`
+    color: ${theme.design[`${colorScheme}_color`]};
     font-family: ${theme.design.primary_font};
-    margin-top: ${theme.base.spacing[margin || "XS"]};
-    margin-bottom: ${theme.base.spacing[margin || "XS"]};
+    margin-top: ${theme.base.spacing[margin || 'XS']};
+    margin-bottom: ${theme.base.spacing[margin || 'XS']};
     text-align: ${align === 'right' ? 'right' : align === 'center' ? 'center' : 'left'};
     font-weight: ${bold ? 'bold' : 200};
   `}
@@ -45,17 +45,10 @@ const StyledBody = styled.p<Partial<TProps>>`
   }};
 `;
 
-const Body:React.FC<TProps> = ({ size, style, children, align, italic, bold, margin }) => (
-    <StyledBody
-      size={size}
-      style={style}
-      align={align}
-      italic={italic}
-      bold={bold}
-      margin={margin}
-    >
-      {children}
-    </StyledBody>
-  );
+const Body: React.FC<TProps> = ({ size, colorScheme, children, align, italic, bold, margin }) => (
+  <StyledBody size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
+    {children}
+  </StyledBody>
+);
 
 export default Body;

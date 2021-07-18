@@ -1,6 +1,6 @@
 import React from 'react';
-import Body from './Body';
 import styled from 'styled-components';
+import Body from './Body';
 
 const StyledWrapper = styled.div`
   /* font-size: 0.7em;
@@ -14,14 +14,12 @@ const StyledWrapper = styled.div`
   } */
 `;
 
-const HelpText = ({ children, floating, align, margin }) => {
-  return (
-    <StyledWrapper floating={floating} margin={margin}>
-      <span>
-        <Body align={align}>{children}</Body>
-      </span>
-    </StyledWrapper>
-  );
-};
+const HelpText = ({ children, floating, align, margin }) => (
+  <StyledWrapper floating={floating} margin={margin}>
+    <span>
+      <Body align={align}>{children}</Body>
+    </span>
+  </StyledWrapper>
+);
 
 export default HelpText;

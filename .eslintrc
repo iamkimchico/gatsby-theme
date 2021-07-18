@@ -1,16 +1,15 @@
 {
-  "extends": [
-    "airbnb", 
-    "prettier",
-    "plugin:@typescript-eslint/recommended"
-  ],
+  "extends": ["airbnb", "prettier", "plugin:@typescript-eslint/recommended"],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "camelcase": "off",
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
     "jsx-a11y/anchor-is-valid": 0,
     "react/prop-types": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".tsx", ".ts"] }],
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -20,19 +19,23 @@
         "ts": "never",
         "tsx": "never"
       }
-   ]
+    ],
+    "linebreak-style": ["error", "unix"],
+    "no-param-reassign": ["error", { "props": true, "ignorePropertyModificationsFor": ["draft"] }],
+    "no-nested-ternary": 0,
+    "max-len": ["error", { "code": 120 }],
+    "import/prefer-default-export": "off",
+    "@typescript-eslint/indent": [2, 2],
+    "react/jsx-props-no-spreading": ["off"]
   },
   "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
     "import/resolver": {
-        "node": {
-            "extensions": [
-                ".js",
-                ".jsx",
-                ".ts",
-                ".d.ts",
-                ".tsx"
-            ]
-        }
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".d.ts", ".tsx"]
+      }
     }
   }
 }

@@ -55,10 +55,10 @@ export const useScroll = () => {
         isScrolled = false;
       }
     } else if (scrollVal > 75 && isScrolled === false) {
-        isScrolled = true;
-      } else if (scrollVal <= 75) {
-        isScrolled = false;
-      }
+      isScrolled = true;
+    } else if (scrollVal <= 75) {
+      isScrolled = false;
+    }
 
     setScrollPos({
       isScrolled,
@@ -83,7 +83,7 @@ export const useInViewport = (ref:any) => {
     if (scrollPos.bottom > ref.current.offsetTop && scrollPos.top < ref.current.offsetTop + ref.current.offsetHeight) {
       return { isShowing: true, height: scrollPos.bottom - ref.current.offsetTop };
     } 
-      return { isShowing: false, height: 0 };
+    return { isShowing: false, height: 0 };
     
   }
   return { isShowing: false, height: 0 };

@@ -65,9 +65,9 @@ const StyledWrapper = styled.div<TProps>`
 `;
 
 const Grid:React.FC<TProps> = ({ children, hasAnnouncement, row, container }) => (
-    <StyledWrapper row={row} container={container} hasAnnouncement={hasAnnouncement}>
-      {children}
-    </StyledWrapper>
-  );
+  <StyledWrapper row={row} container={container} hasAnnouncement={hasAnnouncement}>
+    {children}
+  </StyledWrapper>
+);
 
 export default Grid;

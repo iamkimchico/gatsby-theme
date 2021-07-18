@@ -2,26 +2,26 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 type TProps = {
-  url:string;
-  target:string;
-  size:string;
-  margin:string;
-  direction:string;
-  onClick:() => {};
-  onHover:() => {};
-  variant:string;
-  style:string;
-}
+  url: string;
+  target: string;
+  size: string;
+  margin: string;
+  direction: string;
+  onClick: () => void;
+  onHover: () => void;
+  variant: string;
+  colorScheme: string;
+};
 
 type TStyledWrapper = {
-  margin:string;
-  size:string;
-}
+  margin: string;
+  size: string;
+};
 type TStyledInner = {
-  direction:string;
-  variant:string;
-  style:string;
-}
+  direction: string;
+  variant: string;
+  colorScheme: string;
+};
 
 const StyledWrapper = styled.span<TStyledWrapper>`
   position: relative;
@@ -37,11 +37,11 @@ const StyledWrapper = styled.span<TStyledWrapper>`
 const StyledInnerWrapper = styled.span<TStyledInner>`
   position: relative;
   cursor: pointer;
-  ${({ theme, variant, direction, style }) => {
+  ${({ theme, variant, direction, colorScheme }) => {
     switch (variant) {
       case 'cta':
         return css`
-          background-color: ${theme.design[`${style}_color`]};
+          background-color: ${theme.design[`${colorScheme}_color`]};
           padding: 0.5em;
           padding-left: 1em;
           padding-right: 1em;
@@ -53,25 +53,25 @@ const StyledInnerWrapper = styled.span<TStyledInner>`
           &:before {
             content: '';
             position: absolute;
-            background-color: ${theme.design[`${style}_color`]};
+            background-color: ${theme.design[`${colorScheme}_color`]};
             width: 0.2em;
             height: 0.8em;
             border-radius: 0px;
-            left: ${direction === "left" ? '0' : '100%'};
+            left: ${direction === 'left' ? '0' : '100%'};
           }
           &:before {
             bottom: 50%;
-            transform: ${direction === "left"
-              ? 'translateX(-1.2em) translateY(0.1em) rotate(45deg)'
-              : 'translateX(1.2em) rotate(-45deg)'};
+            transform: ${direction === 'left'
+    ? 'translateX(-1.2em) translateY(0.1em) rotate(45deg)'
+    : 'translateX(1.2em) rotate(-45deg)'};
             transform-origin: 100% 100%;
           }
 
           &:after {
             top: 50%;
-            transform: ${direction === "left"
-              ? 'translateX(-1.2em) translateY(-0.1em) rotate(-45deg)'
-              : 'translateX(1.2em) rotate(45deg)'};
+            transform: ${direction === 'left'
+    ? 'translateX(-1.2em) translateY(-0.1em) rotate(-45deg)'
+    : 'translateX(1.2em) rotate(45deg)'};
             transform-origin: 100% 0;
           }
         `;
@@ -90,12 +90,12 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-const Button:React.FC<TProps> = ({ children, size, margin, direction, onClick, onHover, variant, style }) => (
-    <StyledWrapper size={size} margin={margin} onClick={onClick} onMouseEnter={onHover}>
-      <StyledInnerWrapper direction={direction} variant={variant} style={style}>
-        <StyledButton>{children}</StyledButton>
-      </StyledInnerWrapper>
-    </StyledWrapper>
-  );
+const Button: React.FC<TProps> = ({ children, size, margin, direction, onClick, onHover, variant, colorScheme }) => (
+  <StyledWrapper size={size} margin={margin} onClick={onClick} onMouseEnter={onHover}>
+    <StyledInnerWrapper direction={direction} variant={variant} colorScheme={colorScheme}>
+      <StyledButton>{children}</StyledButton>
+    </StyledInnerWrapper>
+  </StyledWrapper>
+);
 
 export default Button;

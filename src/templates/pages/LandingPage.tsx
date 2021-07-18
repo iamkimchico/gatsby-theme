@@ -3,13 +3,13 @@ import React from 'react';
 import SliceResolver from '../slices/SliceResolver';
 
 type TProps = {
-  data:any;
-}
+  data: any;
+};
 
-const LandingPage:React.FC<TProps> = ({ data }) => {
+const LandingPage: React.FC<TProps> = ({ data }) => {
   const content = data.prismicLandingPage.data;
   const slices = content.body;
-  return <>{SliceResolver(slices)}</>;
+  return <>{SliceResolver({ slices })}</>;
 };
 
 export const prismic = graphql`

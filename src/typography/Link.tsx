@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link as GatsbyLink } from 'gatsby';
-import { Body } from '.';
-import { TAlignNames, TSizeNames, TStyleNames } from '../types';
+import Body from './Body';
+import { TAlignNames, TSizeNames, TColorScheme } from '../types';
 
 type TProps = {
-  href:string;
-  target: "_blank" | "_self" | "_top" | "framename";
-  style:TStyleNames;
-  size?:TSizeNames;
-  align?:TAlignNames;
-  margin?:TSizeNames;
-  italic?:boolean;
-  bold?:boolean;
-  variant?:string;
-}
+  href: string;
+  target: '_blank' | '_self' | '_top' | 'framename';
+  colorScheme: TColorScheme;
+  size?: TSizeNames;
+  align?: TAlignNames;
+  margin?: TSizeNames;
+  italic?: boolean;
+  bold?: boolean;
+  variant?: string;
+};
 
 const StyledLink = styled(Body)<Partial<TProps>>`
   text-decoration: none;
@@ -24,21 +24,14 @@ const StyledLink = styled(Body)<Partial<TProps>>`
   }
 `;
 
-const Link:React.FC<TProps> = ({ size, style, children, align, italic, bold, margin, href }) => {
+const Link: React.FC<TProps> = ({ size, colorScheme, children, align, italic, bold, margin, href }) => {
   const isInternal = /^\/(?!\/)/.test(href);
 
   return (
     <>
       {isInternal ? (
         <GatsbyLink to={href}>
-          <StyledLink
-            size={size}
-            style={style}
-            align={align}
-            italic={italic}
-            bold={bold}
-            margin={margin}
-          >
+          <StyledLink size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
             {children}
           </StyledLink>
         </GatsbyLink>
@@ -46,7 +39,7 @@ const Link:React.FC<TProps> = ({ size, style, children, align, italic, bold, mar
         <StyledLink
           as="a"
           size={size}
-          style={style}
+          colorScheme={colorScheme}
           align={align}
           italic={italic}
           bold={bold}

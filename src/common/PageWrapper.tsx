@@ -8,14 +8,14 @@ type TProps = {
 }
 
 const PageWrapper:React.FC<TProps> = ({ children, meta }) => (
-    <>
-      <Seo {...meta} />
-      <Grid container>
-        <Header />
-        {children}
-        <Footer />
-      </Grid>
-    </>
-  );
+  <>
+    <Seo {...meta} />
+    <Grid container>
+      <Header />
+      {children}
+      <Footer />
+    </Grid>
+  </>
+);
 
 export default PageWrapper;
