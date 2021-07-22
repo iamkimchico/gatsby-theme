@@ -1,2 +1,3 @@
-const requireEsm = require('esm')(module);
-module.exports = requireEsm('./gatsby-config.esm.js');
+module.exports = {
+  plugins: [{ resolve: `gatsby-plugin-ts-config`, options: { projectRoot: __dirname, configDir: './src/gatsby' } }],
+};
