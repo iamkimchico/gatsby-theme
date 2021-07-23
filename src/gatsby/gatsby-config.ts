@@ -1,19 +1,22 @@
+import { GatsbyConfig } from 'gatsby';
+import path from 'path';
 import base from '../styles/base';
+import { TThemePlugin } from '../types';
 
-export default (props: any): any => ({
+export default (_tsProps: Record<string, string>, themeProps: TThemePlugin): GatsbyConfig => ({
   plugins: [
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pageTypes',
-        path: `${__dirname}/src/templates/pages`,
+        path: path.resolve(__dirname, '../templates/pages'),
       },
     },
     {
       resolve: 'gatsby-source-prismic',
       options: {
-        repositoryName: props.prismicRepo,
-        accessToken: props.prismicToken,
+        repositoryName: themeProps.prismicRepo,
+        accessToken: themeProps.prismicToken,
         prismicToolbar: true,
         schemas: {
           site_settings: require('../../custom_types/site_settings.json'),

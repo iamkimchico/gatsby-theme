@@ -1,5 +1,10 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-await-in-loop */
+import { GatsbyNode } from 'gatsby';
 import Prismic from '@prismicio/client';
+import path from 'path';
 import { createUrl, extractMeta } from '../helpers';
+import { TThemePlugin } from '../types';
 
 const pageFilesQuery = ` query MyQuery {
   allFile {
@@ -51,42 +56,21 @@ const fetchSettings = async (repo: any) => {
   return data.results[0].data;
 };
 
-export const onPreInit = async ({ actions, store }, pluginOptions) => {
-  // const { setPluginStatus } = actions;
-  // const { prismicRepo } = pluginOptions;
-  // const state = store.getState();
-  // const settings = await fetchSettings(prismicRepo);
-  // const plugin = state.flattenedPlugins.find((plugin) => plugin.name === 'gatsby-plugin-prefetch-google-fonts');
-  // if (plugin) {
-  //   plugin.pluginOptions = {
-  //     ...plugin.pluginOptions,
-  //     fonts: [
-  //       { family: settings.primary_font, variants: [400] },
-  //       { family: settings.secondary_font, variants: [400] },
-  //       { family: settings.special_font, variants: [400] },
-  //     ],
-  //   };
-  //   console.log(plugin.pluginOptions);
-  //   setPluginStatus({ pluginOptions: plugin.pluginOptions }, plugin);
-  // }
-};
-
-export const createPages = async ({ graphql, actions }, pluginOptions) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }, { themeProps }) => {
   const { createPage } = actions;
-  const { prismicRepo } = pluginOptions;
+  const { prismicRepo } = themeProps as TThemePlugin;
 
-  // Create pages programmatically
-  const pageFiles = await graphql(pageFilesQuery);
+  const pageFiles: any = await graphql(pageFilesQuery);
+  const settings: any = await fetchSettings(prismicRepo);
+
   for (const file of pageFiles.data.allFile.edges) {
     const pageType = file.node.name;
-    const fetchPages = await graphql(pageQuery(pageType));
-    const settings = await fetchSettings(prismicRepo);
+    const fetchPages: any = await graphql(pageQuery(pageType));
     const pages = fetchPages.data[`allPrismic${pageType}`].edges;
-
-    pages.forEach((page) => {
+    pages.forEach((page: any) => {
       createPage({
         path: createUrl(page.node.uid, page.node.lang),
-        component: require.resolve(`./src/templates/pages/${pageType}.jsx`),
+        component: path.resolve(__dirname, `../templates/pages/${pageType}.tsx`),
         context: {
           prismicId: page.node.prismicId,
           meta: extractMeta(page.node),

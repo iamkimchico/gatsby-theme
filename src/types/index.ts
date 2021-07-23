@@ -14,3 +14,8 @@ export type TAlignNames = 'left' | 'center' | 'right';
 export type TColorScheme = 'primary' | 'secondary' | 'tertiary' | 'black' | 'white';
 export type TSizeNames = 'XS' | 'SM' | 'MD' | 'LG' | 'XL' | 'MX';
 export type TColNames = 'inner' | 'outer-x' | 'outer-xx' | 'outer-xxx' | 'edge';
+
+export type TThemePlugin = {
+  prismicRepo: string;
+  prismicToken: string;
+};
