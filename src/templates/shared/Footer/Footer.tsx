@@ -2,7 +2,7 @@ import React from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import * as slices from './slices/sliceMapper';
 
-const Footer:React.FC = () => {
+const Footer: React.FC = () => {
   const data = useStaticQuery(graphql`
     query Footer {
       prismicNavigation {

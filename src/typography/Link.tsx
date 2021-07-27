@@ -16,7 +16,7 @@ type TProps = {
   variant?: string;
 };
 
-const StyledLink = styled(Body)<Partial<TProps>>`
+const StyledLink = styled.span<Partial<TProps>>`
   text-decoration: none;
   cursor: pointer;
 
@@ -28,30 +28,25 @@ const StyledLink = styled(Body)<Partial<TProps>>`
 const Link: React.FC<TProps> = ({ size, colorScheme, children, align, italic, bold, margin, href }) => {
   const isInternal = /^\/(?!\/)/.test(href);
 
+  const Content =
+    typeof children === 'string' ? (
+      <Body size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
+        {children}
+      </Body>
+    ) : (
+      children
+    );
   return (
     <>
-      {isInternal
-        ? (
-          <GatsbyLink to={href}>
-            <StyledLink size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
-              {children}
-            </StyledLink>
-          </GatsbyLink>
-        )
-        : (
-          <StyledLink
-            as="a"
-            size={size}
-            colorScheme={colorScheme}
-            align={align}
-            italic={italic}
-            bold={bold}
-            margin={margin}
-            href={href}
-          >
-            {children}
-          </StyledLink>
-        )}
+      {isInternal ? (
+        <StyledLink as={GatsbyLink} to={href}>
+          {Content}
+        </StyledLink>
+      ) : (
+        <StyledLink as="a" href={href}>
+          {Content}
+        </StyledLink>
+      )}
     </>
   );
 };

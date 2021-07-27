@@ -35,7 +35,7 @@ const StyledWrapper = styled.div`
 const HeroDefault: React.FC<TProps> = ({ primary }) => (
   <StyledWrapper>
     <Image url={primary.image.url} position="center center" size="cover" />
-    <Heading size="h1" align="center">
+    <Heading size="h1" align="center" colorScheme="black">
       {primary.header}
     </Heading>
   </StyledWrapper>

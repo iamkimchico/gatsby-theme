@@ -1,6 +1,6 @@
-import { TSizes } from "../types";
+import { TSizes } from '../types';
 
-const breakpoints:TSizes<number> = {
+const breakpoints: TSizes<number> = {
   XS: 576,
   SM: 768,
   MD: 992,
@@ -9,7 +9,7 @@ const breakpoints:TSizes<number> = {
   MX: 1900,
 };
 
-const colRelation:TSizes<number> = {
+const colRelation: TSizes<number> = {
   XS: 2,
   SM: 3,
   MD: 3,
@@ -18,16 +18,16 @@ const colRelation:TSizes<number> = {
   MX: 6,
 };
 
-const spacing:TSizes<string> = {
-  XS: '1em',
-  SM: '2em',
-  MD: '4em',
-  LG: '6em',
-  XL: '8em',
-  MX: '10em',
+const spacing: TSizes<string> = {
+  XS: '0em',
+  SM: '1em',
+  MD: '2em',
+  LG: '4em',
+  XL: '6em',
+  MX: '8em',
 };
 
-const fontSize:TSizes<number> = {
+const fontSize: TSizes<number> = {
   XS: 10,
   SM: 12,
   MD: 14,
@@ -36,7 +36,7 @@ const fontSize:TSizes<number> = {
   MX: 20,
 };
 
-const shades:{[key:number]:string} = {
+const shades: { [key: number]: string } = {
   1: '#292f36',
   2: '#4d5258',
   3: '#808489',
@@ -46,7 +46,7 @@ const shades:{[key:number]:string} = {
   7: '#f6f6f6',
 };
 
-const zLevels:{[key:number]:number} = {
+const zLevels: { [key: number]: number } = {
   1: 100,
   2: 200,
   3: 300,
@@ -59,7 +59,7 @@ const zLevels:{[key:number]:number} = {
   10: 1000,
 };
 
-const media:TSizes<string> = {
+const media: TSizes<string> = {
   XS: `(min-width: ${breakpoints.XS}px)`,
   SM: `(min-width: ${breakpoints.SM}px)`,
   MD: `(min-width: ${breakpoints.MD}px)`,

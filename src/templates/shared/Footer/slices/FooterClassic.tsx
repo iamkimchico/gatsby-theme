@@ -62,7 +62,7 @@ const FooterClassic: React.FC<TProps> = ({ data }) => {
         {Object.keys(linkLists).map((area) => (
           <StyledLinkList key={area}>
             <StyledAreaHeader bold colorScheme="primary">
-              {data.primary[`${area}_link_list_header`]}
+              {data.primary[`${area.toLowerCase()}_link_list_header`]}
             </StyledAreaHeader>
             {linkLists[area].map(({ link_url, link_label }) => (
               <Link key={link_label + link_url.url} href={link_url.url} target={link_url.target} colorScheme="black">

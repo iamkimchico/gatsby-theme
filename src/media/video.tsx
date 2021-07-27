@@ -8,9 +8,9 @@ type TProps = {
 };
 
 const StyledWrapper = styled.div`
+  display: grid;
   width: 100%;
   height: 100%;
-  display: grid;
 
   > * {
     grid-area: 1/1/2/2;

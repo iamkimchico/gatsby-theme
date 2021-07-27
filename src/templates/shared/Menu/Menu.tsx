@@ -1,20 +1,40 @@
+import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
-import styled from 'styled-components';
+import * as slices from './slices/sliceMapper';
 
-type TProps = {
-  settings: any;
+const Menu: React.FC = () => {
+  const data = useStaticQuery(graphql`
+    query Menu {
+      prismicNavigation {
+        data {
+          bodyMenu {
+            ... on PrismicNavigationBodyMenuClassic {
+              id
+              items {
+                link_label
+                link_list
+                link_url {
+                  url
+                  target
+                }
+              }
+              primary {
+                left_link_list_header
+                middle_link_list_header
+                right_link_list_header
+              }
+              slice_label
+              slice_type
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const content = data.prismicNavigation.data.bodyMenu[0];
+  const Slice = slices[content.slice_type as keyof typeof slices];
+
+  return <Slice data={content} />;
 };
-
-const StyledWrapper = styled.div``;
-
-const Menu: React.FC<TProps> = ({ settings }) => {
-  console.log(settings);
-  // const data = useStaticQuery(graphql``);
-
-  // const content = data.prismicNavigation.data.body[0];
-  // const Slice = slices[content.slice_type];
-
-  return <StyledWrapper>{/* <Slice data={content} settings={settings} /> */}</StyledWrapper>;
-};
-
 export default Menu;

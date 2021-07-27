@@ -4,14 +4,14 @@ import Grid from './Grid';
 import { Footer, Header } from '../templates/shared';
 
 type TProps = {
-  meta:any;
-}
+  meta: any;
+};
 
-const PageWrapper:React.FC<TProps> = ({ children, meta }) => (
+const PageWrapper: React.FC<TProps> = ({ children, meta }) => (
   <>
     <Seo {...meta} />
+    <Header />
     <Grid container>
-      <Header />
       {children}
       <Footer />
     </Grid>

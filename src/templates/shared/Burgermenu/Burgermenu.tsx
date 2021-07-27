@@ -40,9 +40,9 @@ const StyledBurger = styled.div<TStyledProps>`
     transition: all 0.2s ease-in-out;
     position: absolute;
 
-    ${({ viewport, toggled }) => css`
+    ${({ viewport, toggled, theme }) => css`
       height: ${toPerfectPixel(0.3, viewport)};
-      background: ${toggled ? 'white' : 'black'};
+      background: ${theme.design.black_color};
     `}
   }
 
@@ -60,7 +60,7 @@ const Burgermenu: React.FC<TProps> = ({ onClick, toggled, label }) => {
   const viewport = useViewport();
   return (
     <StyledWrapper onClick={onClick} toggled={toggled}>
-      <Heading size="h6" colorScheme={toggled ? 'white' : 'black'}>
+      <Heading size="h6" colorScheme="black">
         {label}
       </Heading>
       <StyledBurger toggled={toggled} viewport={viewport.size} />

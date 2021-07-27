@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-// import { HelpText } from '../typography';
 
 type TProps = {
   url: string;
@@ -13,8 +12,8 @@ type TProps = {
 const StyledImage = styled.figure<Partial<TProps>>`
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
   position: relative;
+  background-repeat: no-repeat;
   ${({ size, position, url }) =>
     css`
       background-size: ${size};
@@ -39,11 +38,7 @@ const StyledImage = styled.figure<Partial<TProps>>`
 `;
 
 const Image: React.FC<TProps> = ({ url, darken, size, children, position, helpText }) => {
-  const pos = position === 'right'
-    ? 'right center'
-    : position === 'left'
-      ? 'left center'
-      : 'center center';
+  const pos = position === 'right' ? 'right center' : position === 'left' ? 'left center' : 'center center';
   return (
     <>
       <StyledImage url={url} darken={darken} size={size} position={pos}>
