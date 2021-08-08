@@ -11,9 +11,21 @@ export type TSizes<T> = {
 
 export type TIconNames = keyof typeof Icons;
 export type TAlignNames = 'left' | 'center' | 'right';
+export type TBgSizes = 'cover' | 'contain';
+export type TLinkTarget = '_blank' | '_self' | '_top' | 'framename';
 export type TColorScheme = 'primary' | 'secondary' | 'tertiary' | 'black' | 'white';
 export type TSizeNames = 'XS' | 'SM' | 'MD' | 'LG' | 'XL' | 'MX';
 export type TColNames = 'inner' | 'outer-x' | 'outer-xx' | 'outer-xxx' | 'edge';
+export type TBgPositions =
+  | 'left top'
+  | 'left center'
+  | 'left bottom'
+  | 'right top'
+  | 'right center'
+  | 'right bottom'
+  | 'center top'
+  | 'center center'
+  | 'center bottom';
 
 export type TThemePlugin = {
   prismicRepo: string;

@@ -15,60 +15,42 @@ const StyledWrapper = styled.div<Partial<TProps>>`
 
   a {
     width: max-content;
-    margin-right: ${(props) => (props.size === 'LG'
-    ? '3em'
-    : props.size === 'MD'
-      ? '2em'
-      : '1.5em')};
+    margin-right: ${({ size }) => (size === 'LG' ? '3em' : size === 'MD' ? '2em' : '1.5em')};
   }
 `;
 
 const Socials: React.FC<TProps> = ({ size, colorScheme }) => {
   const { prismicSiteSettings } = useStaticQuery(graphql`
-    query socials {
+    query Socials {
       prismicSiteSettings {
         data {
-          facebook {
-            url
-            target
-          }
-          instagram {
-            target
-            url
-          }
-          twitter {
-            url
-            target
-          }
-          youtube {
-            url
-            target
+          social_channels {
+            icon
+            name
+            url {
+              url
+              target
+            }
           }
         }
       }
     }
   `);
 
-  const channels = prismicSiteSettings.data;
+  const channels: any = prismicSiteSettings.data.social_channels;
+
   return (
     <StyledWrapper colorScheme={colorScheme} size={size}>
-      {Object.keys(channels).map((type) => {
-        if (channels[type].url) {
-          return (
-            <Link
-              key={type + channels[type].url}
-              href={channels[type].url}
-              target={channels[type].target}
-              colorScheme="black"
-            >
-              <Icon icon={type as TIconNames} colorScheme={colorScheme} size={size} />
-            </Link>
-          );
-        }
-        return <></>;
-      })}
+      {Object.keys(channels).map((channel) => (
+        <Link
+          key={channels[channel].name + channels[channel].url.url}
+          href={channels[channel].url.url}
+          target={channels[channel].url.target}
+        >
+          <Icon icon={channels[channel].icon.toLowerCase() as TIconNames} colorScheme={colorScheme} size={size} />
+        </Link>
+      ))}
     </StyledWrapper>
   );
 };
-
 export default Socials;

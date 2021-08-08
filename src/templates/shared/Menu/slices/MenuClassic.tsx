@@ -86,8 +86,10 @@ const MenuClassic: React.FC<TProps> = ({ data }) => {
                 {data.primary[`${area.toLowerCase()}_link_list_header`]}
               </StyledAreaHeader>
               {linkLists[area].map(({ link_url, link_label }) => (
-                <Link key={link_label + link_url.url} href={link_url.url} target={link_url.target} colorScheme="black">
-                  <Heading size="h5">{link_label}</Heading>
+                <Link key={link_label + link_url.url} href={link_url.url} target={link_url.target}>
+                  <Heading size="h5" colorScheme="black">
+                    {link_label}
+                  </Heading>
                 </Link>
               ))}
             </StyledLinkList>

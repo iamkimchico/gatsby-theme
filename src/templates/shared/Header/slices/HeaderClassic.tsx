@@ -6,6 +6,7 @@ import Burgermenu from '../../Burgermenu/Burgermenu';
 import { Link } from '../../../../typography';
 import { TSizeNames } from '../../../../types';
 import Menu from '../../Menu/Menu';
+import { Button } from '../../../../inputs';
 
 type TProps = {
   data: any;
@@ -59,18 +60,16 @@ const StyledHeader = styled.header<TStyledProps>`
       width: 100%;
       height: 0%;
       background-color: ${theme.design.white_color};
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-
       ${scrolled &&
       css`
+        border-bottom: 0.1em solid ${theme.design.primary_color};
         height: 100%;
       `}
-
       ${menuToggled &&
       css`
         height: 100%;
         box-shadow: none;
-      `}
+      `};
     }
   `}
 `;
@@ -114,8 +113,10 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
           <StyledGroup />
           <StyledGroup>
             {cta && (
-              <Link href={cta.url} target={cta.target} variant="cta" colorScheme="black">
-                {cta.label}
+              <Link href={cta.url} target={cta.target}>
+                <Button variant="cta" colorScheme="primary">
+                  {cta.label}
+                </Button>
               </Link>
             )}
             <Burgermenu onClick={() => setMenuToggled(!menuToggled)} toggled={menuToggled} label="Menu" />

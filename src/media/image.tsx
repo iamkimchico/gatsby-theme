@@ -1,12 +1,13 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { TBgPositions, TBgSizes } from '../types';
 
 type TProps = {
   url: string;
-  darken?: string;
-  size: string;
-  position: string;
+  size: TBgSizes;
+  position: TBgPositions;
   helpText?: string;
+  alt: string;
 };
 
 const StyledImage = styled.figure<Partial<TProps>>`
@@ -14,44 +15,27 @@ const StyledImage = styled.figure<Partial<TProps>>`
   height: 100%;
   position: relative;
   background-repeat: no-repeat;
+  /* border-radius: 0.5em; */
   ${({ size, position, url }) =>
     css`
       background-size: ${size};
       background-position: ${position};
       background-image: url(${url});
     `}
-
-  ${({ darken }) =>
-    darken &&
-    css`
-      &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: black;
-        opacity: 0.5;
-      }
-    `}
 `;
 
-const Image: React.FC<TProps> = ({ url, darken, size, children, position, helpText }) => {
-  const pos = position === 'right' ? 'right center' : position === 'left' ? 'left center' : 'center center';
-  return (
-    <>
-      <StyledImage url={url} darken={darken} size={size} position={pos}>
-        {children}
-      </StyledImage>
-      {helpText && (
-        <div>{helpText}</div>
-        // <HelpText floating align="center" margin="small">
-        //   {helpText}
-        // </HelpText>
-      )}
-    </>
-  );
-};
+const Image: React.FC<TProps> = ({ url, size, children, position, helpText, alt }) => (
+  <>
+    <StyledImage url={url} size={size} position={position}>
+      {children}
+    </StyledImage>
+    {helpText && (
+      <div>{helpText}</div>
+      // <HelpText floating align="center" margin="small">
+      //   {helpText}
+      // </HelpText>
+    )}
+  </>
+);
 
 export default Image;

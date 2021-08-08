@@ -43,7 +43,7 @@ const Radio = ({ name, options, label }) => (
     <StyledLabel for={name}>{label}</StyledLabel>
     <StyledOptions>
       {options.map((option) => (
-        <StyledOption>
+        <StyledOption key={option}>
           <input type="radio" value={option} name={name} />
           <Body>{option}</Body>
         </StyledOption>

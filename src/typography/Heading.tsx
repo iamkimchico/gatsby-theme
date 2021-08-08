@@ -29,7 +29,7 @@ const StyledHeading = styled.h1<Partial<TProps>>`
           line-height: 0.99em;
           font-family: ${theme.design.special_font};
           text-transform: none;
-          @media ${theme.base.media.large} {
+          @media ${theme.base.media.LG} {
             font-size: 5.5em;
           }
         `;

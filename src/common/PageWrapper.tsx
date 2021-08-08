@@ -11,8 +11,8 @@ const PageWrapper: React.FC<TProps> = ({ children, meta }) => (
   <>
     <Seo {...meta} />
     <Header />
+    <Grid container>{children}</Grid>
     <Grid container>
-      {children}
       <Footer />
     </Grid>
   </>

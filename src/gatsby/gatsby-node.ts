@@ -56,6 +56,7 @@ const fetchSettings = async (repo: any) => {
   return data.results[0].data;
 };
 
+// This creates the pages from Prismic
 export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }, { themeProps }) => {
   const { createPage } = actions;
   const { prismicRepo } = themeProps as TThemePlugin;
@@ -79,4 +80,20 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
       });
     });
   }
+};
+
+// This only create pages out from the /pages folder. This is where the 404 page is created.
+export const onCreatePage: GatsbyNode['onCreatePage'] = async ({ page, actions }, { themeProps }) => {
+  const { createPage } = actions;
+  const { prismicRepo } = themeProps as TThemePlugin;
+  const settings: any = await fetchSettings(prismicRepo);
+
+  createPage({
+    ...page,
+    context: {
+      prismicId: null,
+      meta: {},
+      settings,
+    },
+  });
 };

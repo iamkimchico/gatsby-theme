@@ -21,9 +21,9 @@ const StyledWrapper = styled.div`
   display: grid;
   grid-gap: 4em;
   ${({ theme }) => css`
-    @media ${theme.base.media.medium} {
+    @media ${theme.base.media.MD} {
       grid-template-columns: 1fr 30em;
-      border-top: ${`0.1em solid ${theme.base.shades.gray60}`};
+      border-top: ${`0.1em solid #eeeeee`};
     }
   `}
 `;
@@ -65,8 +65,8 @@ const FooterClassic: React.FC<TProps> = ({ data }) => {
               {data.primary[`${area.toLowerCase()}_link_list_header`]}
             </StyledAreaHeader>
             {linkLists[area].map(({ link_url, link_label }) => (
-              <Link key={link_label + link_url.url} href={link_url.url} target={link_url.target} colorScheme="black">
-                {link_label}
+              <Link key={link_label + link_url.url} href={link_url.url} target={link_url.target}>
+                <Body colorScheme="black">{link_label}</Body>
               </Link>
             ))}
           </StyledLinkList>

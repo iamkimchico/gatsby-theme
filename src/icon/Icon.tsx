@@ -50,10 +50,6 @@ export const Icon: React.FC<TProps> = ({ icon, colorScheme, size }) => {
   const theme = useContext(ThemeContext);
   const IconComponent = Icons[icon];
 
-  console.log(theme, colorScheme);
-
-  // console.log(props.theme.design[`${style}_color`]);
-
   const primary = 'black';
   const secondary = 'blue';
   const shadow = 'rgba(0,0,0,0.1)';

@@ -17,40 +17,36 @@
     }
   },
   "Socials": {
-    "facebook": {
-      "type": "Link",
+    "social_channels": {
+      "type": "Group",
       "config": {
-        "allowTargetBlank": true,
-        "label": "Facebook",
-        "placeholder": "Insert url to Facebook page",
-        "select": null
-      }
-    },
-    "instagram": {
-      "type": "Link",
-      "config": {
-        "allowTargetBlank": true,
-        "label": "Instagram",
-        "placeholder": "Insert url to Instagram page",
-        "select": null
-      }
-    },
-    "youtube": {
-      "type": "Link",
-      "config": {
-        "allowTargetBlank": true,
-        "label": "YouTube",
-        "placeholder": "Insert url to YouTube page",
-        "select": null
-      }
-    },
-    "twitter": {
-      "type": "Link",
-      "config": {
-        "allowTargetBlank": true,
-        "label": "Twitter",
-        "placeholder": "Insert url to Twitter page",
-        "select": null
+        "fields": {
+          "name": {
+            "type": "Text",
+            "config": {
+              "label": "Name",
+              "placeholder": "Insert channel name"
+            }
+          },
+          "url": {
+            "type": "Link",
+            "config": {
+              "allowTargetBlank": true,
+              "label": "Url",
+              "placeholder": "Insert channel url",
+              "select": null
+            }
+          },
+          "icon": {
+            "type": "Select",
+            "config": {
+              "options": ["Facebook", "YouTube", "Twitter", "Instagram"],
+              "default_value": "Facebook",
+              "label": "Icon"
+            }
+          }
+        },
+        "label": "Channels"
       }
     }
   },
@@ -113,6 +109,110 @@
       "type": "Color",
       "config": {
         "label": "Denary Color"
+      }
+    },
+    "black_color": {
+      "type": "Color",
+      "config": {
+        "label": "Black Color"
+      }
+    },
+    "white_color": {
+      "type": "Color",
+      "config": {
+        "label": "White Color"
+      }
+    },
+    "color_schemas": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "schema_name": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "Quaternary",
+                "Quinary",
+                "Senary",
+                "Septenary",
+                "Octonary",
+                "Nonary",
+                "Denary",
+                "Black",
+                "White"
+              ],
+              "label": "Schema Name",
+              "placeholder": "Select name"
+            }
+          },
+          "base": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "Quaternary",
+                "Quinary",
+                "Senary",
+                "Septenary",
+                "Octonary",
+                "Nonary",
+                "Denary",
+                "Black",
+                "White"
+              ],
+              "default_value": "Primary",
+              "label": "base"
+            }
+          },
+          "major": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "Quaternary",
+                "Quinary",
+                "Senary",
+                "Septenary",
+                "Octonary",
+                "Nonary",
+                "Denary",
+                "Black",
+                "White"
+              ],
+              "default_value": "Primary",
+              "label": "Major"
+            }
+          },
+          "minor": {
+            "type": "Select",
+            "config": {
+              "options": [
+                "Primary",
+                "Secondary",
+                "Tertiary",
+                "Quaternary",
+                "Quinary",
+                "Senary",
+                "Septenary",
+                "Octonary",
+                "Nonary",
+                "Denary",
+                "Black",
+                "White"
+              ],
+              "default_value": "Primary",
+              "label": "Minor"
+            }
+          }
+        },
+        "label": "Color Schemas"
       }
     }
   },

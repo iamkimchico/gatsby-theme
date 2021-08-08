@@ -1,100 +1,62 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { TColorScheme, TSizeNames } from '../types';
 
 type TProps = {
-  url: string;
-  target: string;
-  size: string;
-  margin: string;
-  direction: string;
-  onClick: () => void;
-  onHover: () => void;
-  variant: string;
-  colorScheme: string;
+  size?: TSizeNames;
+  margin?: TSizeNames;
+  variant?: string;
+  colorScheme: TColorScheme;
 };
 
-type TStyledWrapper = {
-  margin: string;
-  size: string;
-};
-type TStyledInner = {
-  direction: string;
-  variant: string;
-  colorScheme: string;
-};
-
-const StyledWrapper = styled.span<TStyledWrapper>`
+const StyledWrapper = styled.span<Partial<TProps>>`
   position: relative;
   cursor: pointer;
   ${({ theme, margin, size }) => css`
     z-index: ${theme.base.zLevels[2]};
-    margin-top: ${theme.base.spacing[margin]};
-    margin-bottom: ${theme.base.spacing[margin]};
-    font-size: ${size === 'large' ? '2em' : size === 'medium' ? '1.5em' : '1em'};
+    margin-top: ${theme.base.spacing[margin || 'XS']};
+    margin-bottom: ${theme.base.spacing[margin || 'XS']};
+    font-size: ${size === 'LG' ? '2em' : size === 'MD' ? '1.5em' : '1em'};
   `}
 `;
 
-const StyledInnerWrapper = styled.span<TStyledInner>`
-  position: relative;
+const StyledButton = styled.button<Partial<TProps>>`
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: ${({ theme }) => theme.design.primary_font};
+  outline: none;
+  border: none;
   cursor: pointer;
-  ${({ theme, variant, direction, colorScheme }) => {
+  padding-left: 2em;
+  padding-right: 2em;
+  height: 3em;
+  width: max-content;
+  transition: all 0.2s ease-in-out;
+
+  ${({ variant, theme, colorScheme }) => {
     switch (variant) {
       case 'cta':
-        return css`
-          background-color: ${theme.design[`${colorScheme}_color`]};
-          padding: 0.5em;
-          padding-left: 1em;
-          padding-right: 1em;
-          border-radius: 0.3em;
-        `;
+        return css``;
       default:
         return css`
-          &:after,
-          &:before {
-            content: '';
-            position: absolute;
-            background-color: ${theme.design[`${colorScheme}_color`]};
-            width: 0.2em;
-            height: 0.8em;
-            border-radius: 0px;
-            left: ${direction === 'left' ? '0' : '100%'};
-          }
-          &:before {
-            bottom: 50%;
-            transform: ${direction === 'left'
-    ? 'translateX(-1.2em) translateY(0.1em) rotate(45deg)'
-    : 'translateX(1.2em) rotate(-45deg)'};
-            transform-origin: 100% 100%;
-          }
-
-          &:after {
-            top: 50%;
-            transform: ${direction === 'left'
-    ? 'translateX(-1.2em) translateY(-0.1em) rotate(-45deg)'
-    : 'translateX(1.2em) rotate(45deg)'};
-            transform-origin: 100% 0;
+          /* border-radius: 3em; */
+          background-color: ${theme.design[`${colorScheme}_color`]};
+          color: ${theme.design.white_color};
+          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+          &:hover {
+            transform: translateY(-0.2em);
           }
         `;
     }
   }}
 `;
 
-const StyledButton = styled.button`
-  font-size: 1em;
-  text-decoration: none;
-  font-weight: 600;
-  font-family: ${({ theme }) => theme.design.primary_font};
-  background: none;
-  outline: none;
-  border: none;
-  cursor: pointer;
-`;
-
-const Button: React.FC<TProps> = ({ children, size, margin, direction, onClick, onHover, variant, colorScheme }) => (
-  <StyledWrapper size={size} margin={margin} onClick={onClick} onMouseEnter={onHover}>
-    <StyledInnerWrapper direction={direction} variant={variant} colorScheme={colorScheme}>
-      <StyledButton>{children}</StyledButton>
-    </StyledInnerWrapper>
+const Button: React.FC<TProps> = ({ children, size, margin, variant, colorScheme }) => (
+  <StyledWrapper size={size} margin={margin}>
+    <StyledButton colorScheme={colorScheme} variant={variant}>
+      {children}
+    </StyledButton>
   </StyledWrapper>
 );
 

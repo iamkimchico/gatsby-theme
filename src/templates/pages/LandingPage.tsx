@@ -8,7 +8,7 @@ type TProps = {
 
 const LandingPage: React.FC<TProps> = ({ data }) => {
   const content = data.prismicLandingPage.data;
-  const slices = content.body;
+  const slices = content.body.filter((slice: any) => Object.keys(slice).length > 0);
   return <>{SliceResolver({ slices })}</>;
 };
 
@@ -27,6 +27,44 @@ export const prismic = graphql`
               image {
                 url
               }
+              media {
+                url
+              }
+            }
+          }
+          ... on PrismicLandingPageBodyMediaTeaser {
+            id
+            slice_label
+            slice_type
+            primary {
+              button_label
+              color_scheme
+              direction
+              header
+              image {
+                url
+                alt
+              }
+              paragraph
+              button_link {
+                url
+                target
+              }
+            }
+          }
+          ... on PrismicLandingPageBodyTextTeaser {
+            id
+            slice_label
+            slice_type
+            primary {
+              button_label
+              button_url {
+                url
+                target
+              }
+              color_scheme
+              header
+              paragraph
             }
           }
         }

@@ -9,11 +9,13 @@ import base from '../styles/base';
 
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ props, element }) => {
   const meta = { ...(props.pageContext.meta as Record<string, unknown>), url: props.location.pathname };
+
   const theme = {
     base,
     design: extractTheme(props.pageContext.settings),
   };
 
+  console.log(props.pageContext.settings);
   return (
     <ThemeProvider theme={theme}>
       <Baseline />

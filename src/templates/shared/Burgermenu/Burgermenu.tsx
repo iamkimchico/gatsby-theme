@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { useViewport } from '../../../hooks';
+import { useScroll, useViewport } from '../../../hooks';
 import { TSizeNames } from '../../../types';
 import { Heading } from '../../../typography';
 import { toPerfectPixel } from '../../../utils';
@@ -14,6 +14,7 @@ type TProps = {
 type TStyledProps = {
   viewport: TSizeNames;
   toggled: boolean;
+  isScrolled?: boolean;
 };
 
 const StyledWrapper = styled.div<Partial<TStyledProps>>`
@@ -40,9 +41,9 @@ const StyledBurger = styled.div<TStyledProps>`
     transition: all 0.2s ease-in-out;
     position: absolute;
 
-    ${({ viewport, toggled, theme }) => css`
+    ${({ viewport, toggled, theme, isScrolled }) => css`
       height: ${toPerfectPixel(0.3, viewport)};
-      background: ${theme.design.black_color};
+      background: ${isScrolled ? theme.design.black_color : theme.design.white_color};
     `}
   }
 
@@ -58,12 +59,13 @@ const StyledBurger = styled.div<TStyledProps>`
 
 const Burgermenu: React.FC<TProps> = ({ onClick, toggled, label }) => {
   const viewport = useViewport();
+  const { isScrolled } = useScroll();
   return (
     <StyledWrapper onClick={onClick} toggled={toggled}>
-      <Heading size="h6" colorScheme="black">
+      <Heading size="h6" colorScheme={isScrolled ? 'black' : 'white'}>
         {label}
       </Heading>
-      <StyledBurger toggled={toggled} viewport={viewport.size} />
+      <StyledBurger toggled={toggled} viewport={viewport.size} isScrolled={isScrolled} />
     </StyledWrapper>
   );
 };
