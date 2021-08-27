@@ -1,6 +1,7 @@
 import { TSizes } from '../types';
 
 const breakpoints: TSizes<number> = {
+  XXS: 375,
   XS: 576,
   SM: 768,
   MD: 992,
@@ -60,6 +61,7 @@ const zLevels: { [key: number]: number } = {
 };
 
 const media: TSizes<string> = {
+  XXS: `(min-width: ${breakpoints.XXS}px)`,
   XS: `(min-width: ${breakpoints.XS}px)`,
   SM: `(min-width: ${breakpoints.SM}px)`,
   MD: `(min-width: ${breakpoints.MD}px)`,

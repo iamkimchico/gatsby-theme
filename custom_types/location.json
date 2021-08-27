@@ -1,0 +1,38 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name",
+        "placeholder": "Insert name"
+      }
+    },
+    "street": {
+      "type": "Text",
+      "config": {
+        "label": "Street",
+        "placeholder": "Insert Street"
+      }
+    },
+    "city": {
+      "type": "Text",
+      "config": {
+        "label": "City",
+        "placeholder": "Insert City"
+      }
+    },
+    "zip": {
+      "type": "Number",
+      "config": {
+        "label": "Zip",
+        "placeholder": "Insert Zip"
+      }
+    },
+    "coordinates": {
+      "type": "GeoPoint",
+      "config": {
+        "label": "Coordinates"
+      }
+    }
+  }
+}

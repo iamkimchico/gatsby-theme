@@ -1,0 +1,36 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name",
+        "placeholder": "Insert name"
+      }
+    },
+    "job_title": {
+      "type": "Text",
+      "config": {
+        "label": "Job Title",
+        "placeholder": "Insert job title"
+      }
+    },
+    "mail": {
+      "type": "Text",
+      "config": {
+        "label": "Mail",
+        "placeholder": "Insert mail"
+      }
+    },
+    "portrait": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1200,
+          "height": 1200
+        },
+        "thumbnails": [],
+        "label": "Portrait"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "Main": {
+    "name": {
+      "type": "Text",
+      "config": {
+        "label": "Name",
+        "placeholder": "Insert name"
+      }
+    },
+    "paragraph": {
+      "type": "Text",
+      "config": {
+        "label": "Paragraph",
+        "placeholder": "Insert team description"
+      }
+    },
+    "leader": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["person"],
+        "label": "Leader",
+        "placeholder": "Select leader"
+      }
+    }
+  }
+}

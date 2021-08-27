@@ -7,15 +7,15 @@ import { createUrl, extractMeta } from '../helpers';
 import { TThemePlugin } from '../types';
 
 const pageFilesQuery = ` query MyQuery {
-  allFile {
+  allFile(filter: {sourceInstanceName: {eq: "pageTypes"}}) {
     edges {
       node {
-        relativeDirectory
         name
       }
     }
   }
-}`;
+}
+`;
 
 const pageQuery = (type: any) => `query MyQuery {
   allPrismic${type} {
@@ -68,10 +68,11 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     const pageType = file.node.name;
     const fetchPages: any = await graphql(pageQuery(pageType));
     const pages = fetchPages.data[`allPrismic${pageType}`].edges;
+
     pages.forEach((page: any) => {
       createPage({
         path: createUrl(page.node.uid, page.node.lang),
-        component: path.resolve(__dirname, `../templates/pages/${pageType}.tsx`),
+        component: path.resolve(__dirname, `../pageTypes/${pageType}.tsx`),
         context: {
           prismicId: page.node.prismicId,
           meta: extractMeta(page.node),

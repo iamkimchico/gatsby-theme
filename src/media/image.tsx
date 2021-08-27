@@ -15,7 +15,7 @@ const StyledImage = styled.figure<Partial<TProps>>`
   height: 100%;
   position: relative;
   background-repeat: no-repeat;
-  /* border-radius: 0.5em; */
+  border-radius: 0.5em;
   ${({ size, position, url }) =>
     css`
       background-size: ${size};

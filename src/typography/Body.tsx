@@ -1,25 +1,27 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { TAlignNames, TSizeNames, TColorScheme } from '../types';
+import { TAlignNames, TSizeNames } from '../types';
 
 type TProps = {
-  colorScheme: TColorScheme;
+  color: string;
   size?: TSizeNames;
   align?: TAlignNames;
   italic?: boolean;
   bold?: boolean;
   margin?: TSizeNames;
+  className?: any;
 };
 
 const StyledBody = styled.p<Partial<TProps>>`
   line-height: 1.5em;
-  ${({ theme, align, bold, colorScheme, margin }) => css`
-    color: ${theme.design[`${colorScheme}_color`]};
-    font-family: ${theme.design.primary_font};
+  ${({ theme, align, bold, color, margin, italic }) => css`
+    color: ${color};
+    font-family: ${theme.design.secondary_font}, sans-serif;
     margin-top: ${theme.base.spacing[margin || 'XS']};
     margin-bottom: ${theme.base.spacing[margin || 'XS']};
-    text-align: ${align === 'right' ? 'right' : align === 'center' ? 'center' : 'left'};
-    font-weight: ${bold ? 'bold' : 200};
+    text-align: ${align};
+    font-weight: ${bold ? 700 : 400};
+    font-style: ${italic ? 'italic' : 'normal'};
   `}
 
   ${(props) => {
@@ -44,8 +46,8 @@ const StyledBody = styled.p<Partial<TProps>>`
   }};
 `;
 
-const Body: React.FC<TProps> = ({ size, colorScheme, children, align, italic, bold, margin }) => (
-  <StyledBody size={size} colorScheme={colorScheme} align={align} italic={italic} bold={bold} margin={margin}>
+const Body: React.FC<TProps> = ({ size, color, children, align, italic, bold, margin, className }) => (
+  <StyledBody size={size} color={color} align={align} italic={italic} bold={bold} margin={margin} className={className}>
     {children}
   </StyledBody>
 );

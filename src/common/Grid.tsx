@@ -6,6 +6,7 @@ type TProps = {
   hasAnnouncement?: boolean;
   row?: boolean;
   container?: boolean;
+  className?: any;
 };
 
 const StyledWrapper = styled.div<TProps>`
@@ -36,9 +37,7 @@ const StyledWrapper = styled.div<TProps>`
       width: 100vw;
       margin: auto;
       grid-row-gap: ${getGridGap('XS')};
-      margin-top: ${hasAnnouncement
-    ? '2.5em'
-    : '0'};
+      margin-top: ${hasAnnouncement ? '2.5em' : '0'};
 
       @media ${theme.base.media.SM} {
         grid-row-gap: ${getGridGap('SM')};
@@ -65,8 +64,8 @@ const StyledWrapper = styled.div<TProps>`
     `}
 `;
 
-const Grid: React.FC<TProps> = ({ children, hasAnnouncement, row, container }) => (
-  <StyledWrapper row={row} container={container} hasAnnouncement={hasAnnouncement}>
+const Grid: React.FC<TProps> = ({ children, hasAnnouncement, row, container, className }) => (
+  <StyledWrapper row={row} container={container} hasAnnouncement={hasAnnouncement} className={className}>
     {children}
   </StyledWrapper>
 );

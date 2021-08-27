@@ -51,64 +51,10 @@
     }
   },
   "Colors": {
-    "primary_color": {
+    "white_color": {
       "type": "Color",
       "config": {
-        "label": "Primary Color"
-      }
-    },
-    "secondary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Secondary Color"
-      }
-    },
-    "tertiary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Tertiary Color"
-      }
-    },
-    "quaternary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Quaternary Color"
-      }
-    },
-    "quinary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Quinary Color"
-      }
-    },
-    "senary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Senary Color"
-      }
-    },
-    "septenary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Septenary Color"
-      }
-    },
-    "octonary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Octonary Color"
-      }
-    },
-    "nonary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Nonary Color"
-      }
-    },
-    "denary_color": {
-      "type": "Color",
-      "config": {
-        "label": "Denary Color"
+        "label": "White Color"
       }
     },
     "black_color": {
@@ -117,97 +63,32 @@
         "label": "Black Color"
       }
     },
-    "white_color": {
-      "type": "Color",
-      "config": {
-        "label": "White Color"
-      }
-    },
     "color_schemas": {
       "type": "Group",
       "config": {
         "fields": {
-          "schema_name": {
-            "type": "Select",
+          "name": {
+            "type": "Text",
             "config": {
-              "options": [
-                "Primary",
-                "Secondary",
-                "Tertiary",
-                "Quaternary",
-                "Quinary",
-                "Senary",
-                "Septenary",
-                "Octonary",
-                "Nonary",
-                "Denary",
-                "Black",
-                "White"
-              ],
-              "label": "Schema Name",
-              "placeholder": "Select name"
+              "label": "Name",
+              "placeholder": "Insert name of color scheme"
             }
           },
           "base": {
-            "type": "Select",
+            "type": "Color",
             "config": {
-              "options": [
-                "Primary",
-                "Secondary",
-                "Tertiary",
-                "Quaternary",
-                "Quinary",
-                "Senary",
-                "Septenary",
-                "Octonary",
-                "Nonary",
-                "Denary",
-                "Black",
-                "White"
-              ],
-              "default_value": "Primary",
-              "label": "base"
+              "label": "Base"
             }
           },
           "major": {
-            "type": "Select",
+            "type": "Color",
             "config": {
-              "options": [
-                "Primary",
-                "Secondary",
-                "Tertiary",
-                "Quaternary",
-                "Quinary",
-                "Senary",
-                "Septenary",
-                "Octonary",
-                "Nonary",
-                "Denary",
-                "Black",
-                "White"
-              ],
-              "default_value": "Primary",
               "label": "Major"
             }
           },
           "minor": {
-            "type": "Select",
+            "type": "Color",
             "config": {
-              "options": [
-                "Primary",
-                "Secondary",
-                "Tertiary",
-                "Quaternary",
-                "Quinary",
-                "Senary",
-                "Septenary",
-                "Octonary",
-                "Nonary",
-                "Denary",
-                "Black",
-                "White"
-              ],
-              "default_value": "Primary",
               "label": "Minor"
             }
           }

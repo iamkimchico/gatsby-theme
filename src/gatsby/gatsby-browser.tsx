@@ -7,6 +7,10 @@ import { extractTheme } from '../helpers';
 import Baseline from '../styles/Baseline';
 import base from '../styles/base';
 
+export const onInitialClientRender: GatsbyBrowser['onInitialClientRender'] = () => {
+  window.scrollTo(0, 0);
+};
+
 export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ props, element }) => {
   const meta = { ...(props.pageContext.meta as Record<string, unknown>), url: props.location.pathname };
 
@@ -15,7 +19,6 @@ export const wrapPageElement: GatsbyBrowser['wrapPageElement'] = ({ props, eleme
     design: extractTheme(props.pageContext.settings),
   };
 
-  console.log(props.pageContext.settings);
   return (
     <ThemeProvider theme={theme}>
       <Baseline />

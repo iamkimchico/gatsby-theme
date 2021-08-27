@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import styled, { ThemeContext } from 'styled-components';
-import { TIconNames, TSizeNames, TColorScheme } from '../types';
+import styled, { css, ThemeContext } from 'styled-components';
+import { TIconNames, TSizeNames } from '../types';
 import * as Icons from './IconList';
 
 type TProps = {
   icon: TIconNames;
-  colorScheme: TColorScheme;
+  color: string;
   size: TSizeNames;
 };
 
@@ -17,41 +17,43 @@ type TStyledProps = {
 };
 
 const StyledIcon = styled.div<TStyledProps>`
-  display: grid;
+  ${({ size, shadow, secondary, primary }) => css`
+    display: grid;
 
-  svg {
-    align-self: center;
-    justify-self: center;
-    height: ${(props) => (props.size === 'lg' ? '3em' : props.size === 'md' ? '2em' : '1.5em')};
+    svg {
+      align-self: center;
+      justify-self: center;
+      height: ${size === 'LG' ? '6em' : size === 'MD' ? '5em' : '1.5em'};
 
-    .a {
-      fill: ${(props) => props.shadow};
+      .a {
+        fill: ${shadow};
+      }
+
+      .b {
+        fill: none;
+      }
+
+      .c {
+        fill: ${secondary};
+      }
+
+      .d {
+        fill: ${primary};
+      }
+
+      .noFill {
+        fill: none;
+      }
     }
-
-    .b {
-      fill: none;
-    }
-
-    .c {
-      fill: ${(props) => props.secondary};
-    }
-
-    .d {
-      fill: ${(props) => props.primary};
-    }
-
-    .noFill {
-      fill: none;
-    }
-  }
+  `};
 `;
 
-export const Icon: React.FC<TProps> = ({ icon, colorScheme, size }) => {
+export const Icon: React.FC<TProps> = ({ icon, color, size }) => {
   const theme = useContext(ThemeContext);
   const IconComponent = Icons[icon];
 
-  const primary = 'black';
-  const secondary = 'blue';
+  const primary = color;
+  const secondary = color;
   const shadow = 'rgba(0,0,0,0.1)';
 
   // switch (theme) {

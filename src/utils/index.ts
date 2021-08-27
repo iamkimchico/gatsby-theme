@@ -1,4 +1,5 @@
 import { getFontSize } from '../helpers';
+import { TOption } from '../inputs/Select';
 import { TSizeNames } from '../types';
 
 export const replaceEach = (string: string, remove: string, replace: string): string => {
@@ -48,4 +49,19 @@ export const toPerfectPixel = (sizeInEm: number, viewport: TSizeNames): string =
     return `${roundedNumber}px`;
   }
   return '1px';
+};
+
+export const formatToOption = (data: any): TOption[] => {
+  const options: TOption[] = [];
+
+  data.forEach(({ node }: any) => {
+    const option = {
+      value: node.id,
+      label: node.data.name,
+    };
+
+    options.push(option);
+  });
+
+  return options;
 };

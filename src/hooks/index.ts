@@ -2,10 +2,11 @@ import { useBreakpoint } from 'gatsby-plugin-breakpoints';
 import { useEffect, useState } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { TSizeNames } from '../types';
+import base from '../styles/base';
 
 export const useViewport = () => {
   const breakpoint = useBreakpoint();
-  let result:{size:TSizeNames, index:number} = {size:"XS", index:0}
+  let result: { size: TSizeNames; index: number } = { size: 'XS', index: 0 };
 
   if (breakpoint.MX) {
     result = { size: 'MX', index: 5 };
@@ -25,9 +26,9 @@ export const useViewport = () => {
 };
 
 export const useResize = () => {
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window?.innerWidth || 0);
 
-  const handleResize = (e:any) => {
+  const handleResize = (e: any) => {
     setWindowWidth(e.currentTarget.innerWidth);
   };
 
@@ -44,9 +45,9 @@ export const useScroll = () => {
   const [scrollPos, setScrollPos] = useState({ isScrolled: false, top: 0, bottom: 0 });
   const viewport = useViewport();
 
-  const handleScroll = (e:any) => {
+  const handleScroll = (e: any) => {
     const scrollVal = e.target.scrollingElement.scrollTop;
-    let {isScrolled} = scrollPos;
+    let { isScrolled } = scrollPos;
 
     if (viewport.index < 5) {
       if (scrollVal > 0 && isScrolled === false) {
@@ -76,35 +77,38 @@ export const useScroll = () => {
   return scrollPos;
 };
 
-export const useInViewport = (ref:any) => {
+export const useInViewport = (ref: any) => {
   const scrollPos = useScroll();
 
   if (ref && ref.current) {
     if (scrollPos.bottom > ref.current.offsetTop && scrollPos.top < ref.current.offsetTop + ref.current.offsetHeight) {
       return { isShowing: true, height: scrollPos.bottom - ref.current.offsetTop };
-    } 
+    }
     return { isShowing: false, height: 0 };
-    
   }
   return { isShowing: false, height: 0 };
 };
 
-// export const useGridEdge = () => {
-//   const viewport = useViewport().size;
-//   const windowWidth = useResize();
-//   const maxWidth = parseInt(MAXWIDTH.replace('px', ''), 10);
+export const useGridEdge = (): string => {
+  const viewport = useViewport().size;
+  const windowWidth = useResize();
+  const maxWidth = parseInt(base.MAXWIDTH.replace('px', ''), 10);
 
-//   if (windowWidth > maxWidth) {
-//     //because the hero is at outer-xxx and not edge on this viewport
-//     if (viewport === 'xxlarge') {
-//       return `${(windowWidth - maxWidth) / 2 + colRelation[viewport] * baseFontSize[viewport]}px`;
-//     }
+  if (windowWidth > maxWidth) {
+    return `${(windowWidth - maxWidth) / 2}px`;
+  }
 
-//     return `${(windowWidth - maxWidth) / 2}px`;
-//   }
+  // if (windowWidth > maxWidth) {
+  //   // because the hero is at outer-xxx and not edge on this viewport
+  //   if (viewport === 'XL') {
+  //     return `${(windowWidth - maxWidth) / 2 + base.colRelation[viewport] * base.fontSize[viewport]}px`;
+  //   }
 
-//   return `${colRelation[viewport] * baseFontSize[viewport]}px`;
-// };
+  //   return `${(windowWidth - maxWidth) / 2}px`;
+  // }
+
+  return `${base.colRelation[viewport] * base.fontSize[viewport]}px`;
+};
 
 export const useFiles = () => {
   const { allFile } = useStaticQuery(graphql`

@@ -11,6 +11,16 @@ type TProps = {
 const StyledLink = styled.a`
   text-decoration: none;
   cursor: pointer;
+  &:visited {
+    color: initial;
+  }
+`;
+const StyledGatsbyLink = styled(GatsbyLink)`
+  text-decoration: none;
+  cursor: pointer;
+  &:visited {
+    color: initial;
+  }
 `;
 
 const Link: React.FC<TProps> = ({ children, href, target }) => {
@@ -19,9 +29,7 @@ const Link: React.FC<TProps> = ({ children, href, target }) => {
   return (
     <>
       {isInternal ? (
-        <StyledLink as={GatsbyLink} to={href}>
-          {children}
-        </StyledLink>
+        <StyledGatsbyLink to={href}>{children}</StyledGatsbyLink>
       ) : (
         <StyledLink href={href} target={target}>
           {children}

@@ -1,0 +1,753 @@
+{
+  "Content": {
+    "page_title": {
+      "type": "StructuredText",
+      "config": {
+        "single": "heading1",
+        "label": "Page Title",
+        "placeholder": "Insert page title"
+      }
+    },
+    "page_description": {
+      "type": "Text",
+      "config": {
+        "label": "Page Description",
+        "placeholder": "Insert short description of page"
+      }
+    },
+    "show_page_title": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "No",
+        "placeholder_true": "Yes",
+        "default_value": false,
+        "label": "Show Page Title"
+      }
+    },
+    "show_page_description": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "No",
+        "placeholder_true": "Yes",
+        "default_value": false,
+        "label": "Show Page Description"
+      }
+    },
+    "title_color_scheme": {
+      "type": "Text",
+      "config": {
+        "label": "Title Color Scheme",
+        "placeholder": "Insert name of color scheme"
+      }
+    },
+    "body": {
+      "type": "Slices",
+      "fieldset": "Slice zone",
+      "config": {
+        "labels": {
+          "media_teaser": [
+            {
+              "display": "Background Image",
+              "name": "background_image"
+            },
+            {
+              "display": "Edge Image",
+              "name": "edge_image"
+            }
+          ],
+          "hero": [
+            {
+              "display": "Full width with border",
+              "name": "full_width_with_border"
+            },
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "text_teaser": [
+            {
+              "display": "Center",
+              "name": "center"
+            },
+            {
+              "display": "Special Title",
+              "name": "special_title"
+            }
+          ],
+          "cards_teaser": [
+            {
+              "display": "Carousel",
+              "name": "carousel"
+            },
+            {
+              "display": "Grid",
+              "name": "grid"
+            },
+            {
+              "display": "Stacked",
+              "name": "stacked"
+            }
+          ],
+          "newsletter": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "usp": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "paragraph": [
+            {
+              "display": "Intro",
+              "name": "intro"
+            },
+            {
+              "display": "Two Columns",
+              "name": "two_columns"
+            },
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "testimonial_carousel": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "presentation": [
+            {
+              "display": "Select",
+              "name": "select"
+            }
+          ]
+        },
+        "choices": {
+          "hero": {
+            "type": "Slice",
+            "fieldset": "Hero",
+            "description": "The first content on a page",
+            "icon": "desktop_mac",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header"
+                }
+              },
+              "tagline": {
+                "type": "Text",
+                "config": {
+                  "label": "Tagline"
+                }
+              },
+              "media": {
+                "type": "Link",
+                "config": {
+                  "select": "media",
+                  "label": "Media",
+                  "placeholder": "Insert media file"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "media_teaser": {
+            "type": "Slice",
+            "fieldset": "Media Teaser",
+            "description": "An image with text that links to another page",
+            "icon": "image",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph"
+                }
+              },
+              "direction": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Direction"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Label"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Button Link",
+                  "allowTargetBlank": true,
+                  "select": null
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "text_teaser": {
+            "type": "Slice",
+            "fieldset": "Text Teaser",
+            "description": "A short text with a link",
+            "icon": "text_fields",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert short paragraph"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Label",
+                  "placeholder": "Insert button label"
+                }
+              },
+              "button_url": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Button Url",
+                  "placeholder": "Choose document",
+                  "select": null
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "cards_teaser": {
+            "type": "Slice",
+            "fieldset": "Cards Teaser",
+            "description": "List of Cards that link to another page",
+            "icon": "camera_rear",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert Section header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Short description of section"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 900,
+                    "height": 1200
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Title on Card"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Label",
+                  "placeholder": "Button text"
+                }
+              },
+              "button_link": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["landing_page"],
+                  "label": "Button Link",
+                  "placeholder": "Choose Page"
+                }
+              }
+            }
+          },
+          "newsletter": {
+            "type": "Slice",
+            "fieldset": "Newsletter",
+            "description": "A single input with email",
+            "icon": "email",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "form_id": {
+                "type": "Text",
+                "config": {
+                  "label": "Form Id",
+                  "placeholder": "insert form id"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "email_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "Email placeholder",
+                  "placeholder": "Insert placeholder in input field"
+                }
+              },
+              "button_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Label",
+                  "placeholder": "Insert button label"
+                }
+              },
+              "success_message": {
+                "type": "Text",
+                "config": {
+                  "label": "Success Message",
+                  "placeholder": "Insert success message"
+                }
+              },
+              "error_message": {
+                "type": "Text",
+                "config": {
+                  "label": "Error Message",
+                  "placeholder": "Insert error message"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "usp": {
+            "type": "Slice",
+            "fieldset": "USP",
+            "description": "2 - 4 Columns with Icon and text",
+            "icon": "view_column",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "justify": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Center", "Right"],
+                  "default_value": "Left",
+                  "label": "Justify"
+                }
+              },
+              "icon_size": {
+                "type": "Select",
+                "config": {
+                  "options": ["Big", "Medium", "Small"],
+                  "default_value": "Big",
+                  "label": "Icon Size"
+                }
+              }
+            },
+            "repeat": {
+              "icon": {
+                "type": "Select",
+                "config": {
+                  "options": [
+                    "affirmation",
+                    "aim",
+                    "airplane",
+                    "anchor",
+                    "bank",
+                    "barbeque",
+                    "basketball",
+                    "beach",
+                    "bike",
+                    "book",
+                    "bulb_green",
+                    "bulb",
+                    "calendar",
+                    "church",
+                    "cloud_rain",
+                    "cloud_sun",
+                    "cloud_thunder",
+                    "coffee",
+                    "compass",
+                    "cough",
+                    "creditcard",
+                    "decorations",
+                    "directions",
+                    "dirt",
+                    "discoball",
+                    "donut",
+                    "drink",
+                    "drums",
+                    "envelope",
+                    "feedback",
+                    "fire",
+                    "firework",
+                    "cooking",
+                    "gavel",
+                    "genders",
+                    "germ",
+                    "gift",
+                    "give",
+                    "globe_compass",
+                    "globe_handshake",
+                    "globe_man",
+                    "group_chat",
+                    "group_restrictions",
+                    "hand_growth",
+                    "hand_wash",
+                    "hand",
+                    "handshake",
+                    "head_heart",
+                    "head_like",
+                    "icecream",
+                    "idea",
+                    "info",
+                    "leaves",
+                    "letter",
+                    "location",
+                    "love_letter",
+                    "makeup",
+                    "mask",
+                    "medal",
+                    "medic_case",
+                    "medic",
+                    "microphone_notes",
+                    "microphone_retro",
+                    "mobile",
+                    "money_growth",
+                    "note",
+                    "paperplane",
+                    "party",
+                    "phonecall",
+                    "piggy_bank",
+                    "pizza_slice",
+                    "pizza",
+                    "plate_cutlery_2",
+                    "plate_cutlery",
+                    "popcorn",
+                    "power",
+                    "radar",
+                    "reach_out",
+                    "rocket",
+                    "signs",
+                    "solar",
+                    "speaker",
+                    "sportsfield",
+                    "stars",
+                    "statistics_2",
+                    "statistics",
+                    "study",
+                    "tape",
+                    "tools",
+                    "traffic_cone",
+                    "trees",
+                    "trophy",
+                    "warning",
+                    "weight",
+                    "worker_man",
+                    "worker_woman",
+                    "writing"
+                  ],
+                  "default_value": "affirmation",
+                  "label": "Icon"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
+                }
+              }
+            }
+          },
+          "paragraph": {
+            "type": "Slice",
+            "fieldset": "Paragraph",
+            "description": "A Text paragraph",
+            "icon": "format_color_text",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "testimonial_carousel": {
+            "type": "Slice",
+            "fieldset": "Testimonial Carousel",
+            "description": "Multiple testimonials in a carousel",
+            "icon": "people",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert color scheme"
+                }
+              },
+              "direction": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Direction"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 900,
+                    "height": 1200
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert testimonial"
+                }
+              },
+              "author": {
+                "type": "Link",
+                "config": {
+                  "select": "document",
+                  "customtypes": ["person"],
+                  "label": "Author",
+                  "placeholder": "Select person"
+                }
+              }
+            }
+          },
+          "presentation": {
+            "type": "Slice",
+            "fieldset": "Presentation",
+            "description": "A collection of items in a presentable way",
+            "icon": "collections_bookmark",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Inser color scheme name"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "select_placeholder": {
+                "type": "Text",
+                "config": {
+                  "label": "Select Placeholder",
+                  "placeholder": "Insert placeholder"
+                }
+              },
+              "collection": {
+                "type": "Select",
+                "config": {
+                  "options": ["All Teams"],
+                  "label": "Collection",
+                  "placeholder": "Select collection to present"
+                }
+              }
+            },
+            "repeat": {}
+          }
+        }
+      }
+    }
+  },
+  "Navigation": {
+    "uid": {
+      "type": "UID",
+      "config": {
+        "label": "Slug",
+        "placeholder": "Insert url for page"
+      }
+    }
+  },
+  "SEO": {
+    "meta_title": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Title",
+        "placeholder": "Insert SEO friendly page title"
+      }
+    },
+    "meta_description": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Description",
+        "placeholder": "Insert SEO friendly page description"
+      }
+    },
+    "meta_index_page": {
+      "type": "Boolean",
+      "config": {
+        "placeholder_false": "No",
+        "placeholder_true": "Yes",
+        "default_value": true,
+        "label": "Meta Index Page"
+      }
+    },
+    "meta_twitter_creator": {
+      "type": "Text",
+      "config": {
+        "label": "Meta Twitter Creator"
+      }
+    },
+    "meta_type": {
+      "type": "Select",
+      "config": {
+        "options": ["Website", "Article", "Blog"],
+        "label": "Meta Type"
+      }
+    },
+    "meta_twitter_card": {
+      "type": "Select",
+      "config": {
+        "options": ["Summary", "Summary Large Image", "App", "Player"],
+        "label": "Meta Twitter Card"
+      }
+    },
+    "meta_image": {
+      "type": "Image",
+      "config": {
+        "constraint": {
+          "width": 1200,
+          "height": 627
+        },
+        "thumbnails": [],
+        "label": "Meta Image"
+      }
+    }
+  }
+}

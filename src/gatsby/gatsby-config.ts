@@ -9,7 +9,7 @@ export default (_tsProps: Record<string, string>, themeProps: TThemePlugin): Gat
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'pageTypes',
-        path: path.resolve(__dirname, '../templates/pages'),
+        path: path.resolve(__dirname, '../pageTypes'),
       },
     },
     {
@@ -21,7 +21,10 @@ export default (_tsProps: Record<string, string>, themeProps: TThemePlugin): Gat
         schemas: {
           site_settings: require('../../custom_types/site_settings.json'),
           navigation: require('../../custom_types/navigation.json'),
-          landing_page: require('../../custom_types/landing_page.json'),
+          standard_page: require('../../custom_types/standard_page.json'),
+          team: require('../../custom_types/team.json'),
+          person: require('../../custom_types/person.json'),
+          location: require('../../custom_types/location.json'),
         },
       },
     },

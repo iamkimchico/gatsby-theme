@@ -1,12 +1,12 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { TColorScheme, TSizeNames } from '../types';
+import { TSizeNames } from '../types';
 
 type TProps = {
   size?: TSizeNames;
   margin?: TSizeNames;
   variant?: string;
-  colorScheme: TColorScheme;
+  color: string;
 };
 
 const StyledWrapper = styled.span<Partial<TProps>>`
@@ -21,28 +21,38 @@ const StyledWrapper = styled.span<Partial<TProps>>`
 `;
 
 const StyledButton = styled.button<Partial<TProps>>`
-  font-size: 1em;
   text-decoration: none;
   font-weight: 600;
-  font-family: ${({ theme }) => theme.design.primary_font};
   outline: none;
   border: none;
   cursor: pointer;
-  padding-left: 2em;
-  padding-right: 2em;
-  height: 3em;
   width: max-content;
   transition: all 0.2s ease-in-out;
 
-  ${({ variant, theme, colorScheme }) => {
+  ${({ theme, color }) => css`
+    background-color: ${color};
+    color: ${theme.design.white_color};
+    font-family: ${theme.design.primary_font};
+  `}
+
+  ${({ theme, variant }) => {
     switch (variant) {
       case 'cta':
-        return css``;
+        return css`
+          font-size: 1em;
+          height: 3em;
+          padding-left: 2em;
+          padding-right: 2em;
+          color: ${theme.design.black_color};
+        `;
       default:
         return css`
-          /* border-radius: 3em; */
-          background-color: ${theme.design[`${colorScheme}_color`]};
-          color: ${theme.design.white_color};
+          font-size: 0.8em;
+          padding-left: 2em;
+          padding-right: 2em;
+          height: 3em;
+
+          border-radius: 3em;
           box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
           &:hover {
             transform: translateY(-0.2em);
@@ -52,9 +62,9 @@ const StyledButton = styled.button<Partial<TProps>>`
   }}
 `;
 
-const Button: React.FC<TProps> = ({ children, size, margin, variant, colorScheme }) => (
+const Button: React.FC<TProps> = ({ children, size, margin, variant, color }) => (
   <StyledWrapper size={size} margin={margin}>
-    <StyledButton colorScheme={colorScheme} variant={variant}>
+    <StyledButton color={color} variant={variant}>
       {children}
     </StyledButton>
   </StyledWrapper>

@@ -36,22 +36,15 @@ const GlobalStyles = createGlobalStyle`
     `}
 `;
 
-const Baseline = ({ theme }: any) => {
-  const primaryFont = theme?.design?.primary_font;
-  return (
-    <>
-      <Helmet>
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href={`https://fonts.googleapis.com/css2?family=${primaryFont}:ital,wght@0,400;0,700;1,800&display=swap`}
-          rel="stylesheet"
-        />
-      </Helmet>
-      <GlobalStyles />
-    </>
-  );
-};
+const Baseline = ({ theme }: any) => (
+  //
 
+  <>
+    <Helmet>
+      <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+      <link rel="stylesheet" href="https://use.typekit.net/zpz4uik.css" />
+    </Helmet>
+    <GlobalStyles />
+  </>
+);
 export default withTheme(Baseline);
