@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
+import { getColors } from '../../helpers';
 import Icon from '../../icon';
 import { Body, Heading } from '../../typography';
 import { replaceEach } from '../../utils';
@@ -39,20 +40,21 @@ const StyledParagraphWrapper = styled.div``;
 
 const UspClassic = ({ primary, items }: any) => {
   const { icon_size, justify } = primary;
+  const colors = getColors(primary.color_scheme);
   return (
     <StyledWrapper>
-      {items.map((item, i) => (
-        <StyledColumnWrapper key={item.header} justify={justify.toLowerCase()}>
+      {items.map((item: any, i: number) => (
+        <StyledColumnWrapper key={item.header} justify={justify?.toLowerCase()}>
           <Icon
             icon={item.icon}
             size={icon_size === 'Big' ? 'LG' : icon_size === 'Medium' ? 'MD' : 'SM'}
-            color="Black"
+            colorScheme={colors}
           />
-          <Heading color="black" size="h5">
+          <Heading color={colors.black} size="h5">
             {item.header}
           </Heading>
           <StyledParagraphWrapper>
-            <Body color="black">
+            <Body color={colors.black}>
               <p
                 dangerouslySetInnerHTML={{
                   __html: replaceEach(item.paragraph, '\n', '<br>'),

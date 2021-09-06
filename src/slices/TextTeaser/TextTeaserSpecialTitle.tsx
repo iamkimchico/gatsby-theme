@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { getColors } from '../../helpers';
+import { getColors, resolveLink } from '../../helpers';
 import { useViewport } from '../../hooks';
 import { Button } from '../../inputs';
 import { TSizeNames } from '../../types';
@@ -45,7 +45,7 @@ const StyledBottomWrapper = styled.div`
   flex-flow: column;
 `;
 
-const TitleSpecial: React.FC = ({ primary }: any) => {
+const TextTeaserSpecialTitle: React.FC = ({ primary }: any) => {
   const viewport = useViewport().size;
 
   const colors = getColors(primary.color_scheme);
@@ -56,7 +56,7 @@ const TitleSpecial: React.FC = ({ primary }: any) => {
         <Heading size="h1" variation="special" color={colors.base}>
           {primary.header}
         </Heading>
-        <Link href={primary.button_url.url} target={primary.button_url.target}>
+        <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
           <Button color={colors.major}>{primary.button_label}</Button>
         </Link>
       </StyledBottomWrapper>
@@ -64,4 +64,4 @@ const TitleSpecial: React.FC = ({ primary }: any) => {
   );
 };
 
-export default TitleSpecial;
+export default TextTeaserSpecialTitle;

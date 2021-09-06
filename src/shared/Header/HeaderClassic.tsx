@@ -114,7 +114,11 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
       <GlobalStyle menuToggled={menuToggled} />
       <StyledHeader viewport={viewport} scrolled={isScrolled} menuToggled={menuToggled} menuColor={colors.base}>
         <StyledContent>
-          <StyledGroup />
+          <StyledGroup>
+            <Link href="/" target="_self">
+              Logo
+            </Link>
+          </StyledGroup>
           <StyledGroup>
             {cta && (
               <Link href={cta.url} target={cta.target}>

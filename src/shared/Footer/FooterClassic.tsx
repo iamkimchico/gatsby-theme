@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, useTheme } from 'styled-components';
 import { groupByProp } from '../../utils';
 import { Body, Link } from '../../typography';
 import { Socials } from '..';
@@ -51,23 +51,26 @@ const StyledAreaHeader = styled(Body)`
 `;
 
 const FooterClassic: React.FC<TProps> = ({ data }) => {
+  const theme = useTheme();
   const linkLists = groupByProp<any>(data.items, ['link_list']);
 
   return (
     <StyledWrapper>
       <StyledColumn direction="column">
-        <StyledLogo>Logo</StyledLogo>
-        <Socials size="SM" color="Black" />
+        <Link href="/" target="_self">
+          <StyledLogo>Logo</StyledLogo>
+        </Link>
+        <Socials size="SM" color={theme.base.shades[4]} />
       </StyledColumn>
       <StyledColumn direction="row" justify="space-between">
         {Object.keys(linkLists).map((area) => (
           <StyledLinkList key={area}>
-            <StyledAreaHeader bold color="black">
+            <StyledAreaHeader bold color={theme.base.shades[2]}>
               {data.primary[`${area.toLowerCase()}_link_list_header`]}
             </StyledAreaHeader>
             {linkLists[area].map(({ link_url, link_label }) => (
               <Link key={link_label + link_url.url} href={resolveLink(link_url)} target={link_url.target}>
-                <Body color="black">{link_label}</Body>
+                <Body color={theme.base.shades[3]}>{link_label}</Body>
               </Link>
             ))}
           </StyledLinkList>

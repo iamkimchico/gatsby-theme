@@ -1,8 +1,7 @@
 import { useTheme } from 'styled-components';
+import { TColors } from '../types';
 
-export const getColors = (
-  scheme: string,
-): { base: string; major: string; minor: string; black: string; white: string } => {
+export const getColors = (scheme: string): TColors => {
   const theme = useTheme();
   const schemas = theme.design.color_schemas;
 

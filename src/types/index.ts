@@ -32,3 +32,6 @@ export type TThemePlugin = {
   prismicRepo: string;
   prismicToken: string;
 };
+
+export type TColors = { base: string; major: string; minor: string; black: string; white: string };
+export type TDirection = 'left' | 'right';

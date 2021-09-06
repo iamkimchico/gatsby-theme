@@ -46,11 +46,11 @@ const StandardPage: React.FC<TProps> = ({ data }) => {
       {content.show_page_title && (
         <Grid row>
           <StyledHeading>
-            <Heading size="h1" color={colors.base}>
+            <Heading size="h1" color={colors.major}>
               {content.page_title.raw[0].text}
             </Heading>
             {content.show_page_description && (
-              <Body color={colors.black} size="LG">
+              <Body color={colors.base} size="LG">
                 {content.page_description}
               </Body>
             )}
@@ -139,26 +139,14 @@ export const prismic = graphql`
               color_scheme
             }
           }
-          ... on PrismicStandardPageBodyNewsletter {
-            id
-            slice_type
-            slice_label
-            primary {
-              button_label
-              email_placeholder
-              error_message
-              form_id
-              header
-              success_message
-              color_scheme
-            }
-          }
           ... on PrismicStandardPageBodyUsp {
             id
             slice_label
             slice_type
             primary {
               color_scheme
+              justify
+              icon_size
             }
             items {
               header
@@ -215,6 +203,71 @@ export const prismic = graphql`
               header
               select_placeholder
             }
+          }
+          ... on PrismicStandardPageBodyInfoBox {
+            id
+            slice_label
+            slice_type
+            primary {
+              color_scheme
+              direction
+              header
+              paragraph
+              image {
+                url
+              }
+            }
+          }
+          ... on PrismicStandardPageBodyLinkList {
+            id
+            slice_label
+            slice_type
+            items {
+              link_label
+              link_url {
+                document {
+                  ... on PrismicStandardPage {
+                    id
+                    uid
+                  }
+                }
+                url
+                target
+              }
+            }
+            primary {
+              color_scheme
+              header
+            }
+          }
+          ... on PrismicStandardPageBodyImageInfoList {
+            id
+            slice_label
+            slice_type
+            primary {
+              color_scheme
+              header
+            }
+            items {
+              header
+              image {
+                url
+                alt
+              }
+              paragraph
+              image_description
+            }
+          }
+          ... on PrismicStandardPageBodyLocations {
+            id
+            primary {
+              color_scheme
+              header
+              paragraph
+              direction
+            }
+            slice_label
+            slice_type
           }
         }
         page_description

@@ -88,6 +88,7 @@ const MenuClassic: React.FC<TProps> = ({ data }) => {
               </StyledAreaHeader>
               {linkLists[area].map(({ link_url, link_label }) => (
                 <Link key={link_label + link_url.url} href={resolveLink(link_url)} target={link_url.target}>
+                  {console.log(link_url)}
                   <Heading size="h5" color={colors.white}>
                     {link_label}
                   </Heading>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { getColors } from '../../helpers';
+import { getColors, resolveLink } from '../../helpers';
 import { Button } from '../../inputs';
 import { Body, Heading, Link } from '../../typography';
 
@@ -31,7 +31,7 @@ const StyledWrapper = styled.div`
   }
 `;
 
-const Center: React.FC = ({ primary }: any) => {
+const TextTeaserClassic: React.FC = ({ primary }: any) => {
   const colors = getColors(primary.color_scheme);
   return (
     <StyledWrapper>
@@ -39,11 +39,11 @@ const Center: React.FC = ({ primary }: any) => {
         {primary.paragraph}
       </Body>
 
-      <Link href={primary.button_url.url} target={primary.button_url.target}>
+      <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
         <Button color={colors.major}>{primary.button_label}</Button>
       </Link>
     </StyledWrapper>
   );
 };
 
-export default Center;
+export default TextTeaserClassic;

@@ -63,7 +63,7 @@ const Burgermenu: React.FC<TProps> = ({ onClick, toggled, label }) => {
   const theme = useTheme();
   const viewport = useViewport();
   const { isScrolled } = useScroll();
-  const color = toggled ? theme.design.white_color : isScrolled ? theme.design.black_color : theme.design.white_color;
+  const color = toggled ? theme.design.white_color : isScrolled ? theme.design.black_color : theme.design.black_color;
   return (
     <StyledWrapper onClick={onClick} toggled={toggled}>
       <Heading size="h6" color={color}>

@@ -31,7 +31,7 @@ const ParagraphIntro: React.FC = ({ primary }: any) => {
   const colors = getColors(primary.color_scheme);
   return (
     <StyledWrapper>
-      <Body size="LG" color="blue" align="center">
+      <Body size="LG" color={colors.base} align="center">
         {primary.paragraph}
       </Body>
     </StyledWrapper>

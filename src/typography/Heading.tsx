@@ -75,6 +75,7 @@ const StyledHeading = styled.h1<Partial<TProps>>`
           line-height: 0.99em;
           font-family: ${theme.design.special_font};
           text-transform: none;
+          font-style: normal;
         `;
 
       default:

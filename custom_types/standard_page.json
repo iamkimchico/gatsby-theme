@@ -45,6 +45,28 @@
       "fieldset": "Slice zone",
       "config": {
         "labels": {
+          "hero": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            },
+            {
+              "display": "Full Width With Border",
+              "name": "full_width_with_border"
+            }
+          ],
+          "cards_teaser": [
+            {
+              "display": "Carousel",
+              "name": "carousel"
+            }
+          ],
+          "info_box": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
           "media_teaser": [
             {
               "display": "Background Image",
@@ -55,64 +77,24 @@
               "name": "edge_image"
             }
           ],
-          "hero": [
-            {
-              "display": "Full width with border",
-              "name": "full_width_with_border"
-            },
-            {
-              "display": "Classic",
-              "name": "classic"
-            }
-          ],
-          "text_teaser": [
-            {
-              "display": "Center",
-              "name": "center"
-            },
-            {
-              "display": "Special Title",
-              "name": "special_title"
-            }
-          ],
-          "cards_teaser": [
-            {
-              "display": "Carousel",
-              "name": "carousel"
-            },
-            {
-              "display": "Grid",
-              "name": "grid"
-            },
-            {
-              "display": "Stacked",
-              "name": "stacked"
-            }
-          ],
-          "newsletter": [
-            {
-              "display": "Classic",
-              "name": "classic"
-            }
-          ],
-          "usp": [
-            {
-              "display": "Classic",
-              "name": "classic"
-            }
-          ],
           "paragraph": [
             {
               "display": "Intro",
               "name": "intro"
+            }
+          ],
+          "presentation": [
+            {
+              "display": "Select",
+              "name": "select"
             },
             {
-              "display": "Two Columns",
-              "name": "two_columns"
+              "display": "Grid Numbered",
+              "name": "grid_numbered"
             },
             {
-              "display": "Classic",
-              "name": "classic"
+              "display": "Grid Image",
+              "name": "grid_image"
             }
           ],
           "testimonial_carousel": [
@@ -121,10 +103,42 @@
               "name": "classic"
             }
           ],
-          "presentation": [
+          "text_teaser": [
             {
-              "display": "Select",
-              "name": "select"
+              "display": "Classic",
+              "name": "classic"
+            },
+            {
+              "display": "Special Title",
+              "name": "special_title"
+            },
+            {
+              "display": "Two Column Colored",
+              "name": "two_column_colored"
+            }
+          ],
+          "usp": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "link_list": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
+          ],
+          "image_info_list": [
+            {
+              "display": "Horizontal",
+              "name": "horizontal"
+            }
+          ],
+          "locations": [
+            {
+              "display": "Classic",
+              "name": "classic"
             }
           ]
         },
@@ -351,65 +365,6 @@
                 }
               }
             }
-          },
-          "newsletter": {
-            "type": "Slice",
-            "fieldset": "Newsletter",
-            "description": "A single input with email",
-            "icon": "email",
-            "display": "list",
-            "non-repeat": {
-              "color_scheme": {
-                "type": "Text",
-                "config": {
-                  "label": "Color Scheme",
-                  "placeholder": "Insert name of color scheme"
-                }
-              },
-              "form_id": {
-                "type": "Text",
-                "config": {
-                  "label": "Form Id",
-                  "placeholder": "insert form id"
-                }
-              },
-              "header": {
-                "type": "Text",
-                "config": {
-                  "label": "Header",
-                  "placeholder": "Insert header"
-                }
-              },
-              "email_placeholder": {
-                "type": "Text",
-                "config": {
-                  "label": "Email placeholder",
-                  "placeholder": "Insert placeholder in input field"
-                }
-              },
-              "button_label": {
-                "type": "Text",
-                "config": {
-                  "label": "Button Label",
-                  "placeholder": "Insert button label"
-                }
-              },
-              "success_message": {
-                "type": "Text",
-                "config": {
-                  "label": "Success Message",
-                  "placeholder": "Insert success message"
-                }
-              },
-              "error_message": {
-                "type": "Text",
-                "config": {
-                  "label": "Error Message",
-                  "placeholder": "Insert error message"
-                }
-              }
-            },
-            "repeat": {}
           },
           "usp": {
             "type": "Slice",
@@ -673,9 +628,196 @@
               "collection": {
                 "type": "Select",
                 "config": {
-                  "options": ["All Teams"],
+                  "options": ["All Teams", "All Business Values", "All Locations"],
                   "label": "Collection",
                   "placeholder": "Select collection to present"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "info_box": {
+            "type": "Slice",
+            "fieldset": "Info Box",
+            "description": "An image with a header and a text",
+            "icon": "art_track",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert color scheme name"
+                }
+              },
+              "direction": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Direction"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
+                }
+              },
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 900,
+                    "height": 1200
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "link_list": {
+            "type": "Slice",
+            "fieldset": "Link List",
+            "description": "A list of links",
+            "icon": "directions",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              }
+            },
+            "repeat": {
+              "link_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Link Label",
+                  "placeholder": "Insert label"
+                }
+              },
+              "link_url": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Link Url",
+                  "placeholder": "Select Link",
+                  "select": null
+                }
+              }
+            }
+          },
+          "image_info_list": {
+            "type": "Slice",
+            "fieldset": "Image Info List",
+            "description": "A selectable list with text and image ",
+            "icon": "playlist_play",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              }
+            },
+            "repeat": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "width": 1920,
+                    "height": 1080
+                  },
+                  "thumbnails": [],
+                  "label": "Image"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
+                }
+              },
+              "image_description": {
+                "type": "Text",
+                "config": {
+                  "label": "Image Description",
+                  "placeholder": "Insert image description"
+                }
+              }
+            }
+          },
+          "locations": {
+            "type": "Slice",
+            "fieldset": "Locations",
+            "description": "A list of locations",
+            "icon": "location_on",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "direction": {
+                "type": "Select",
+                "config": {
+                  "options": ["Left", "Right"],
+                  "default_value": "Left",
+                  "label": "Direction"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
                 }
               }
             },

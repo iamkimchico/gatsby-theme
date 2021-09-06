@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Icon from '../../icon';
-import { TIconNames, TSizeNames } from '../../types';
+import { TColors, TIconNames, TSizeNames } from '../../types';
 import { Link } from '../../typography';
 
 const query = graphql`

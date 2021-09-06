@@ -14,6 +14,13 @@ const query = graphql`
               link_label
               link_list
               link_url {
+                link_type
+                document {
+                  ... on PrismicStandardPage {
+                    id
+                    uid
+                  }
+                }
                 url
                 target
               }

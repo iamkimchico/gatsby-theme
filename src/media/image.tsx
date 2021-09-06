@@ -1,12 +1,13 @@
-import React from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css, useTheme } from 'styled-components';
 import { TBgPositions, TBgSizes } from '../types';
+import { Body } from '../typography';
 
 type TProps = {
   url: string;
   size: TBgSizes;
   position: TBgPositions;
-  helpText?: string;
+  description?: string;
   alt: string;
 };
 
@@ -24,18 +25,54 @@ const StyledImage = styled.figure<Partial<TProps>>`
     `}
 `;
 
-const Image: React.FC<TProps> = ({ url, size, children, position, helpText, alt }) => (
-  <>
-    <StyledImage url={url} size={size} position={position}>
-      {children}
-    </StyledImage>
-    {helpText && (
-      <div>{helpText}</div>
-      // <HelpText floating align="center" margin="small">
-      //   {helpText}
-      // </HelpText>
-    )}
-  </>
-);
+const StyledDescription = styled.div<{ show: boolean }>`
+  position: absolute;
+  bottom: 1em;
+  width: 100%;
+  display: grid;
+  justify-items: center;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  ${({ show }) =>
+    show &&
+    css`
+      opacity: 1;
+      transform: translateY(-0.5em);
+    `}
+
+  p {
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+    width: max-content;
+    padding: 1em 2.5em 1em 2.5em;
+    background-color: white;
+    border-radius: 2em;
+  }
+`;
+
+const Image: React.FC<TProps> = ({ url, size, children, position, description, alt }) => {
+  const theme = useTheme();
+  const [showDescription, setShowDescription] = useState(false);
+  return (
+    <>
+      <StyledImage
+        url={url}
+        size={size}
+        position={position}
+        alt={alt}
+        onMouseEnter={() => setShowDescription(true)}
+        onMouseLeave={() => setShowDescription(false)}
+      >
+        {children}
+        {description && (
+          <StyledDescription show={showDescription}>
+            <Body size="SM" color={theme.base.shades[3]} align="center">
+              {description}
+            </Body>
+          </StyledDescription>
+        )}
+      </StyledImage>
+    </>
+  );
+};
 
 export default Image;

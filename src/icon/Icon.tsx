@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import styled, { css, ThemeContext } from 'styled-components';
-import { TIconNames, TSizeNames } from '../types';
+import { TColors, TIconNames, TSizeNames } from '../types';
 import * as Icons from './IconList';
 
 type TProps = {
   icon: TIconNames;
-  color: string;
+  color?: string;
+  colorScheme?: TColors;
   size: TSizeNames;
 };
 
@@ -48,27 +49,19 @@ const StyledIcon = styled.div<TStyledProps>`
   `};
 `;
 
-export const Icon: React.FC<TProps> = ({ icon, color, size }) => {
-  const theme = useContext(ThemeContext);
+export const Icon: React.FC<TProps> = ({ icon, color, colorScheme, size }) => {
   const IconComponent = Icons[icon];
-
-  const primary = color;
-  const secondary = color;
+  let primary = 'black';
+  let secondary = 'black';
   const shadow = 'rgba(0,0,0,0.1)';
 
-  // switch (theme) {
-  //   case "black":
-  //     primary = colors.black
-  //     secondary = colors.black
-  //     break
-  //   case "white":
-  //     primary = colors[theme]
-  //     secondary = colors[theme]
-  //     break
-  //   default:
-  //     primary = colors.black
-  //     secondary = colors.black
-  // }
+  if (color) {
+    primary = color;
+    secondary = color;
+  } else if (colorScheme) {
+    primary = colorScheme.base;
+    secondary = colorScheme.major;
+  }
 
   return (
     <StyledIcon size={size} primary={primary} secondary={secondary} shadow={shadow}>

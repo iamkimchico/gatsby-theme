@@ -25,6 +25,7 @@ export default (_tsProps: Record<string, string>, themeProps: TThemePlugin): Gat
           team: require('../../custom_types/team.json'),
           person: require('../../custom_types/person.json'),
           location: require('../../custom_types/location.json'),
+          business_value: require('../../custom_types/business_value.json'),
         },
       },
     },

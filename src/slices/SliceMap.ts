@@ -7,3 +7,7 @@ export { default as Usp } from './Usp';
 export { default as Paragraph } from './Paragraph';
 export { default as TestimonialCarousel } from './TestimonialCarousel';
 export { default as Presentation } from './Presentation';
+export { default as InfoBox } from './InfoBox';
+export { default as LinkList } from './LinkList';
+export { default as ImageInfoList } from './ImageInfoList';
+export { default as Locations } from './Locations';
