@@ -12,12 +12,16 @@ type TProps = {
   variation?: 'normal' | 'special';
   className?: any;
 };
+const StyledWrapper = styled.div<Partial<TProps>>`
+  ${({ theme, margin }) => css`
+    margin-top: ${theme.base.spacing[margin || 'XS']};
+    margin-bottom: ${theme.base.spacing[margin || 'XS']};
+  `}
+`;
 
 const StyledHeading = styled.h1<Partial<TProps>>`
   letter-spacing: 'initial';
-  ${({ theme, align, margin, color }) => css`
-    margin-top: ${theme.base.spacing[margin || 'XS']};
-    margin-bottom: ${theme.base.spacing[margin || 'XS']};
+  ${({ align, color }) => css`
     color: ${color};
     text-align: ${align};
   `}
@@ -93,17 +97,11 @@ const Heading: React.FC<TProps> = ({ size, children, align, margin, variation, c
     // render on every breakpoint change
   }, [breakpoint]);
   return (
-    <StyledHeading
-      as={size}
-      color={color}
-      align={align}
-      size={size}
-      margin={margin}
-      variation={variation}
-      className={className}
-    >
-      {children}
-    </StyledHeading>
+    <StyledWrapper margin={margin}>
+      <StyledHeading as={size} color={color} align={align} size={size} variation={variation} className={className}>
+        {children}
+      </StyledHeading>
+    </StyledWrapper>
   );
 };
 

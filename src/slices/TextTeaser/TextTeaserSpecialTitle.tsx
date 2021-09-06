@@ -18,8 +18,8 @@ const StyledWrapper = styled.div<{ viewport: TSizeNames }>`
     margin-top: ${theme.base.spacing.MX};
     margin-bottom: ${theme.base.spacing.MX};
 
-    @media ${theme.base.media.MD} {
-      width: 50em;
+    @media ${theme.base.media.SM} {
+      width: 43em;
     }
 
     > span {
@@ -57,7 +57,9 @@ const TextTeaserSpecialTitle: React.FC = ({ primary }: any) => {
           {primary.header}
         </Heading>
         <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
-          <Button color={colors.major}>{primary.button_label}</Button>
+          <Button shape="arrow" color={colors.major}>
+            {primary.button_label}
+          </Button>
         </Link>
       </StyledBottomWrapper>
     </StyledWrapper>

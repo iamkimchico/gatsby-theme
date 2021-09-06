@@ -38,7 +38,11 @@ const Textfield: React.FC<TProps> = ({ placeholder, buttonLabel, name, type, req
   <>
     <StyledWrapper>
       <StyledInput name={name} placeholder={placeholder} type={type} required={required} />
-      {buttonLabel && <Button color={color}>{buttonLabel}</Button>}
+      {buttonLabel && (
+        <Button color={color} shape="pill">
+          {buttonLabel}
+        </Button>
+      )}
     </StyledWrapper>
   </>
 );

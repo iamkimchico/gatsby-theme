@@ -5,10 +5,10 @@ import { TSizeNames } from '../types';
 type TProps = {
   size?: TSizeNames;
   margin?: TSizeNames;
-  variant?: string;
   color: string;
   className?: any;
   onClick?: () => void;
+  shape: 'square' | 'rounded' | 'pill' | 'arrow';
 };
 
 const StyledWrapper = styled.span<Partial<TProps>>`
@@ -38,9 +38,9 @@ const StyledButton = styled.button<Partial<TProps>>`
     font-family: ${theme.design.primary_font};
   `}
 
-  ${({ theme, variant, color }) => {
-    switch (variant) {
-      case 'cta':
+  ${({ theme, shape, color }) => {
+    switch (shape) {
+      case 'square':
         return css`
           font-size: 1em;
           height: 3em;
@@ -48,7 +48,16 @@ const StyledButton = styled.button<Partial<TProps>>`
           padding-right: 2em;
           color: ${theme.design.black_color};
         `;
-      case 'link':
+      case 'rounded':
+        return css`
+          font-size: 1em;
+          height: 3em;
+          padding-left: 2em;
+          padding-right: 2em;
+          border-radius: 0.2em;
+          color: ${theme.design.white_color};
+        `;
+      case 'arrow':
         return css`
           font-size: 1.1em;
           color: ${color};
@@ -93,9 +102,9 @@ const StyledButton = styled.button<Partial<TProps>>`
   }}
 `;
 
-const Button: React.FC<TProps> = ({ children, size, margin, variant, color, className, onClick }) => (
+const Button: React.FC<TProps> = ({ children, size, margin, color, className, onClick, shape }) => (
   <StyledWrapper size={size}>
-    <StyledButton color={color} variant={variant} margin={margin} className={className} onClick={onClick}>
+    <StyledButton color={color} shape={shape} margin={margin} className={className} onClick={onClick}>
       {children}
     </StyledButton>
   </StyledWrapper>

@@ -5,30 +5,31 @@ import { Heading } from '../../typography';
 import { Image } from '../../media';
 
 const StyledWrapper = styled.div`
-  margin-top: 5em;
-  width: 100%;
-  grid-column-start: outer-xxx-left;
-  grid-column-end: outer-xxx-right;
-  min-height: 20em;
-  height: 70vh;
-  max-height: 70em;
-  display: grid;
-  align-items: center;
-  justify-items: center;
-  > * {
-    grid-area: 1/1/2/2;
-  }
-  h1 {
-    padding: 10%;
-    max-width: 8em;
-    position: relative;
-    margin: auto;
-    text-transform: uppercase;
-    font-style: italic;
-    font-weight: 800;
-  }
-
   ${({ theme }) => css`
+    margin-top: 5em;
+    width: 100%;
+    grid-column-start: outer-xxx-left;
+    grid-column-end: outer-xxx-right;
+    height: 60em;
+    max-height: 70vh;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+    > * {
+      grid-area: 1/1/2/2;
+    }
+
+    h1 {
+      padding: 10%;
+      max-width: 8em;
+      position: relative;
+      margin: auto;
+      text-transform: uppercase;
+      font-style: italic;
+      font-weight: 800;
+    }
+
     @media ${theme.base.media.SM} {
       h1 {
         padding: 10%;

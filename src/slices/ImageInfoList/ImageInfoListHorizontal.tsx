@@ -13,11 +13,14 @@ const StyledWrapper = styled.div`
   margin-bottom: 8em;
 `;
 
+const StyledItems = styled.div`
+  overflow: hidden;
+`;
 const StyledItem = styled.div<{ show: boolean }>`
   width: 100%;
   display: ${({ show }) => (show ? 'block' : 'none')};
   figure {
-    height: 30em;
+    height: 20em;
   }
 `;
 
@@ -50,25 +53,32 @@ const ImageInfoListHorizontal: React.FC = ({ primary, items }: any) => {
       <Heading size="h3" align="center" color={colors.major} margin="SM">
         {primary.header}
       </Heading>
-      {items.map((item: any, i: number) => (
-        <StyledItem show={selected === i} key={item.paragraph}>
-          <Image
-            url={item.image.url}
-            size={viewport > 2 ? 'cover' : 'contain'}
-            position="center center"
-            description={item.image_description}
-            alt=""
-          />
-          <StyledTextWrapper>
-            <Body align="center" color="black" margin="SM">
-              {item.paragraph}
-            </Body>
-          </StyledTextWrapper>
-        </StyledItem>
-      ))}
+      <StyledItems>
+        {items.map((item: any, i: number) => (
+          <StyledItem show={selected === i} key={item.paragraph}>
+            <Image
+              url={item.image.url}
+              size={viewport > 2 ? 'cover' : 'contain'}
+              position="center center"
+              description={item.image_description}
+              alt=""
+            />
+            <StyledTextWrapper>
+              <Body align="center" color="black" margin="SM">
+                {item.paragraph}
+              </Body>
+            </StyledTextWrapper>
+          </StyledItem>
+        ))}
+      </StyledItems>
       <StyledControls>
         {items.map((item: any, i: number) => (
-          <Button key={item.header} color={selected === i ? colors.major : colors.base} onClick={() => setSelected(i)}>
+          <Button
+            shape="pill"
+            key={item.header}
+            color={selected === i ? colors.major : colors.base}
+            onClick={() => setSelected(i)}
+          >
             {item.header}
           </Button>
         ))}

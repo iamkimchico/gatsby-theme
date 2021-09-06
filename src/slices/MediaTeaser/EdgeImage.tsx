@@ -11,12 +11,12 @@ type TStyledProps = {
 
 const StyledWrapper = styled.div<TStyledProps>`
   text-decoration: none;
-  grid-column-start: edge-left;
-  grid-column-end: edge-right;
+  grid-column-start: outer-xxx-left;
+  grid-column-end: outer-xxx-right;
   ${({ theme, direction }) => css`
-    margin-top: ${theme.base.spacing.SM};
-    margin-bottom: ${theme.base.spacing.SM};
-    @media ${theme.base.media.MD} {
+    margin-top: ${theme.base.spacing.LG};
+    margin-bottom: ${theme.base.spacing.LG};
+    @media ${theme.base.media.SM} {
       grid-column-start: ${direction === 'right' ? 'outer-xxx-left' : 'edge-left'};
       grid-column-end: ${direction === 'right' ? 'edge-right' : 'outer-xxx-right'};
     }
@@ -30,12 +30,13 @@ const StyledContent = styled.div<TStyledProps>`
   justify-items: center;
   width: 100%;
   height: 100%;
-  grid-gap: 3em;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr;
+  grid-gap: 2em;
 
   ${({ theme, direction }) => css`
-    @media ${theme.base.media.MD} {
+    @media ${theme.base.media.SM} {
+      grid-gap: 3em;
       grid-template-columns: ${direction === 'right' ? 'max-content 1fr' : '1fr max-content'};
       grid-template-rows: 1fr;
       grid-gap: 3em;
@@ -64,7 +65,7 @@ const StyledTextWrapper = styled.div<TStyledProps>`
   }
 
   ${({ theme, direction }) => css`
-    @media ${theme.base.media.MD} {
+    @media ${theme.base.media.SM} {
       grid-area: ${direction === 'right' ? '1/1/2/2' : '1/2/2/3'};
     }
   `}
@@ -87,7 +88,9 @@ const EdgeImage: React.FC = ({ primary }: any) => {
           </Body>
 
           <Link href="/test" target="_blank">
-            <Button color={colors.major}>{primary.button_label}</Button>
+            <Button shape="rounded" color={colors.major}>
+              {primary.button_label}
+            </Button>
           </Link>
         </StyledTextWrapper>
       </StyledContent>

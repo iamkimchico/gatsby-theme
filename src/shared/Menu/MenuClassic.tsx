@@ -25,7 +25,7 @@ const StyledWrapper = styled.div<{ viewport: TSizeNames }>`
   grid-template-columns: ${({ viewport }) => getGridLayout(viewport)};
 `;
 const StyledContent = styled.div`
-  margin: auto;
+  width: 100%;
   grid-column-start: edge-left;
   grid-column-end: edge-right;
   position: relative;
@@ -35,6 +35,9 @@ const StyledContent = styled.div`
   padding-top: 1em;
 
   ${({ theme }) => css`
+    @media ${theme.base.media.SM} {
+      margin: auto;
+    }
     @media ${theme.base.media.LG} {
       display: grid;
       grid-template-columns: 30em 1fr;
@@ -46,11 +49,17 @@ const StyledContent = styled.div`
   `}
 `;
 
-const StyledColumn = styled.div<TStyledProps>`
+const StyledColumn = styled.div<{ justify: string }>`
   display: flex;
-  flex-direction: ${(props) => props.direction};
+  flex-direction: column;
   justify-content: ${(props) => props.justify};
   gap: 5em;
+
+  ${({ theme }) => css`
+    @media ${theme.base.media.SM} {
+      flex-direction: row;
+    }
+  `}
 `;
 
 const StyledLinkList = styled.div`
@@ -73,14 +82,14 @@ const MenuClassic: React.FC<TProps> = ({ data }) => {
       <StyledContent>
         <StyledColumn direction="column">
           <div>
-            <Heading size={viewport.index > 3 ? 'h1' : 'h3'} color={colors.major} margin="SM">
+            <Heading size={viewport.index > 3 ? 'h1' : 'h3'} color={colors.major} margin="XS">
               Et hjerte for Gud og mennesker
             </Heading>
 
-            <Socials size="SM" color={colors.major} />
+            <Socials size="SM" color={colors.major} margin="MD" />
           </div>
         </StyledColumn>
-        <StyledColumn direction="row" justify="space-between">
+        <StyledColumn justify="space-between">
           {Object.keys(linkLists).map((area) => (
             <StyledLinkList key={area}>
               <StyledAreaHeader size="h4" color={colors.white}>

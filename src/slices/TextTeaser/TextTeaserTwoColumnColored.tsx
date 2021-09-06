@@ -48,7 +48,7 @@ const TextTeaserTwoColumnColored: React.FC = ({ primary }: any) => {
       <Body color={colors.black}>{primary.paragraph}</Body>
 
       <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
-        <Button color={colors.major} margin="MD">
+        <Button shape="arrow" color={colors.major} margin="MD">
           {primary.button_label}
         </Button>
       </Link>

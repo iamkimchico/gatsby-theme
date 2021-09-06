@@ -19,8 +19,8 @@ const StyledWrapper = styled.div`
   grid-column-start: outer-xxx-left;
   grid-column-end: outer-xxx-right;
   ${({ theme }) => css`
-    margin-top: ${theme.base.spacing.SM};
-    margin-bottom: ${theme.base.spacing.SM};
+    margin-top: ${theme.base.spacing.LG};
+    margin-bottom: ${theme.base.spacing.LG};
   `}
 `;
 
@@ -78,7 +78,9 @@ const BackgroundImage: React.FC = ({ primary }: any) => {
             </Body>
 
             <Link href="" target="_blank">
-              <Button color={colors.major}>{primary.button_label}</Button>
+              <Button shape="rounded" color={colors.major}>
+                {primary.button_label}
+              </Button>
             </Link>
           </StyledTextWrapper>
         </StyledContent>

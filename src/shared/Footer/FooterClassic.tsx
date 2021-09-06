@@ -22,7 +22,7 @@ const StyledWrapper = styled.div`
   display: grid;
   grid-gap: 4em;
   ${({ theme }) => css`
-    @media ${theme.base.media.MD} {
+    @media ${theme.base.media.SM} {
       grid-template-columns: 1fr 30em;
       border-top: ${`0.1em solid #eeeeee`};
     }

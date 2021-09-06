@@ -40,6 +40,17 @@ const StyledItems = styled.div<TStyledProps>`
   margin-right: auto;
   margin-left: auto;
   width: 100%;
+  position: relative;
+
+  &:after {
+    position: absolute;
+    content: '';
+    height: 100%;
+    right: 0;
+    top: 0;
+    background-image: linear-gradient(to right, transparent, white);
+    width: 5em;
+  }
 
   > div {
     ${({ selected, itemWidth, page }) => css`

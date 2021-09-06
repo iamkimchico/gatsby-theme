@@ -1,10 +1,10 @@
 import React from 'react';
-import Carousel from './Carousel';
+import CardsTeaserCarousel from './CardsTeaserCarousel';
 
 const CardsTeaser = (data: any) => {
   const { slice_label } = data;
 
-  return <>{slice_label === 'carousel' && <Carousel {...data} />}</>;
+  return <>{slice_label === 'carousel' && <CardsTeaserCarousel {...data} />}</>;
 };
 
 export default CardsTeaser;

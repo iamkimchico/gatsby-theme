@@ -37,7 +37,7 @@ const StyledHeader = styled.header<TStyledProps>`
     align-items: center;
     padding-right: 3em;
     padding-left: 3em;
-    transition: height 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 
     ${scrolled &&
     css`
@@ -122,7 +122,7 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
           <StyledGroup>
             {cta && (
               <Link href={cta.url} target={cta.target}>
-                <Button variant="cta" color="e8e8e8e8">
+                <Button shape="square" color="e8e8e8e8">
                   {cta.label}
                 </Button>
               </Link>

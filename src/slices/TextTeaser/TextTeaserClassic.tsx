@@ -13,8 +13,8 @@ const StyledWrapper = styled.div`
   flex-direction: column;
 
   ${({ theme }) => css`
-    margin-bottom: ${theme.base.spacing.MD};
-    margin-top: ${theme.base.spacing.MD};
+    margin-bottom: ${theme.base.spacing.LG};
+    margin-top: ${theme.base.spacing.LG};
 
     @media ${theme.base.media.MD} {
       grid-column-start: outer-x-left;
@@ -40,7 +40,9 @@ const TextTeaserClassic: React.FC = ({ primary }: any) => {
       </Body>
 
       <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
-        <Button color={colors.major}>{primary.button_label}</Button>
+        <Button shape="arrow" color={colors.major}>
+          {primary.button_label}
+        </Button>
       </Link>
     </StyledWrapper>
   );
