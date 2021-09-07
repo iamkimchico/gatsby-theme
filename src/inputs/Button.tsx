@@ -8,7 +8,9 @@ type TProps = {
   color: string;
   className?: any;
   onClick?: () => void;
-  shape: 'square' | 'rounded' | 'pill' | 'arrow';
+  shape?: 'square' | 'rounded' | 'pill' | 'arrow';
+  variant?: 'default' | 'outline' | 'soft';
+  selected?: boolean;
 };
 
 const StyledWrapper = styled.span<Partial<TProps>>`
@@ -30,81 +32,123 @@ const StyledButton = styled.button<Partial<TProps>>`
   transition: all 0.2s ease-in-out;
   position: relative;
 
-  ${({ theme, color, margin }) => css`
+  ${({ theme, color, margin, shape, variant, selected }) => css`
     margin-top: ${theme.base.spacing[margin || 'XS']};
     margin-bottom: ${theme.base.spacing[margin || 'XS']};
-    background-color: ${color};
-    color: ${theme.design.white_color};
     font-family: ${theme.design.primary_font};
-  `}
 
-  ${({ theme, shape, color }) => {
-    switch (shape) {
-      case 'square':
-        return css`
-          font-size: 1em;
-          height: 3em;
-          padding-left: 2em;
-          padding-right: 2em;
-          color: ${theme.design.black_color};
-        `;
-      case 'rounded':
-        return css`
-          font-size: 1em;
-          height: 3em;
-          padding-left: 2em;
-          padding-right: 2em;
-          border-radius: 0.2em;
-          color: ${theme.design.white_color};
-        `;
-      case 'arrow':
-        return css`
-          font-size: 1.1em;
-          color: ${color};
-          background-color: transparent;
-          &:after,
-          &:before {
-            content: '';
-            position: absolute;
+    ${() => {
+      switch (variant) {
+        case 'outline':
+          return css`
+            background-color: transparent;
+            border: solid 0.1em ${color};
+          `;
+        case 'soft':
+          return css`
+            background-color: ${selected ? color : `${color}4C`};
+            color: ${selected ? theme.design.white_color : color};
+            &:hover {
+              color: ${theme.design.white_color};
+              background-color: ${color};
+            }
+          `;
+        default:
+          return css`
             background-color: ${color};
-            width: 0.2em;
-            height: 0.8em;
-            border-radius: 0px;
-            right: 0;
-          }
-          &:before {
-            bottom: 50%;
-            transform: translateX(1.2em) translateY(0em) rotate(-45deg);
-            transform-origin: 100% 100%;
-          }
+            color: ${theme.design.white_color};
+            &:hover {
+              transform: translateY(-0.2em);
+              box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+            }
+          `;
+      }
+    }}
 
-          &:after {
-            top: 50%;
-            transform: translateX(1.2em) translateY(0.05em) rotate(45deg);
-            transform-origin: 100% 0;
-          }
-        `;
-      default:
-        return css`
-          font-size: 0.8em;
-          padding-left: 2.5em;
-          padding-right: 2.5em;
-          height: 3.5em;
+    ${() => {
+      switch (shape) {
+        case 'square':
+          return css`
+            font-size: 1em;
+            height: 3em;
+            padding-left: 2em;
+            padding-right: 2em;
+          `;
+        case 'rounded':
+          return css`
+            font-size: 1em;
+            height: 3em;
+            padding-left: 2em;
+            padding-right: 2em;
+            border-radius: 0.2em;
+          `;
+        case 'arrow':
+          return css`
+            font-size: 1.1em;
+            color: ${color};
+            background-color: transparent;
+            &:after,
+            &:before {
+              content: '';
+              position: absolute;
+              background-color: ${color};
+              width: 0.2em;
+              height: 0.8em;
+              border-radius: 0px;
+              right: 0;
+            }
+            &:before {
+              bottom: 50%;
+              transform: translateX(1.2em) translateY(0em) rotate(-45deg);
+              transform-origin: 100% 100%;
+            }
 
-          border-radius: 3em;
-          box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-          &:hover {
-            transform: translateY(-0.2em);
-            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-          }
-        `;
-    }
-  }}
+            &:after {
+              top: 50%;
+              transform: translateX(1.2em) translateY(0.05em) rotate(45deg);
+              transform-origin: 100% 0;
+            }
+          `;
+        default:
+          return css`
+            font-size: 0.8em;
+            padding-left: 2.5em;
+            padding-right: 2.5em;
+            height: 3.5em;
+
+            border-radius: 3em;
+            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+            &:hover {
+              transform: translateY(-0.2em);
+              box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+            }
+          `;
+      }
+    }}
+  `}
 `;
 
-const Button: React.FC<TProps> = ({ children, size, margin, color, className, onClick, shape }) => (
+const Button: React.FC<TProps> = ({
+  children,
+  size,
+  margin,
+  color,
+  className,
+  onClick,
+  shape = 'square',
+  variant = 'default',
+  selected = false,
+}) => (
   <StyledWrapper size={size}>
-    <StyledButton color={color} shape={shape} margin={margin} className={className} onClick={onClick}>
+    <StyledButton
+      selected={selected}
+      color={color}
+      shape={shape}
+      variant={variant}
+      margin={margin}
+      className={className}
+      onClick={onClick}
+    >
       {children}
     </StyledButton>
   </StyledWrapper>

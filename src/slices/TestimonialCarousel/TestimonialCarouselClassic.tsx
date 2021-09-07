@@ -40,7 +40,7 @@ const StyledIndicators = styled.div`
   grid-auto-flow: column;
   margin-top: 0.5em;
   ${({ theme }) => css`
-    @media ${theme.base.media.LG} {
+    @media ${theme.base.media.SM} {
       grid-area: 2/1/3/2;
       width: 25em;
       justify-self: right;
@@ -86,7 +86,7 @@ const StyledSlideWrapper = styled.div<TStyledProps>`
     display: ${show ? 'grid' : 'none'};
     grid-template-rows: 1fr;
 
-    @media ${theme.base.media.LG} {
+    @media ${theme.base.media.SM} {
       grid-template-columns: 1fr 1fr;
       grid-gap: 4em;
       min-height: 25em;
@@ -101,7 +101,7 @@ const StyledColumn = styled.div`
   display: grid;
   align-items: end;
   ${({ theme }) => css`
-    @media ${theme.base.media.LG} {
+    @media ${theme.base.media.SM} {
       display: grid;
       justify-self: right;
       grid-area: auto;
@@ -118,7 +118,7 @@ const StyledTextWrapper = styled.div<TStyledProps>`
     grid-gap: 1rem;
     padding: 4em;
     color: ${color};
-    @media ${theme.base.media.LG} {
+    @media ${theme.base.media.SM} {
       padding: 2em;
       color: ${color};
       align-self: center;

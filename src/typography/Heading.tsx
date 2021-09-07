@@ -12,9 +12,10 @@ type TProps = {
   variation?: 'normal' | 'special';
   className?: any;
 };
-const StyledWrapper = styled.div<Partial<TProps>>`
+const StyledWrapper = styled.span<Partial<TProps>>`
+  display: block;
   ${({ theme, margin }) => css`
-    margin-top: ${theme.base.spacing[margin || 'XS']};
+    /* margin-top: ${theme.base.spacing[margin || 'XS']}; */
     margin-bottom: ${theme.base.spacing[margin || 'XS']};
   `}
 `;
@@ -76,7 +77,7 @@ const StyledHeading = styled.h1<Partial<TProps>>`
     switch (variation) {
       case 'special':
         return css`
-          line-height: 0.99em;
+          line-height: 0.89em;
           font-family: ${theme.design.special_font};
           text-transform: none;
           font-style: normal;

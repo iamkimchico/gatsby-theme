@@ -5,20 +5,30 @@ import { Image, Video } from '../../media';
 import { Heading } from '../../typography';
 
 const StyledWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  grid-column-start: edge-left;
-  grid-column-end: edge-right;
-  min-height: 50em;
-  height: 80vh;
-  max-height: 80em;
-  display: grid;
-  align-items: end;
-  padding: 4em;
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100%;
+    grid-column-start: edge-left;
+    grid-column-end: edge-right;
+    height: 80em;
+    max-height: 80vh;
+    display: grid;
+    align-items: end;
+    padding: 4em;
 
-  > * {
-    grid-area: 1/1/2/2;
-  }
+    > * {
+      grid-area: 1/1/2/2;
+    }
+    @media${theme.base.media.SM} {
+      height: 35em;
+    }
+    @media${theme.base.media.MD} {
+      height: 40em;
+    }
+    @media${theme.base.media.LG} {
+      height: 50em;
+    }
+  `}
 `;
 
 const StyledHeading = styled(Heading)`
@@ -38,16 +48,27 @@ const StyledHeading = styled(Heading)`
 `;
 
 const StyledMedia = styled.div`
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  width: 100vw;
-  height: 100%;
-  border: 1em solid white;
-  overflow: hidden;
-  min-height: 50em;
-  height: 80vh;
-  max-height: 80em;
+  ${({ theme }) => css`
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100vw;
+    height: 100%;
+    border: 1em solid white;
+    overflow: hidden;
+    height: 80em;
+    max-height: 80vh;
+
+    @media${theme.base.media.SM} {
+      height: 35em;
+    }
+    @media${theme.base.media.MD} {
+      height: 40em;
+    }
+    @media${theme.base.media.LG} {
+      height: 50em;
+    }
+  `}
 `;
 
 const FullWidthWithBorder: React.FC = ({ primary }: any) => {

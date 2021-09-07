@@ -4,16 +4,21 @@ import { getColors } from '../../helpers';
 import { Body } from '../../typography';
 
 const StyledWrapper = styled.div`
-  ${({ theme }) => css`
-    text-align: center;
-    grid-column-start: outer-xxx-left;
-    grid-column-end: outer-xxx-right;
-    margin-bottom: ${theme.base.spacing.MD};
-    margin-top: ${theme.base.spacing.MD};
-    > *:not(:last-child) {
-      margin-bottom: 0.5em;
-    }
+  text-align: center;
+  grid-column-start: outer-xxx-left;
+  grid-column-end: outer-xxx-right;
+  > *:not(:last-child) {
+    margin-bottom: 0.5em;
+  }
 
+  ${({ theme }) => css`
+    margin-bottom: ${theme.base.spacing.XL};
+    margin-top: ${theme.base.spacing.XL};
+
+    @media ${theme.base.media.SM} {
+      margin-bottom: ${theme.base.spacing.LG};
+      margin-top: ${theme.base.spacing.LG};
+    }
     @media ${theme.base.media.MD} {
       grid-column-start: outer-x-left;
       grid-column-end: outer-x-right;

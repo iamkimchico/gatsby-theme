@@ -31,10 +31,18 @@ const StyledWrapper = styled.div`
     }
 
     @media ${theme.base.media.SM} {
+      height: 35em;
       h1 {
         padding: 10%;
         max-width: 100%;
       }
+    }
+
+    @media${theme.base.media.MD} {
+      height: 40em;
+    }
+    @media${theme.base.media.LG} {
+      height: 50em;
     }
 
     @media ${theme.base.media.XL} {

@@ -5,8 +5,8 @@ import { Button } from '../../inputs';
 import { Heading, Link } from '../../typography';
 
 const StyledWrapper = styled.div`
-  grid-column-start: outer-xx-left;
-  grid-column-end: outer-xx-right;
+  grid-column-start: outer-xxx-left;
+  grid-column-end: outer-xxx-right;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,7 +24,7 @@ const StyledWrapper = styled.div`
 const StyledLinksWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 4em;
+  gap: 3em;
   margin: auto;
   ${({ theme }) => css`
     @media ${theme.base.media.LG} {

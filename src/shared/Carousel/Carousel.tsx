@@ -39,10 +39,21 @@ const StyledItems = styled.div<TStyledProps>`
   padding-top: 2em;
   margin-right: auto;
   margin-left: auto;
-  width: 100%;
+  /* background-color: yellow; */
   position: relative;
 
-  &:after {
+  ${({ theme }) => css`
+    width: 17.5em;
+    @media${theme.base.media.SM} {
+      width: 37em;
+    }
+    @media${theme.base.media.MD} {
+      width: 56.5em;
+    }
+  `}
+
+  // Fading
+  /* &:after {
     position: absolute;
     content: '';
     height: 100%;
@@ -50,7 +61,7 @@ const StyledItems = styled.div<TStyledProps>`
     top: 0;
     background-image: linear-gradient(to right, transparent, white);
     width: 5em;
-  }
+  } */
 
   > div {
     ${({ selected, itemWidth, page }) => css`

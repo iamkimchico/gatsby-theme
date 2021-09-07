@@ -16,6 +16,11 @@ const StyledWrapper = styled.div`
     margin-bottom: ${theme.base.spacing.LG};
     margin-top: ${theme.base.spacing.LG};
 
+    @media ${theme.base.media.SM} {
+      margin-bottom: ${theme.base.spacing.MD};
+      margin-top: ${theme.base.spacing.MD};
+    }
+
     @media ${theme.base.media.MD} {
       grid-column-start: outer-x-left;
       grid-column-end: outer-x-right;

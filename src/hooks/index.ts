@@ -45,8 +45,8 @@ export const useScroll = () => {
   const [scrollPos, setScrollPos] = useState({ isScrolled: false, top: 0, bottom: 0 });
   const viewport = useViewport();
 
-  const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-    const scrollVal = e.currentTarget.scrollTop;
+  const handleScroll: EventListener = () => {
+    const scrollVal = window.scrollY;
     let { isScrolled } = scrollPos;
 
     if (viewport.index < 5) {
@@ -63,8 +63,8 @@ export const useScroll = () => {
 
     setScrollPos({
       isScrolled,
-      top: e?.target?.documentElement?.scrollTop,
-      bottom: e?.target?.documentElement?.scrollTop + window?.innerHeight,
+      top: scrollVal,
+      bottom: scrollVal + window.innerHeight,
     });
   };
 

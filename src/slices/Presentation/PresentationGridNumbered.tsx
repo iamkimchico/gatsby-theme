@@ -37,7 +37,11 @@ const StyledGrid = styled.div`
       grid-template-columns: 1fr 1fr;
     }
     @media ${theme.base.media.MD} {
+      grid-gap: 3em;
       grid-template-columns: 1fr 1fr 1fr;
+    }
+    @media ${theme.base.media.LG} {
+      grid-gap: 5em;
     }
   `}
 `;

@@ -15,13 +15,12 @@ const StyledWrapper = styled.div`
     margin-top: ${theme.base.spacing.MD};
     justify-self: center;
 
-    @media ${theme.base.media.MD} {
+    @media ${theme.base.media.SM} {
       width: 100%;
-      grid-column-start: outer-xx-left;
       grid-template-columns: 1fr 1fr 1fr;
       justify-self: left;
     }
-    @media ${theme.base.media.LG} {
+    @media ${theme.base.media.MD} {
       grid-column-start: outer-xx-left;
     }
   `}

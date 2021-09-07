@@ -8,33 +8,40 @@ import { replaceEach } from '../../utils';
 import { getColors } from '../../helpers';
 
 const StyledWrapper = styled.div`
-  grid-column-start: outer-xx-left;
-  grid-column-end: outer-xx-right;
+  grid-column-start: outer-xxx-left;
+  grid-column-end: outer-xxx-right;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 20em 1fr;
   position: relative;
 
   ${({ theme }) => css`
-    margin-bottom: ${theme.base.spacing.MD};
+    margin-bottom: ${theme.base.spacing.XL};
     margin-top: ${theme.base.spacing.MD};
 
-    @media ${theme.base.media.LG} {
-      color: black;
+    @media ${theme.base.media.SM} {
+      grid-column-start: outer-xx-left;
+      grid-column-end: outer-xx-right;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr;
       grid-gap: 2em;
-      min-height: 24em;
+      height: 35em;
+    }
+    @media ${theme.base.media.MD} {
+      grid-gap: 4em;
     }
   `}
 `;
 const StyledColumn = styled.div<{ direction: TDirection }>`
   position: relative;
-  min-width: 20em;
-  max-width: 25em;
+  width: 100%;
+  height: 100%;
+  min-width: 25em;
   justify-self: center;
+  display: grid;
 
   ${({ theme, direction }) => css`
     @media ${theme.base.media.LG} {
+      max-width: 25em;
       display: grid;
       grid-area: auto;
       width: 25em;
@@ -54,6 +61,7 @@ const StyledTextWrapper = styled.div`
   grid-gap: 1rem;
   margin: auto;
   padding-top: 2em;
+  align-self: center;
 
   ${({ theme }) => css`
     @media ${theme.base.media.LG} {

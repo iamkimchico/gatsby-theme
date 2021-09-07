@@ -9,6 +9,7 @@ type TProps = {
   position: TBgPositions;
   description?: string;
   alt: string;
+  className?: any;
 };
 
 const StyledImage = styled.figure<Partial<TProps>>`
@@ -48,7 +49,7 @@ const StyledDescription = styled.div<{ show: boolean }>`
   }
 `;
 
-const Image: React.FC<TProps> = ({ url, size, children, position, description, alt }) => {
+const Image: React.FC<TProps> = ({ url, size, children, position, description, alt, className }) => {
   const theme = useTheme();
   const [showDescription, setShowDescription] = useState(false);
   return (
@@ -60,6 +61,7 @@ const Image: React.FC<TProps> = ({ url, size, children, position, description, a
         alt={alt}
         onMouseEnter={() => setShowDescription(true)}
         onMouseLeave={() => setShowDescription(false)}
+        className={className}
       >
         {children}
         {description && (

@@ -11,7 +11,7 @@ const StyledWrapper = styled.div`
   padding: 6em;
 
   ${({ theme, color }) => css`
-    margin-bottom: ${theme.base.spacing.MD};
+    margin-bottom: ${theme.base.spacing.XL};
     margin-top: ${theme.base.spacing.MD};
 
     &:after {
@@ -25,30 +25,29 @@ const StyledWrapper = styled.div`
       background-color: ${color};
     }
 
-    @media ${theme.base.media.MD} {
+    @media ${theme.base.media.SM} {
       grid-column-start: outer-xx-left;
       grid-column-end: outer-xx-right;
       column-count: 2;
+      column-gap: 2em;
+    }
+    @media ${theme.base.media.MD} {
       column-gap: 7em;
     }
   `}
-
-  > *:not(:last-child) {
-    margin-bottom: 0.5em;
-  }
 `;
 
 const TextTeaserTwoColumnColored: React.FC = ({ primary }: any) => {
   const colors = getColors(primary.color_scheme);
   return (
     <StyledWrapper color={colors.major}>
-      <Heading size="h3" color={colors.major}>
+      <Heading size="h3" color={colors.major} margin="MD">
         {primary.header}
       </Heading>
       <Body color={colors.black}>{primary.paragraph}</Body>
 
       <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
-        <Button shape="arrow" color={colors.major} margin="MD">
+        <Button shape="rounded" color={colors.major} margin="MD">
           {primary.button_label}
         </Button>
       </Link>
