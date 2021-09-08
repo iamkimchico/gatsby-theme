@@ -27,6 +27,10 @@ const GlobalStyles = createGlobalStyle`
         }
       }
 
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;

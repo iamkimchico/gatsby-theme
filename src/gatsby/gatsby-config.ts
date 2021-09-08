@@ -43,6 +43,28 @@ export default (_tsProps: Record<string, string>, themeProps: TThemePlugin): Gat
         queries: base.media,
       },
     },
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 50,
+          breakpoints: [
+            base.breakpoints.XXS,
+            base.breakpoints.XS,
+            base.breakpoints.SM,
+            base.breakpoints.MD,
+            base.breakpoints.LG,
+            base.breakpoints.MX,
+          ],
+          backgroundColor: `transparent`,
+          transformOptions: { fit: 'cover', cropFocus: 'attention' },
+        },
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',

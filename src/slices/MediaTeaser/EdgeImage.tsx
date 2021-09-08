@@ -13,6 +13,7 @@ const StyledWrapper = styled.div<TStyledProps>`
   text-decoration: none;
   grid-column-start: outer-xxx-left;
   grid-column-end: outer-xxx-right;
+  overflow: hidden;
   ${({ theme, direction }) => css`
     margin-top: ${theme.base.spacing.LG};
     margin-bottom: ${theme.base.spacing.LG};

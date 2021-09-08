@@ -25,29 +25,34 @@ export const useViewport = () => {
   return result;
 };
 
-export const useResize = () => {
-  const [windowWidth, setWindowWidth] = useState(window?.innerWidth || 0);
+export const useResize = (): number => {
+  if (typeof window !== 'undefined') {
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const handleResize = (e: any) => {
-    setWindowWidth(e.currentTarget.innerWidth);
-  };
+    const handleResize: EventListener = () => {
+      setWindowWidth(window.innerWidth);
+    };
 
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
+    useEffect(() => {
+      window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
-  });
+      return () => window.removeEventListener('resize', handleResize);
+    });
 
-  return windowWidth;
+    return windowWidth;
+  }
+  return 0;
 };
 
 export const useScroll = () => {
-  const [scrollPos, setScrollPos] = useState({ isScrolled: false, top: 0, bottom: 0 });
+  const [scrollPos, setScrollPos] = useState({ isScrolled: false, top: 0, bottom: 0, percentage: 0 });
   const viewport = useViewport();
 
   const handleScroll: EventListener = () => {
-    const scrollVal = window.scrollY;
+    const scrollVal = document.documentElement.scrollTop;
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
     let { isScrolled } = scrollPos;
+    const percentage = (scrollVal / windowHeight) * 100;
 
     if (viewport.index < 5) {
       if (scrollVal > 0 && isScrolled === false) {
@@ -65,6 +70,7 @@ export const useScroll = () => {
       isScrolled,
       top: scrollVal,
       bottom: scrollVal + window.innerHeight,
+      percentage,
     });
   };
 

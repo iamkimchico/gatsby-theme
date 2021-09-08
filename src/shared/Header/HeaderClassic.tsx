@@ -122,7 +122,7 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
           <StyledGroup>
             {cta && (
               <Link href={cta.url} target={cta.target}>
-                <Button shape="square" color="e8e8e8e8">
+                <Button shape="square" color="e8e8e8e8" variant="soft">
                   {cta.label}
                 </Button>
               </Link>
