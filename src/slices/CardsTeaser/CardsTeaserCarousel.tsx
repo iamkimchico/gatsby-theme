@@ -53,7 +53,7 @@ const CardsTeaserCarousel: React.FC = ({ primary, items }: any) => {
       <Carousel header={primary.header} paragraph={primary.paragraph} itemRef={itemRef} color={primary.color_scheme}>
         {items.map((item: any) => (
           <StyledCard key={item.header} ref={itemRef}>
-            <Image url={item.image.url} position="center center" size="cover" alt="" />
+            <Image url={item.image.url} alt={item.image.alt} />
             <StyledContent>
               <Heading size="h5" color={colors.white}>
                 {item.header}

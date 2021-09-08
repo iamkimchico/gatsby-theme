@@ -158,7 +158,7 @@ const TestimonialCarouselClassic = ({ primary, items }) => {
           {items.map((testimonial: any, index: number) => (
             <StyledSlideWrapper key={testimonial.paragraph} show={index === slide}>
               <StyledColumn>
-                <Image url={testimonial.image.url} size="cover" position="center center" alt="" />
+                <Image url={testimonial.image.url} alt={testimonial.image.alt} />
               </StyledColumn>
               <StyledColumn>
                 <StyledTextWrapper>

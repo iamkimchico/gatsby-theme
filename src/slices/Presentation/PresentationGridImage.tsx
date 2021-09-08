@@ -38,7 +38,6 @@ const StyledGrid = styled.div`
 const PresentationGridImage = ({ primary, collection }: any) => {
   const colors = getColors(primary.color_scheme);
 
-  console.log(primary, collection);
   return (
     <StyledWrapper>
       <Heading size="h3" align="center" color={colors.major}>
@@ -47,7 +46,7 @@ const PresentationGridImage = ({ primary, collection }: any) => {
       <StyledGrid>
         {collection.map(({ node }: any, i: number) => (
           <StyledColumn key={node.data.name}>
-            <Image url={node.data.image.url} size="cover" position="left top" alt="" />
+            <Image url={node.data.image.url} alt={node.data.image.alt} />
             <Heading size="h6" color="black">
               {node.data.name}
             </Heading>

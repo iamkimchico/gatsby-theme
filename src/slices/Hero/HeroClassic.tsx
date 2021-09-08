@@ -64,7 +64,7 @@ const HeroClassic: React.FC = ({ primary }: any) => {
   const colors = getColors(primary.color_scheme);
   return (
     <StyledWrapper>
-      <Image url={primary.image.url} size="cover" position="center center" alt="" />
+      <Image url={primary.image.url} alt={primary.image.alt} />
       <Heading size="h1" color={colors.base} align="center">
         {primary.header}
       </Heading>

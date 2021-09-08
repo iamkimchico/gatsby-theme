@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { useViewport } from '../../hooks';
 import { Body, Heading } from '../../typography';
-import { Image } from '../../media';
+import { BackgroundImage, Image } from '../../media';
 import { Button } from '../../inputs';
 import { getColors } from '../../helpers';
 
@@ -35,8 +35,13 @@ const StyledItem = styled.div<{ show: boolean }>`
 `;
 
 const StyledTextWrapper = styled.div`
-  max-width: 50em;
   display: grid;
+
+  ${({ theme }) => css`
+    @media${theme.base.media.SM} {
+      grid-template-columns: 1;
+    }
+  `}
 `;
 
 const StyledControls = styled.div`
@@ -58,13 +63,7 @@ const ImageInfoListHorizontal: React.FC = ({ primary, items }: any) => {
       <StyledItems>
         {items.map((item: any, i: number) => (
           <StyledItem show={selected === i} key={item.paragraph}>
-            <Image
-              url={item.image.url}
-              size="cover"
-              position="center center"
-              description={item.image_description}
-              alt=""
-            />
+            <BackgroundImage url={item.image.url} position="center center" />
             <StyledTextWrapper>
               <Heading size="h3" align="center" color={colors.major} margin="XS">
                 {primary.header}

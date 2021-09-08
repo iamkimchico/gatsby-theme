@@ -127,11 +127,7 @@ const LocationsClassic: React.FC = ({ primary, locations }: any) => {
         <StyledLocations>
           {locations.map(({ node }: any) => (
             <StyledLocation>
-              {viewport >= 1 ? (
-                <Image url={node.data.image.url} size="cover" position="center center" alt="" />
-              ) : (
-                <StyledLine />
-              )}
+              {viewport >= 1 ? <Image url={node.data.image.url} alt={node.data.image.alt} /> : <StyledLine />}
 
               <StyledLocationText>
                 <StyledHeading size="h6" color="black">

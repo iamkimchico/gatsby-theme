@@ -1,11 +1,11 @@
 import { GatsbySSR } from 'gatsby';
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import PageWrapper from '../common/PageWrapper';
-import { UiProvider } from '../context/UiContext';
-import { extractTheme } from '../helpers';
-import Baseline from '../styles/Baseline';
-import base from '../styles/base';
+import PageWrapper from './src/common/PageWrapper';
+import { UiProvider } from './src/context/UiContext';
+import { extractTheme } from './src/helpers';
+import base from './src/styles/base';
+import Baseline from './src/styles/Baseline';
 
 export const wrapPageElement: GatsbySSR['wrapPageElement'] = ({ props, element }) => {
   const meta = { ...(props.pageContext.meta as Record<string, unknown>), url: props.location.pathname };

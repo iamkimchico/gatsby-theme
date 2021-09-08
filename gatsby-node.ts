@@ -1,10 +1,9 @@
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 import { GatsbyNode } from 'gatsby';
 import Prismic from '@prismicio/client';
 import path from 'path';
-import { createUrl, extractMeta } from '../helpers';
-import { TThemePlugin } from '../types';
+import { createUrl, extractMeta } from './src/helpers';
 
 const pageFilesQuery = ` query MyQuery {
   allFile(filter: {sourceInstanceName: {eq: "pageTypes"}}) {
@@ -57,9 +56,9 @@ const fetchSettings = async (repo: any) => {
 };
 
 // This creates the pages from Prismic
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }, { themeProps }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions }, props) => {
   const { createPage } = actions;
-  const { prismicRepo } = themeProps as TThemePlugin;
+  const { prismicRepo } = props;
 
   const pageFiles: any = await graphql(pageFilesQuery);
   const settings: any = await fetchSettings(prismicRepo);
@@ -72,7 +71,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
     pages.forEach((page: any) => {
       createPage({
         path: createUrl(page.node.uid, page.node.lang),
-        component: path.resolve(__dirname, `../pageTypes/${pageType}.tsx`),
+        component: path.resolve(__dirname, `./src/pageTypes/${pageType}.tsx`),
         context: {
           prismicId: page.node.prismicId,
           meta: extractMeta(page.node),
@@ -84,9 +83,9 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 };
 
 // This only create pages out from the /pages folder. This is where the 404 page is created.
-export const onCreatePage: GatsbyNode['onCreatePage'] = async ({ page, actions }, { themeProps }) => {
+export const onCreatePage: GatsbyNode['onCreatePage'] = async ({ page, actions }, props) => {
   const { createPage } = actions;
-  const { prismicRepo } = themeProps as TThemePlugin;
+  const { prismicRepo } = props;
   const settings: any = await fetchSettings(prismicRepo);
 
   createPage({

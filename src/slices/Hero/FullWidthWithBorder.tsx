@@ -73,6 +73,7 @@ const StyledMedia = styled.div`
 
 const FullWidthWithBorder: React.FC = ({ primary }: any) => {
   const colors = getColors(primary.color_scheme);
+
   return (
     <StyledWrapper>
       <StyledHeading size="h1" align="left" color={colors.base}>
@@ -80,8 +81,8 @@ const FullWidthWithBorder: React.FC = ({ primary }: any) => {
       </StyledHeading>
 
       <StyledMedia>
-        {primary.image.url && <Image url={primary.image.url} position="center center" size="cover" alt="" />}
-        {primary.media.url && <Video url={primary.media.url} poster="" hasOverlay />}
+        <Image url={primary.image.fluid} alt={primary.image.alt} />
+        {/* {primary.media.url && <Video url={primary.media.url} poster="" hasOverlay />} */}
       </StyledMedia>
     </StyledWrapper>
   );

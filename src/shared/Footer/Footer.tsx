@@ -7,7 +7,7 @@ const query = graphql`
     prismicNavigation {
       data {
         bodyFooter {
-          ... on PrismicNavigationBodyFooterClassic {
+          ... on PrismicNavigationDataBodyFooterClassic {
             id
             slice_label
             slice_type

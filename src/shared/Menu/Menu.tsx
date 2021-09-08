@@ -8,7 +8,7 @@ const query = graphql`
       data {
         color_scheme
         bodyMenu {
-          ... on PrismicNavigationBodyMenuClassic {
+          ... on PrismicNavigationDataBodyMenuClassic {
             id
             items {
               link_label

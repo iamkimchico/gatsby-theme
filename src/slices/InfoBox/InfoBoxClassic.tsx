@@ -79,12 +79,7 @@ const InfoBoxClassic: React.FC = ({ primary }: any) => {
   return (
     <StyledWrapper>
       <StyledColumn direction={primary.direction.toLowerCase()}>
-        <Image
-          size="cover"
-          url={primary.image.url}
-          position={breakpoint >= 3 ? 'center center' : 'left center'}
-          alt=""
-        />
+        <Image url={primary.image.url} alt={primary.image.alt} />
       </StyledColumn>
 
       <StyledColumn direction={primary.direction.toLowerCase()}>

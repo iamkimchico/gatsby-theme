@@ -8,7 +8,7 @@ const query = graphql`
       data {
         color_scheme
         bodyHeader {
-          ... on PrismicNavigationBodyHeaderClassic {
+          ... on PrismicNavigationDataBodyHeaderClassic {
             slice_label
             slice_type
             primary {

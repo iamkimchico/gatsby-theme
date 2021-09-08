@@ -4,7 +4,7 @@ import { getColors, getColPadding } from '../../helpers';
 import { useViewport } from '../../hooks';
 import { TColNames, TSizeNames } from '../../types';
 import { Body, Heading, Link } from '../../typography';
-import { Image } from '../../media';
+import { BackgroundImage as BgImage } from '../../media';
 import { Button } from '../../inputs';
 
 type TStyledProps = {
@@ -61,7 +61,7 @@ const BackgroundImage: React.FC = ({ primary }: any) => {
 
   return (
     <StyledWrapper>
-      <Image url={primary.image.url} alt={primary.image.alt} size="cover" position="center center">
+      <BgImage url={primary.image.url} position="center center">
         <StyledContent
           direction={primary.direction.toLowerCase()}
           image={primary.background_image?.url}
@@ -84,7 +84,7 @@ const BackgroundImage: React.FC = ({ primary }: any) => {
             </Link>
           </StyledTextWrapper>
         </StyledContent>
-      </Image>
+      </BgImage>
     </StyledWrapper>
   );
 };

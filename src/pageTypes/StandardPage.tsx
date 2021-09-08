@@ -67,7 +67,7 @@ export const prismic = graphql`
     prismicStandardPage(prismicId: { eq: $prismicId }) {
       data {
         body {
-          ... on PrismicStandardPageBodyHero {
+          ... on PrismicStandardPageDataBodyHero {
             id
             slice_label
             slice_type
@@ -75,15 +75,15 @@ export const prismic = graphql`
               color_scheme
               header
               tagline
-              image {
-                url
-              }
               media {
                 url
               }
+              image {
+                gatsbyImageData
+              }
             }
           }
-          ... on PrismicStandardPageBodyMediaTeaser {
+          ... on PrismicStandardPageDataBodyMediaTeaser {
             id
             slice_label
             slice_type
@@ -93,7 +93,7 @@ export const prismic = graphql`
               direction
               header
               image {
-                url
+                url(imgixParams: { fit: "fill", fill: "blur" })
                 alt
               }
               paragraph
@@ -103,7 +103,7 @@ export const prismic = graphql`
               }
             }
           }
-          ... on PrismicStandardPageBodyTextTeaser {
+          ... on PrismicStandardPageDataBodyTextTeaser {
             id
             slice_label
             slice_type
@@ -118,7 +118,7 @@ export const prismic = graphql`
               paragraph
             }
           }
-          ... on PrismicStandardPageBodyCardsTeaser {
+          ... on PrismicStandardPageDataBodyCardsTeaser {
             id
             slice_type
             slice_label
@@ -139,7 +139,7 @@ export const prismic = graphql`
               color_scheme
             }
           }
-          ... on PrismicStandardPageBodyUsp {
+          ... on PrismicStandardPageDataBodyUsp {
             id
             slice_label
             slice_type
@@ -154,7 +154,7 @@ export const prismic = graphql`
               paragraph
             }
           }
-          ... on PrismicStandardPageBodyParagraph {
+          ... on PrismicStandardPageDataBodyParagraph {
             id
             primary {
               paragraph
@@ -163,7 +163,7 @@ export const prismic = graphql`
             slice_label
             slice_type
           }
-          ... on PrismicStandardPageBodyTestimonialCarousel {
+          ... on PrismicStandardPageDataBodyTestimonialCarousel {
             id
             slice_label
             slice_type
@@ -193,7 +193,7 @@ export const prismic = graphql`
               paragraph
             }
           }
-          ... on PrismicStandardPageBodyPresentation {
+          ... on PrismicStandardPageDataBodyPresentation {
             id
             slice_label
             slice_type
@@ -204,7 +204,7 @@ export const prismic = graphql`
               select_placeholder
             }
           }
-          ... on PrismicStandardPageBodyInfoBox {
+          ... on PrismicStandardPageDataBodyInfoBox {
             id
             slice_label
             slice_type
@@ -218,7 +218,7 @@ export const prismic = graphql`
               }
             }
           }
-          ... on PrismicStandardPageBodyLinkList {
+          ... on PrismicStandardPageDataBodyLinkList {
             id
             slice_label
             slice_type
@@ -240,7 +240,7 @@ export const prismic = graphql`
               header
             }
           }
-          ... on PrismicStandardPageBodyImageInfoList {
+          ... on PrismicStandardPageDataBodyImageInfoList {
             id
             slice_label
             slice_type
@@ -258,7 +258,7 @@ export const prismic = graphql`
               image_description
             }
           }
-          ... on PrismicStandardPageBodyLocations {
+          ... on PrismicStandardPageDataBodyLocations {
             id
             primary {
               color_scheme
@@ -286,7 +286,6 @@ export const prismic = graphql`
       tags
       alternate_languages {
         lang
-        url
         uid
         type
       }
