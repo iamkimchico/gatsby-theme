@@ -1,0 +1,50 @@
+[
+  {
+    "id": "site_settings",
+    "name": "Site Settings",
+    "repeatable": false,
+    "value": "site_settings.json"
+  },
+  {
+    "id": "navigation",
+    "name": "Navigation",
+    "repeatable": false,
+    "value": "navigation.json"
+  },
+  {
+    "id": "standard_page",
+    "name": "Standard Page",
+    "repeatable": true,
+    "value": "standard_page.json"
+  },
+  {
+    "id": "legal_page",
+    "name": "Legal Page",
+    "repeatable": true,
+    "value": "legal_page.json"
+  },
+  {
+    "id": "business_value",
+    "name": "Business Value",
+    "repeatable": true,
+    "value": "business_value.json"
+  },
+  {
+    "id": "location",
+    "name": "Location",
+    "repeatable": true,
+    "value": "location.json"
+  },
+  {
+    "id": "person",
+    "name": "Person",
+    "repeatable": true,
+    "value": "person.json"
+  },
+  {
+    "id": "team",
+    "name": "Team",
+    "repeatable": true,
+    "value": "team.json"
+  }
+]

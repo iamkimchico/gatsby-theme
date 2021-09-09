@@ -9,7 +9,7 @@ type TProps = {
   className?: any;
   onClick?: () => void;
   shape?: 'square' | 'rounded' | 'pill' | 'arrow';
-  variant?: 'default' | 'outline' | 'soft';
+  variant?: 'default' | 'outline' | 'soft' | 'text';
   selected?: boolean;
 };
 
@@ -53,6 +53,8 @@ const StyledButton = styled.button<Partial<TProps>>`
               background-color: ${color};
             }
           `;
+        case 'text':
+          css``;
         default:
           return css`
             background-color: ${color};
@@ -110,19 +112,7 @@ const StyledButton = styled.button<Partial<TProps>>`
             }
           `;
         default:
-          return css`
-            font-size: 0.8em;
-            padding-left: 2.5em;
-            padding-right: 2.5em;
-            height: 3.5em;
-
-            border-radius: 3em;
-            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
-            &:hover {
-              transform: translateY(-0.2em);
-              box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
-            }
-          `;
+          return null;
       }
     }}
   `}

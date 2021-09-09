@@ -101,6 +101,7 @@ export const prismic = graphql`
               button_link {
                 url
                 target
+                link_type
               }
             }
           }
@@ -129,6 +130,7 @@ export const prismic = graphql`
               button_link {
                 url
                 target
+                link_type
               }
               image {
                 alt
@@ -235,9 +237,14 @@ export const prismic = graphql`
                     id
                     uid
                   }
+                  ... on PrismicLegalPage {
+                    id
+                    uid
+                  }
                 }
                 url
                 target
+                link_type
               }
             }
             primary {
@@ -284,6 +291,7 @@ export const prismic = graphql`
               form_link {
                 url
                 target
+                link_type
               }
               paragraph
               header
