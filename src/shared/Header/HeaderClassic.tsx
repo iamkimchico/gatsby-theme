@@ -101,9 +101,9 @@ const HeaderClassic: React.FC<TProps> = ({ data }) => {
   const { isScrolled } = useScroll();
   const colors = getColors(data.color_scheme);
   const cta =
-    data.cta_link_label && data.cta_page_link_url
+    data.cta_link_text && data.cta_page_link_url
       ? {
-          label: data.cta_link_label,
+          label: data.cta_link_text,
           url: data.cta_page_link_url.slug,
           target: data.cta_page_link_url.target,
         }

@@ -26,7 +26,7 @@ const NewsletterClassic = ({ primary }: any) => {
           name="email"
           type="email"
           placeholder={primary.email_placeholder}
-          buttonLabel={primary.button_label}
+          buttonLabel={primary.button_text}
           required
           color={colors.major}
         />

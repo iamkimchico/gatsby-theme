@@ -34,8 +34,6 @@ const SliceResolver: React.FC<TProps> = ({ slices }) => (
         );
       }
 
-      console.log(Component);
-
       return (
         <Grid row key={`error ${slice.slice_type}`}>
           <StyledError>

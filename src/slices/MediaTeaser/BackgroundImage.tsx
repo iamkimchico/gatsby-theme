@@ -9,36 +9,31 @@ import { Button } from '../../inputs';
 
 type TStyledProps = {
   direction: string;
-  image: string;
-  padding: TColNames;
   viewport: TSizeNames;
 };
 
 const StyledWrapper = styled.div`
-  text-decoration: none;
   grid-column-start: outer-xxx-left;
   grid-column-end: outer-xxx-right;
+  height: 35em;
   ${({ theme }) => css`
     margin-top: ${theme.base.spacing.LG};
     margin-bottom: ${theme.base.spacing.LG};
+    @media${theme.base.media.SM} {
+      height: 35em;
+    }
   `}
 `;
 
 const StyledContent = styled.div<TStyledProps>`
   display: grid;
-  min-height: 35em;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
 
-  ${({ direction, image, padding, viewport }) => css`
+  ${({ direction, viewport }) => css`
     justify-items: ${direction};
-    background-image: url(${image});
-    padding-left: ${getColPadding(padding, viewport)};
-    padding-right: ${getColPadding(padding, viewport)};
+    padding-left: ${getColPadding('outer-xx', viewport)};
   `}
 `;
 
@@ -56,18 +51,13 @@ const StyledTextWrapper = styled.div`
 `;
 
 const BackgroundImage: React.FC = ({ primary }: any) => {
-  const viewport = useViewport().size;
   const colors = getColors(primary.color_scheme);
+  const viewport = useViewport().size;
 
   return (
     <StyledWrapper>
-      <BgImage url={primary.image} alt={primary.image.alt}>
-        <StyledContent
-          direction={primary.direction.toLowerCase()}
-          image={primary.background_image?.url}
-          padding="outer-xx"
-          viewport={viewport}
-        >
+      <BgImage src={primary.image} alt={primary.image.alt}>
+        <StyledContent direction={primary.direction.toLowerCase()} viewport={viewport}>
           <StyledTextWrapper>
             <Heading size="h3" color={colors.base}>
               {primary.header}
@@ -79,7 +69,7 @@ const BackgroundImage: React.FC = ({ primary }: any) => {
 
             <Link href="" target="_blank">
               <Button shape="rounded" color={colors.major}>
-                {primary.button_label}
+                {primary.button_text}
               </Button>
             </Link>
           </StyledTextWrapper>

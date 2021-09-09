@@ -58,7 +58,7 @@ const TextTeaserSpecialTitle: React.FC = ({ primary }: any) => {
         </Heading>
         <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
           <Button shape="arrow" color={colors.major}>
-            {primary.button_label}
+            {primary.button_text}
           </Button>
         </Link>
       </StyledBottomWrapper>

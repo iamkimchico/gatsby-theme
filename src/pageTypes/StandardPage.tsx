@@ -63,7 +63,7 @@ const StandardPage: React.FC<TProps> = ({ data }) => {
 };
 
 export const prismic = graphql`
-  query pageQuery($prismicId: ID) {
+  query standardPageQuery($prismicId: ID) {
     prismicStandardPage(prismicId: { eq: $prismicId }) {
       data {
         body {
@@ -89,7 +89,7 @@ export const prismic = graphql`
             slice_label
             slice_type
             primary {
-              button_label
+              button_text
               color_scheme
               direction
               header
@@ -109,7 +109,7 @@ export const prismic = graphql`
             slice_label
             slice_type
             primary {
-              button_label
+              button_text
               button_url {
                 url
                 target
@@ -124,7 +124,7 @@ export const prismic = graphql`
             slice_type
             slice_label
             items {
-              button_label
+              button_text
               header
               button_link {
                 url
@@ -228,7 +228,7 @@ export const prismic = graphql`
             slice_label
             slice_type
             items {
-              link_label
+              link_text
               link_url {
                 document {
                   ... on PrismicStandardPage {
@@ -273,6 +273,21 @@ export const prismic = graphql`
             }
             slice_label
             slice_type
+          }
+          ... on PrismicStandardPageDataBodyFormLink {
+            id
+            slice_label
+            slice_type
+            primary {
+              button_text
+              color_scheme
+              form_link {
+                url
+                target
+              }
+              paragraph
+              header
+            }
           }
         }
         page_description

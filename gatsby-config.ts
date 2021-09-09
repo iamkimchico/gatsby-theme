@@ -25,6 +25,7 @@ export default (_config: InitValue, props: any): GatsbyConfig => ({
           person: require('./custom_types/person.json'),
           location: require('./custom_types/location.json'),
           business_value: require('./custom_types/business_value.json'),
+          legal_page: require('./custom_types/legal_page.json'),
           landing_page: {}, // deprecated
           shared_content: {}, // deprecated
         },

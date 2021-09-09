@@ -41,9 +41,9 @@ const LinkListClassic: React.FC = ({ primary, items }: any) => {
       </Heading>
       <StyledLinksWrapper>
         {items.map((link: any) => (
-          <Link href={resolveLink(link.link_url)} target={link.link_url.target} key={link.link_label}>
+          <Link href={resolveLink(link.link_url)} target={link.link_url.target} key={link.link_text}>
             <Button shape="arrow" color={colors.major}>
-              {link.link_label}
+              {link.link_text}
             </Button>
           </Link>
         ))}

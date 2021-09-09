@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { Image } from '.';
 
 type TProps = {
-  url: ImageDataLike;
+  src: ImageDataLike;
   alt: string;
 };
 
@@ -19,9 +19,9 @@ const StyledWrapper = styled.div`
 
 const StyledContent = styled.div``;
 
-const BackgroundImage: React.FC<TProps> = ({ children, url, alt }) => (
+const BackgroundImage: React.FC<TProps> = ({ children, src, alt }) => (
   <StyledWrapper>
-    <Image src={getImage(url) as IGatsbyImageData} alt={alt} />
+    <Image src={getImage(src) as IGatsbyImageData} alt={alt} />
     <StyledContent>{children}</StyledContent>
   </StyledWrapper>
 );

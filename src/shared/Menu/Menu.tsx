@@ -11,7 +11,7 @@ const query = graphql`
           ... on PrismicNavigationDataBodyMenuClassic {
             id
             items {
-              link_label
+              link_text
               link_list
               link_url {
                 link_type

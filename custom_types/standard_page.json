@@ -140,6 +140,12 @@
               "display": "Classic",
               "name": "classic"
             }
+          ],
+          "form_link": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            }
           ]
         },
         "choices": {
@@ -225,10 +231,10 @@
                   "label": "Direction"
                 }
               },
-              "button_label": {
+              "button_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Button Label"
+                  "label": "Button Text"
                 }
               },
               "button_link": {
@@ -281,11 +287,11 @@
                   "placeholder": "Insert short paragraph"
                 }
               },
-              "button_label": {
+              "button_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Button Label",
-                  "placeholder": "Insert button label"
+                  "label": "Button Text",
+                  "placeholder": "Insert Button Text"
                 }
               },
               "button_url": {
@@ -348,10 +354,10 @@
                   "placeholder": "Title on Card"
                 }
               },
-              "button_label": {
+              "button_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Button Label",
+                  "label": "Button Text",
                   "placeholder": "Button text"
                 }
               },
@@ -709,11 +715,11 @@
               }
             },
             "repeat": {
-              "link_label": {
+              "link_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Link Label",
-                  "placeholder": "Insert label"
+                  "label": "Link Text",
+                  "placeholder": "Insert Link Text"
                 }
               },
               "link_url": {
@@ -818,6 +824,52 @@
                 "config": {
                   "label": "Paragraph",
                   "placeholder": "Insert paragraph"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "form_link": {
+            "type": "Slice",
+            "fieldset": "Form Link",
+            "description": "A link to a form on another page",
+            "icon": "insert_link",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "form_link": {
+                "type": "Link",
+                "config": {
+                  "allowTargetBlank": true,
+                  "label": "Form Link",
+                  "placeholder": "Insert url to form page"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert Header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
+                }
+              },
+              "button_text": {
+                "type": "Text",
+                "config": {
+                  "label": "Button Text",
+                  "placeholder": "Insert button text"
                 }
               }
             },

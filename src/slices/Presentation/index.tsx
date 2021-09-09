@@ -21,7 +21,8 @@ const query = graphql`
                     mail
                     job_title
                     portrait {
-                      url
+                      alt
+                      gatsbyImageData(layout: FULL_WIDTH)
                     }
                   }
                 }

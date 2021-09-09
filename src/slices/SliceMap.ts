@@ -11,3 +11,5 @@ export { default as InfoBox } from './InfoBox';
 export { default as LinkList } from './LinkList';
 export { default as ImageInfoList } from './ImageInfoList';
 export { default as Locations } from './Locations';
+export { default as FormLink } from './FormLink';
+export { default as RichTextEditor } from './RichTextEditor';

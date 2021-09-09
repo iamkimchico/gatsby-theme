@@ -65,7 +65,7 @@ const ImageInfoListHorizontal: React.FC = ({ primary, items }: any) => {
           <StyledItem show={selected === i} key={item.paragraph}>
             <BackgroundImage url={item.image.url} position="center center" />
             <StyledTextWrapper>
-              <Heading size="h3" align="center" color={colors.major} margin="XS">
+              <Heading size="h3" align="center" color={colors.major} marginBottom="XS">
                 {primary.header}
               </Heading>
               <Body align="center" color="black">

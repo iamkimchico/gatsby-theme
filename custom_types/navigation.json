@@ -13,10 +13,10 @@
             "icon": "grade",
             "display": "list",
             "non-repeat": {
-              "menu_button_label": {
+              "menu_button_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Menu Button Label"
+                  "label": "Menu Button Text"
                 }
               }
             },
@@ -70,11 +70,11 @@
               }
             },
             "repeat": {
-              "link_label": {
+              "link_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Link Label",
-                  "placeholder": "Insert link label"
+                  "label": "Link Text",
+                  "placeholder": "Insert Link Text"
                 }
               },
               "link_url": {
@@ -138,11 +138,11 @@
               }
             },
             "repeat": {
-              "link_label": {
+              "link_text": {
                 "type": "Text",
                 "config": {
-                  "label": "Link Label",
-                  "placeholder": "Insert link label"
+                  "label": "Link Text",
+                  "placeholder": "Insert Link Text"
                 }
               },
               "link_url": {
@@ -178,11 +178,11 @@
         "select": null
       }
     },
-    "cta_link_label": {
+    "cta_link_text": {
       "type": "Text",
       "config": {
-        "label": "CTA Link Label",
-        "placeholder": "Insert CTA button name"
+        "label": "CTA Link Text",
+        "placeholder": "Insert CTA Link Text"
       }
     }
   }

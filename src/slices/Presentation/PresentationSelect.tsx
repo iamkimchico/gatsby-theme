@@ -50,12 +50,13 @@ const PresentationSelect: React.FC<TProps> = ({ collection, primary }) => {
           setSelected(e as TOption);
         }}
       />
-      <Heading size="h5" margin="SM" color={colors.base}>
+      <Heading size="h5" marginBottom="SM" color={colors.base}>
         {selectedData.data.name}
       </Heading>
       <Body align="center" margin="SM" color={colors.black}>
         {selectedData.data.paragraph}
       </Body>
+      {console.log(selectedData.data.leader.document.data)}
       <Person type="lowerThird" content={selectedData.data.leader.document.data} color={colors.base} />
     </StyledWrapper>
   );

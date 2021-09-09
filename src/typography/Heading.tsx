@@ -8,15 +8,16 @@ type TProps = {
   size: React.ElementType;
   color: string;
   align?: TAlignNames;
-  margin?: TSizeNames;
+  marginTop?: TSizeNames;
+  marginBottom?: TSizeNames;
   variation?: 'normal' | 'special';
   className?: any;
 };
 const StyledWrapper = styled.span<Partial<TProps>>`
   display: block;
-  ${({ theme, margin }) => css`
-    /* margin-top: ${theme.base.spacing[margin || 'XS']}; */
-    margin-bottom: ${theme.base.spacing[margin || 'XS']};
+  ${({ theme, marginBottom, marginTop }) => css`
+    margin-top: ${theme.base.spacing[marginTop || 'XS']};
+    margin-bottom: ${theme.base.spacing[marginBottom || 'XS']};
   `}
 `;
 
@@ -92,13 +93,13 @@ const StyledHeading = styled.h1<Partial<TProps>>`
   }}
 `;
 
-const Heading: React.FC<TProps> = ({ size, children, align, margin, variation, color, className }) => {
+const Heading: React.FC<TProps> = ({ size, children, align, marginTop, marginBottom, variation, color, className }) => {
   const breakpoint = useViewport();
   useEffect(() => {
     // render on every breakpoint change
   }, [breakpoint]);
   return (
-    <StyledWrapper margin={margin}>
+    <StyledWrapper marginTop={marginTop} marginBottom={marginBottom}>
       <StyledHeading as={size} color={color} align={align} size={size} variation={variation} className={className}>
         {children}
       </StyledHeading>

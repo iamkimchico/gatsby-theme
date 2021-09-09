@@ -41,14 +41,14 @@ const TextTeaserTwoColumnColored: React.FC = ({ primary }: any) => {
   const colors = getColors(primary.color_scheme);
   return (
     <StyledWrapper color={colors.major}>
-      <Heading size="h3" color={colors.major} margin="MD">
+      <Heading size="h3" color={colors.major} marginBottom="MD">
         {primary.header}
       </Heading>
       <Body color={colors.black}>{primary.paragraph}</Body>
 
       <Link href={resolveLink(primary.button_url)} target={primary.button_url.target}>
         <Button shape="rounded" color={colors.major} margin="MD">
-          {primary.button_label}
+          {primary.button_text}
         </Button>
       </Link>
     </StyledWrapper>

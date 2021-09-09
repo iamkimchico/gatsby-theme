@@ -12,11 +12,11 @@ const query = graphql`
             slice_label
             slice_type
             primary {
-              menu_button_label
+              menu_button_text
             }
           }
         }
-        cta_link_label
+        cta_link_text
         cta_page_link_url {
           slug
           target

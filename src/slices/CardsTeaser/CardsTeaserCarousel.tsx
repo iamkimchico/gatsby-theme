@@ -60,7 +60,7 @@ const CardsTeaserCarousel: React.FC = ({ primary, items }: any) => {
               </Heading>
               <Link href={item.button_link.url} target={item.button_link.target}>
                 <Button shape="pill" color={colors.major}>
-                  {item.button_label}
+                  {item.button_text}
                 </Button>
               </Link>
             </StyledContent>

@@ -90,7 +90,7 @@ const EdgeImage: React.FC = ({ primary }: any) => {
 
           <Link href="/test" target="_blank">
             <Button shape="rounded" color={colors.major}>
-              {primary.button_label}
+              {primary.button_text}
             </Button>
           </Link>
         </StyledTextWrapper>

@@ -82,7 +82,7 @@ const MenuClassic: React.FC<TProps> = ({ data }) => {
       <StyledContent>
         <StyledColumn direction="column">
           <div>
-            <Heading size={viewport.index > 3 ? 'h1' : 'h3'} color={colors.major} margin="XS">
+            <Heading size={viewport.index > 3 ? 'h1' : 'h3'} color={colors.major} marginBottom="XS">
               Et hjerte for Gud og mennesker
             </Heading>
 
@@ -95,11 +95,10 @@ const MenuClassic: React.FC<TProps> = ({ data }) => {
               <StyledAreaHeader size="h4" color={colors.white}>
                 {data.primary[`${area.toLowerCase()}_link_list_header`]}
               </StyledAreaHeader>
-              {linkLists[area].map(({ link_url, link_label }) => (
-                <Link key={link_label + link_url.url} href={resolveLink(link_url)} target={link_url.target}>
-                  {console.log(link_url)}
+              {linkLists[area].map(({ link_url, link_text }) => (
+                <Link key={link_text + link_url.url} href={resolveLink(link_url)} target={link_url.target}>
                   <Heading size="h5" color={colors.white}>
-                    {link_label}
+                    {link_text}
                   </Heading>
                 </Link>
               ))}

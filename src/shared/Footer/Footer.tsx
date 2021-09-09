@@ -17,7 +17,7 @@ const query = graphql`
               right_link_list_header
             }
             items {
-              link_label
+              link_text
               link_list
               link_url {
                 url
