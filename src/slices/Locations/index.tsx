@@ -16,7 +16,8 @@ const query = graphql`
               latitude
             }
             image {
-              url
+              alt
+              gatsbyImageData(layout: FULL_WIDTH)
             }
             city
           }

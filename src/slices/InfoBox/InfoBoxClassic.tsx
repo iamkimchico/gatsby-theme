@@ -40,16 +40,14 @@ const StyledColumn = styled.div<{ direction: TDirection }>`
   display: grid;
 
   ${({ theme, direction }) => css`
-    @media ${theme.base.media.LG} {
+    @media ${theme.base.media.SM} {
       max-width: 25em;
       display: grid;
       grid-area: auto;
       width: 25em;
       min-height: 29em;
-      &:first-of-type {
-        justify-self: ${direction === 'left' ? 'right' : 'left'};
-        margin-left: 2.3em;
-      }
+      justify-self: center;
+
       &:last-of-type {
         grid-area: ${direction === 'left' ? '1/2/2/3' : '1/1/2/2'};
       }
@@ -79,7 +77,7 @@ const InfoBoxClassic: React.FC = ({ primary }: any) => {
   return (
     <StyledWrapper>
       <StyledColumn direction={primary.direction.toLowerCase()}>
-        <Image url={primary.image.url} alt={primary.image.alt} />
+        <Image src={primary.image} alt={primary.image.alt} />
       </StyledColumn>
 
       <StyledColumn direction={primary.direction.toLowerCase()}>

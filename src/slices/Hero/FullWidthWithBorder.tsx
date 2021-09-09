@@ -20,6 +20,9 @@ const StyledWrapper = styled.div`
       grid-area: 1/1/2/2;
     }
     @media${theme.base.media.SM} {
+      align-items: center;
+      padding-left: 8em;
+      padding-right: 8em;
       height: 35em;
     }
     @media${theme.base.media.MD} {
@@ -33,6 +36,7 @@ const StyledWrapper = styled.div`
 
 const StyledHeading = styled(Heading)`
   ${({ theme }) => css`
+    position: relative;
     z-index: ${theme.base.zLevels[3]};
     font-size: 4em;
     width: 6em;
@@ -44,6 +48,12 @@ const StyledHeading = styled(Heading)`
     @media${theme.base.media.XS} {
       font-size: 6em;
     }
+    @media${theme.base.media.SM} {
+      font-size: 5em;
+    }
+    @media${theme.base.media.LG} {
+      font-size: 6em;
+    }
   `}
 `;
 
@@ -53,7 +63,6 @@ const StyledMedia = styled.div`
     left: 0px;
     top: 0px;
     width: 100vw;
-    height: 100%;
     border: 1em solid white;
     overflow: hidden;
     height: 80em;
@@ -76,14 +85,14 @@ const FullWidthWithBorder: React.FC = ({ primary }: any) => {
 
   return (
     <StyledWrapper>
+      <StyledMedia>
+        <Image src={primary.image} alt={primary.image.alt} />
+        {/* {primary.media.url && <Video url={primary.media.url} poster="" hasOverlay />} */}
+      </StyledMedia>
+
       <StyledHeading size="h1" align="left" color={colors.base}>
         {primary.header}
       </StyledHeading>
-
-      <StyledMedia>
-        <Image url={primary.image.fluid} alt={primary.image.alt} />
-        {/* {primary.media.url && <Video url={primary.media.url} poster="" hasOverlay />} */}
-      </StyledMedia>
     </StyledWrapper>
   );
 };

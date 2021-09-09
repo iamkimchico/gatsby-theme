@@ -61,7 +61,7 @@ const BackgroundImage: React.FC = ({ primary }: any) => {
 
   return (
     <StyledWrapper>
-      <BgImage url={primary.image.url} position="center center">
+      <BgImage url={primary.image} alt={primary.image.alt}>
         <StyledContent
           direction={primary.direction.toLowerCase()}
           image={primary.background_image?.url}

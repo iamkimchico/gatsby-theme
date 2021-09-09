@@ -78,7 +78,7 @@ const EdgeImage: React.FC = ({ primary }: any) => {
   return (
     <StyledWrapper direction={primary.direction.toLowerCase()}>
       <StyledContent direction={primary.direction.toLowerCase()}>
-        <Image url={primary.image?.url} size="cover" alt="" position="center center" />
+        <Image src={primary.image} alt={primary.image.alt} />
         <StyledTextWrapper direction={primary.direction.toLowerCase()}>
           <Heading size="h3" color={colors.base}>
             {primary.header}

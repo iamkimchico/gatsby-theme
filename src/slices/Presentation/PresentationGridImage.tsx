@@ -46,7 +46,7 @@ const PresentationGridImage = ({ primary, collection }: any) => {
       <StyledGrid>
         {collection.map(({ node }: any, i: number) => (
           <StyledColumn key={node.data.name}>
-            <Image url={node.data.image.url} alt={node.data.image.alt} />
+            <Image src={node.data.image} alt={node.data.image.alt} />
             <Heading size="h6" color="black">
               {node.data.name}
             </Heading>

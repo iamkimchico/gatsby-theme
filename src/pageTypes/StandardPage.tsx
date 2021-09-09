@@ -79,7 +79,8 @@ export const prismic = graphql`
                 url
               }
               image {
-                gatsbyImageData
+                alt
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
@@ -93,8 +94,8 @@ export const prismic = graphql`
               direction
               header
               image {
-                url(imgixParams: { fit: "fill", fill: "blur" })
                 alt
+                gatsbyImageData(layout: FULL_WIDTH)
               }
               paragraph
               button_link {
@@ -130,7 +131,8 @@ export const prismic = graphql`
                 target
               }
               image {
-                url
+                alt
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
             primary {
@@ -181,14 +183,16 @@ export const prismic = graphql`
                       job_title
                       mail
                       portrait {
-                        url
+                        alt
+                        gatsbyImageData(layout: FULL_WIDTH)
                       }
                     }
                   }
                 }
               }
               image {
-                url
+                alt
+                gatsbyImageData(layout: FULL_WIDTH)
               }
               paragraph
             }
@@ -214,7 +218,8 @@ export const prismic = graphql`
               header
               paragraph
               image {
-                url
+                alt
+                gatsbyImageData(layout: FULL_WIDTH)
               }
             }
           }
@@ -251,8 +256,8 @@ export const prismic = graphql`
             items {
               header
               image {
-                url
                 alt
+                gatsbyImageData(layout: FULL_WIDTH)
               }
               paragraph
               image_description

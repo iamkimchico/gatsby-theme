@@ -40,7 +40,7 @@ const StyledNameWrapper = styled.div`
 const PersonLowerThird: React.FC<TProps> = ({ portrait, job_title, name, mail, showMail, color }) => (
   <StyledWrapper>
     <StyledImage>
-      <Image url={portrait.url} alt={name} />
+      <Image src={portrait.url} alt={name} />
     </StyledImage>
 
     <StyledNameWrapper>

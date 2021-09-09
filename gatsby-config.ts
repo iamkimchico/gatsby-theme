@@ -45,11 +45,11 @@ export default (_config: InitValue, props: any): GatsbyConfig => ({
       },
     },
     {
-      resolve: `gatsby-plugin-sharp`,
+      resolve: 'gatsby-plugin-sharp',
       options: {
         defaults: {
-          formats: [`auto`, `webp`],
-          placeholder: `dominantColor`,
+          formats: ['auto', 'webp'],
+          placeholder: 'blurred',
           quality: 50,
           breakpoints: [
             base.breakpoints.XXS,
@@ -59,13 +59,12 @@ export default (_config: InitValue, props: any): GatsbyConfig => ({
             base.breakpoints.LG,
             base.breakpoints.MX,
           ],
-          backgroundColor: `transparent`,
           transformOptions: { fit: 'cover', cropFocus: 'attention' },
         },
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-image`,
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-typescript',
