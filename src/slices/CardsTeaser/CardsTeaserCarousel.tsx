@@ -5,7 +5,7 @@ import { getColors } from '../../helpers';
 import { Button } from '../../inputs';
 import { Image } from '../../media';
 import { Heading, Link } from '../../typography';
-import { Carousel } from '../../shared';
+import { CarouselApple as Carousel } from '../../shared';
 
 const StyledWrapper = styled.div`
   grid-column-start: outer-xx-left;

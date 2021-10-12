@@ -145,6 +145,20 @@
             {
               "display": "Classic",
               "name": "classic"
+            },
+            {
+              "display": "Special Font",
+              "name": "special_font"
+            }
+          ],
+          "article": [
+            {
+              "display": "Classic",
+              "name": "classic"
+            },
+            {
+              "display": "Special Font Two Column",
+              "name": "special_font_two_column"
             }
           ]
         },
@@ -848,7 +862,8 @@
                 "config": {
                   "allowTargetBlank": true,
                   "label": "Form Link",
-                  "placeholder": "Insert url to form page"
+                  "placeholder": "Insert url to form page",
+                  "select": null
                 }
               },
               "header": {
@@ -870,6 +885,37 @@
                 "config": {
                   "label": "Button Text",
                   "placeholder": "Insert button text"
+                }
+              }
+            },
+            "repeat": {}
+          },
+          "article": {
+            "type": "Slice",
+            "fieldset": "Article",
+            "description": "A text with header",
+            "icon": "format_align_left",
+            "display": "list",
+            "non-repeat": {
+              "color_scheme": {
+                "type": "Text",
+                "config": {
+                  "label": "Color Scheme",
+                  "placeholder": "Insert name of color scheme"
+                }
+              },
+              "header": {
+                "type": "Text",
+                "config": {
+                  "label": "Header",
+                  "placeholder": "Insert header"
+                }
+              },
+              "paragraph": {
+                "type": "Text",
+                "config": {
+                  "label": "Paragraph",
+                  "placeholder": "Insert paragraph"
                 }
               }
             },
